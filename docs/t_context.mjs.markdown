@@ -89,14 +89,59 @@ notification message queue.
 ```
 
 ### t\_timelinename ###
+t\_timelinename is a human readable ID which specifies a timeline. This ID
+is specifically used to specify timelines in relative manner. The possible
+values are following:
+
+- global\_public\_output\_timeline
+- global\_public\_input\_timeline
+- global\_public\_notify\_timeline
+- global\_private\_output\_timeline
+- global\_private\_input\_timeline
+- global\_private\_notify\_timeline
+- local\_public\_output\_timeline
+- local\_public\_input\_timeline
+- local\_public\_notify\_timeline
+- local\_private\_output\_timeline
+- local\_private\_input\_timeline
+- local\_private\_notify\_timeline
 
 ```javascript
+      /*          
+      * t_timelinename is a human readable ID which specifies a timeline. This ID
+      * is specifically used to specify timelines in relative manner. The possible
+      * values are following:
+      *
+      * - global_public_output_timeline
+      * - global_public_input_timeline
+      * - global_public_notify_timeline
+      * - global_private_output_timeline
+      * - global_private_input_timeline
+      * - global_private_notify_timeline
+      * - local_public_output_timeline
+      * - local_public_input_timeline
+      * - local_public_notify_timeline
+      * - local_private_output_timeline
+      * - local_private_input_timeline
+      * - local_private_notify_timeline
+      *
+      */
       t_timelinename:string(),
 ```
 
 ### t\_profile\_id ###
+t\_profile\_id is a type of IDs which specify profiles.  Note that In
+`Thankspedia.js` a user can hold multiple profiles; a profile is always
+attached to a timeline; and a timeline is always attached to a user. And A
+user has multiple timelines.
 
 ```javascript
+      /*          
+      * t_profile_id is a type of IDs which specify profiles.  Note that In
+      * `Thankspedia.js` a user can hold multiple profiles; a profile is always
+      * attached to a timeline; and a timeline is always attached to a user. And A
+      * user has multiple timelines.
+      */
       t_profile_id:uuid(),
 ```
 
