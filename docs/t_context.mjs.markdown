@@ -297,6 +297,9 @@ See read\_accounts()
       ),
 ```
 
+get\_intl\_message
+----------------
+
 ### t\_vtype\_input\_of\_get\_intl\_message ###
 test FOOOO
 
