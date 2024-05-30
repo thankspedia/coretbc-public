@@ -135,19 +135,31 @@ t\_profile\_id is a type of IDs which specify profiles.  Note that In
 attached to a timeline; and a timeline is always attached to a user. And A
 user has multiple timelines.
 
+For further information, see the tBC database definition.
+
 ```javascript
       /*          
       * t_profile_id is a type of IDs which specify profiles.  Note that In
       * `Thankspedia.js` a user can hold multiple profiles; a profile is always
       * attached to a timeline; and a timeline is always attached to a user. And A
       * user has multiple timelines.
+      *
+      * For further information, see the tBC database definition.
       */
       t_profile_id:uuid(),
 ```
 
 ### t\_has\_profile\_id ###
+The type `t\_has\_profile\_id` guarantees that the specified object has
+`profile\_id` property and its value is a proper value which is denoted
+by the type `t\_profile\_id`.
 
 ```javascript
+      /*          
+      * The type `t_has_profile_id` guarantees that the specified object has
+      * `profile_id` property and its value is a proper value which is denoted
+      * by the type `t_profile_id`.
+      */
       t_has_profile_id:object(
         profile_id : t_profile_id(),
       )
@@ -155,8 +167,14 @@ user has multiple timelines.
 ```
 
 ### t\_username\_or\_user\_id ###
+t\_username\_or\_user\_id is a utility type which indicates the object has
+either `user\_id` or `username`.
 
 ```javascript
+      /*          
+      * t_username_or_user_id is a utility type which indicates the object has
+      * either `user_id` or `username`.
+      */
       t_username_or_user_id:or(
         object(
           user_id : t_user_id(),
@@ -169,8 +187,14 @@ user has multiple timelines.
 ```
 
 ### t\_tbl\_user\_member\_timelines ###
+t\_tbl\_user\_member\_timelines is a type which represents a row record
+of the table `user\_member\_timelines`.
 
 ```javascript
+      /*          
+      * t_tbl_user_member_timelines is a type which represents a row record
+      * of the table `user_member_timelines`.
+      */
       t_tbl_user_member_timelines:object(
         user_id        : t_user_id(),
         member_user_id : t_user_id(),
@@ -181,8 +205,14 @@ user has multiple timelines.
 ```
 
 ### t\_tbl\_user\_timelines ###
+t\_tbl\_user\_timelines is a type which represetns a row record
+of the table `user\_timelines`.
 
 ```javascript
+      /*          
+      * t_tbl_user_timelines is a type which represetns a row record
+      * of the table `user_timelines`.
+      */
       t_tbl_user_timelines:object(
         user_id        : t_user_id(),
         timelinename   : string(),
@@ -192,8 +222,18 @@ user has multiple timelines.
 ```
 
 ### t\_message\_template\_id ###
+t\_message\_template\_id is an enumeration type. A value of
+t\_message\_template\_id is indicates one of the predefined template
+messages. These template messages are usually used in notification
+timelines.
 
 ```javascript
+      /*          
+      * t_message_template_id is an enumeration type. A value of
+      * t_message_template_id is indicates one of the predefined template
+      * messages. These template messages are usually used in notification
+      * timelines.
+      */
       t_message_template_id:or(
         equals( << "message_test"               >>  ),
         equals( << "message_sent_valuables"     >>  ),
@@ -212,9 +252,21 @@ user has multiple timelines.
 ```
 
 ### t\_message\_json ###
+t\_message\_json is a type which represents the data formats of the
+arguments which are applied to each predefined templatem message.
 
 ```javascript
+      /*          
+      * t_message_json is a type which represents the data formats of the
+      * arguments which are applied to each predefined templatem message.
+      */
       t_message_json:object(
+        /*
+         * - message_template_id: the message id to be shown in the timeline.
+         * - subject_user: information of the user who sent the message.
+         * - target_user: information of the user who is sent the message.
+         * - message_template_id: a row record of the sent valuable.
+         */
         message_template_id : t_message_template_id(),
         subject_user : object(),
         target_user : object(),
@@ -225,6 +277,10 @@ user has multiple timelines.
 ### t\_read\_accounts\_mode ###
 
 ```javascript
+      /*          
+      *
+      *
+      */
       t_read_accounts_mode:and(
         string(),
         or(

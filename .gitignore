@@ -8,3 +8,5 @@ tokenizer-data/
 !.gitignore
 !README.md
 !docs/t_context.mjs.markdown
+!docs/t_context.mjs.html
+
