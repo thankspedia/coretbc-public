@@ -246,10 +246,15 @@ arguments which are applied to each predefined templatem message.</div>
             valuable : t_tbl_valuable(),
           ),</code></pre>
 <h3>t_read_accounts_mode</h3>
-<div class='vsv-descriptions'></div>
+<div class='vsv-descriptions'>t\_read\_accounts\_mode is a enumeration type which specifies
+the mode when a user calls read\_accounts() method.
+
+See read\_accounts()</div>
 <pre><code class="language-javascript">          /*          
+          * t_read_accounts_mode is a enumeration type which specifies
+          * the mode when a user calls read_accounts() method.
           *
-          *
+          * See read_accounts()
           */
           t_read_accounts_mode:and(
             string(),
@@ -260,8 +265,11 @@ arguments which are applied to each predefined templatem message.</div>
             )
           ),</code></pre>
 <h3>t_vtype_input_of_get_intl_message</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_get_intl_message:array(
+<div class='vsv-descriptions'>test FOOOO</div>
+<pre><code class="language-javascript">          /*          
+          * test FOOOO
+          */
+          t_vtype_input_of_get_intl_message:array(
             or(
               object(
                 path    : array_of( string() ),

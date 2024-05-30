@@ -275,11 +275,17 @@ arguments which are applied to each predefined templatem message.
 ```
 
 ### t\_read\_accounts\_mode ###
+t\_read\_accounts\_mode is a enumeration type which specifies
+the mode when a user calls read\_accounts() method.
+
+See read\_accounts()
 
 ```javascript
       /*          
+      * t_read_accounts_mode is a enumeration type which specifies
+      * the mode when a user calls read_accounts() method.
       *
-      *
+      * See read_accounts()
       */
       t_read_accounts_mode:and(
         string(),
@@ -292,8 +298,12 @@ arguments which are applied to each predefined templatem message.
 ```
 
 ### t\_vtype\_input\_of\_get\_intl\_message ###
+test FOOOO
 
 ```javascript
+      /*          
+      * test FOOOO
+      */
       t_vtype_input_of_get_intl_message:array(
         or(
           object(
