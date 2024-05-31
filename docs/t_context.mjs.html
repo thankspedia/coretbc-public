@@ -20,276 +20,6 @@
     </script>
     <body>
   
-<h3>t_scope_id</h3>
-<div class='vsv-descriptions'>t\_scope\_id is a type which consists two string constat values as following:
-- "local"
-- "global"</div>
-<pre><code class="language-javascript">          /*          
-          * t_scope_id is a type which consists two string constat values as following:
-          * - "local"
-          * - "global"
-          */
-          t_scope_id:and(
-            /*
-             * s
-             */
-            string(),
-            or(
-              equals( << 'local'  >>  ),
-              equals( << 'global' >>  ),
-            )
-          ),</code></pre>
-
-
-<h3>t_valuable_id</h3>
-<div class='vsv-descriptions'>t\_valuable\_id is a type of id which is used to specify
-a "valuable". In Thankspedia.js, a valuable could be
-a valuable thing such as a currency, a trading card
-or other valuable materials.</div>
-<pre><code class="language-javascript">          /*          
-          * t_valuable_id is a type of id which is used to specify
-          * a "valuable". In Thankspedia.js, a valuable could be
-          * a valuable thing such as a currency, a trading card
-          * or other valuable materials.
-          */
-          t_valuable_id:uuid(),</code></pre>
-
-
-<h3>t_valuable_script</h3>
-<div class='vsv-descriptions'>t\_valuable\_script is an ID which indicates the function of a valuable.
-The possible values of t\_valuable\_script is currently following:
-
-- check
-- valuable
-
-When the value is "check", the valuable is check as the meaning of banking
-system. In that case, the valuable must specify other properties such as
-drawee or owner of the valuable.
-
-When the value is "valuable", currently it is always a currency. In future,
-it is exntended to other materials such as drawings or trading cards.</div>
-<pre><code class="language-javascript">          /*          
-          * t_valuable_script is an ID which indicates the function of a valuable.
-          * The possible values of t_valuable_script is currently following:
-          *
-          * - check
-          * - valuable
-          *
-          * When the value is "check", the valuable is check as the meaning of banking
-          * system. In that case, the valuable must specify other properties such as
-          * drawee or owner of the valuable.
-          *
-          * When the value is "valuable", currently it is always a currency. In future,
-          * it is exntended to other materials such as drawings or trading cards.
-          */
-          t_valuable_script:string(),</code></pre>
-
-
-<h3>t_timeline_id</h3>
-<div class='vsv-descriptions'>t\_timeline\_id is an ID which specifies a timeline in the Thankspedia.js
-system. A timeline could be a timeline which is visible to a group and
-shared in order to exchange messages; a timeline could also be a
-notification message queue.</div>
-<pre><code class="language-javascript">          /*          
-          * t_timeline_id is an ID which specifies a timeline in the Thankspedia.js
-          * system. A timeline could be a timeline which is visible to a group and
-          * shared in order to exchange messages; a timeline could also be a
-          * notification message queue.
-          */
-          t_timeline_id:uuid(),</code></pre>
-
-
-<h3>t_timelinename</h3>
-<div class='vsv-descriptions'>t\_timelinename is a human readable ID which specifies a timeline. This ID
-is specifically used to specify timelines in relative manner. The possible
-values are following:
-
-- global\_public\_output\_timeline
-- global\_public\_input\_timeline
-- global\_public\_notify\_timeline
-- global\_private\_output\_timeline
-- global\_private\_input\_timeline
-- global\_private\_notify\_timeline
-- local\_public\_output\_timeline
-- local\_public\_input\_timeline
-- local\_public\_notify\_timeline
-- local\_private\_output\_timeline
-- local\_private\_input\_timeline
-- local\_private\_notify\_timeline</div>
-<pre><code class="language-javascript">          /*          
-          * t_timelinename is a human readable ID which specifies a timeline. This ID
-          * is specifically used to specify timelines in relative manner. The possible
-          * values are following:
-          *
-          * - global_public_output_timeline
-          * - global_public_input_timeline
-          * - global_public_notify_timeline
-          * - global_private_output_timeline
-          * - global_private_input_timeline
-          * - global_private_notify_timeline
-          * - local_public_output_timeline
-          * - local_public_input_timeline
-          * - local_public_notify_timeline
-          * - local_private_output_timeline
-          * - local_private_input_timeline
-          * - local_private_notify_timeline
-          *
-          */
-          t_timelinename:string(),</code></pre>
-
-
-<h3>t_profile_id</h3>
-<div class='vsv-descriptions'>t\_profile\_id is a type of IDs which specify profiles.  Note that In
-`Thankspedia.js` a user can hold multiple profiles; a profile is always
-attached to a timeline; and a timeline is always attached to a user. And A
-user has multiple timelines.
-
-For further information, see the tBC database definition.</div>
-<pre><code class="language-javascript">          /*          
-          * t_profile_id is a type of IDs which specify profiles.  Note that In
-          * `Thankspedia.js` a user can hold multiple profiles; a profile is always
-          * attached to a timeline; and a timeline is always attached to a user. And A
-          * user has multiple timelines.
-          *
-          * For further information, see the tBC database definition.
-          */
-          t_profile_id:uuid(),</code></pre>
-
-
-<h3>t_has_profile_id</h3>
-<div class='vsv-descriptions'>The type `t\_has\_profile\_id` guarantees that the specified object has
-`profile\_id` property and its value is a proper value which is denoted
-by the type `t\_profile\_id`.</div>
-<pre><code class="language-javascript">          /*          
-          * The type `t_has_profile_id` guarantees that the specified object has
-          * `profile_id` property and its value is a proper value which is denoted
-          * by the type `t_profile_id`.
-          */
-          t_has_profile_id:object(
-            profile_id : t_profile_id(),
-          )
-          </code></pre>
-
-
-<h3>t_username_or_user_id</h3>
-<div class='vsv-descriptions'>t\_username\_or\_user\_id is a utility type which indicates the object has
-either `user\_id` or `username`.</div>
-<pre><code class="language-javascript">          /*          
-          * t_username_or_user_id is a utility type which indicates the object has
-          * either `user_id` or `username`.
-          */
-          t_username_or_user_id:or(
-            object(
-              user_id : t_user_id(),
-            ),
-            object(
-              username : t_username(),
-            ),
-          )
-          </code></pre>
-
-
-<h3>t_tbl_user_member_timelines</h3>
-<div class='vsv-descriptions'>t\_tbl\_user\_member\_timelines is a type which represents a row record
-of the table `user\_member\_timelines`.</div>
-<pre><code class="language-javascript">          /*          
-          * t_tbl_user_member_timelines is a type which represents a row record
-          * of the table `user_member_timelines`.
-          */
-          t_tbl_user_member_timelines:object(
-            user_id        : t_user_id(),
-            member_user_id : t_user_id(),
-            timelinename   : string(),
-            timeline_id    : t_timeline_id(),
-          )
-          </code></pre>
-
-
-<h3>t_tbl_user_timelines</h3>
-<div class='vsv-descriptions'>t\_tbl\_user\_timelines is a type which represetns a row record
-of the table `user\_timelines`.</div>
-<pre><code class="language-javascript">          /*          
-          * t_tbl_user_timelines is a type which represetns a row record
-          * of the table `user_timelines`.
-          */
-          t_tbl_user_timelines:object(
-            user_id        : t_user_id(),
-            timelinename   : string(),
-            timeline_id    : t_timeline_id(),
-          )
-          </code></pre>
-
-
-<h3>t_message_template_id</h3>
-<div class='vsv-descriptions'>t\_message\_template\_id is an enumeration type. A value of
-t\_message\_template\_id is indicates one of the predefined template
-messages. These template messages are usually used in notification
-timelines.</div>
-<pre><code class="language-javascript">          /*          
-          * t_message_template_id is an enumeration type. A value of
-          * t_message_template_id is indicates one of the predefined template
-          * messages. These template messages are usually used in notification
-          * timelines.
-          */
-          t_message_template_id:or(
-            equals( << "message_test"               >>  ),
-            equals( << "message_sent_valuables"     >>  ),
-            equals( << "message_received_valuables" >>  ),
-            equals( << "message_offered_valuables"  >>  ),
-            equals( << "message_acquired_valuables" >>  ),
-            equals( << "message_got_valuables"      >>  ),
-            equals( << "message_mentioned"          >>  ),
-            equals( << "message_liked"              >>  ),
-            equals( << "message_reacted"            >>  ),
-            equals( << "message_replied"            >>  ),
-            equals( << "message_unknown"            >>  ),
-            equals( << "message_error"              >>  ),
-          )
-          </code></pre>
-
-
-<h3>t_message_json</h3>
-<div class='vsv-descriptions'>t\_message\_json is a type which represents the data formats of the
-arguments which are applied to each predefined templatem message.</div>
-<pre><code class="language-javascript">          /*          
-          * t_message_json is a type which represents the data formats of the
-          * arguments which are applied to each predefined templatem message.
-          */
-          t_message_json:object(
-            /*
-             * - message_template_id: the message id to be shown in the timeline.
-             * - subject_user: information of the user who sent the message.
-             * - target_user: information of the user who is sent the message.
-             * - message_template_id: a row record of the sent valuable.
-             */
-            message_template_id : t_message_template_id(),
-            subject_user : object(),
-            target_user : object(),
-            valuable : t_tbl_valuable(),
-          ),</code></pre>
-
-
-<h3>t_read_accounts_mode</h3>
-<div class='vsv-descriptions'>t\_read\_accounts\_mode is a enumeration type which specifies
-the mode when a user calls read\_accounts() method.
-
-See read\_accounts()</div>
-<pre><code class="language-javascript">          /*          
-          * t_read_accounts_mode is a enumeration type which specifies
-          * the mode when a user calls read_accounts() method.
-          *
-          * See read_accounts()
-          */
-          t_read_accounts_mode:and(
-            string(),
-            or(
-              equals( << 'parents'  >>  ),
-              equals( << 'children' >>  ),
-              equals( << 'accounts'  >>  ),
-            )
-          ),</code></pre>
-
-
 <div class='vsv-descriptions'>
   get\_intl\_message
   ----------------
@@ -297,12 +27,20 @@ See read\_accounts()</div>
 </div>
 
 
-<h3>t_vtype_input_of_get_intl_message</h3>
+<div class='vsv-descriptions'>get\_intl\_message
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>get\_intl\_message</div>
+
+
+<h3>t_get_intl_message_input</h3>
 <div class='vsv-descriptions'>test FOOOO</div>
 <pre><code class="language-javascript">          /*          
           * test FOOOO
           */
-          t_vtype_input_of_get_intl_message:array(
+          t_get_intl_message_input:array(
             or(
               object(
                 path    : array_of( string() ),
@@ -312,23 +50,23 @@ See read\_accounts()</div>
           )</code></pre>
 
 
-<h3>t_vtype_output_of_get_intl_message</h3>
+<h3>t_get_intl_message_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_get_intl_message:any()
+<pre><code class="language-javascript">          t_get_intl_message_output:any()
           </code></pre>
 
 
-<div class='vsv-descriptions'>get\_intl\_message
-========================
+<div class='vsv-descriptions'>get\_intl\_messages
+-------------
 </div>
 
 
-<div class='vsv-descriptions'>get\_intl\_message</div>
+<div class='vsv-descriptions'>get\_intl\_messages</div>
 
 
-<h3>t_vtype_input_of_get_intl_messages</h3>
+<h3>t_get_intl_messages_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_get_intl_messages:array(
+<pre><code class="language-javascript">          t_get_intl_messages_input:array(
             or(
               object(
                 lang_id : or( string(), null() ),
@@ -337,76 +75,76 @@ See read\_accounts()</div>
           )</code></pre>
 
 
-<h3>t_vtype_output_of_get_intl_messages</h3>
+<h3>t_get_intl_messages_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_get_intl_messages:any()
+<pre><code class="language-javascript">          t_get_intl_messages_output:any()
           </code></pre>
 
 
-<div class='vsv-descriptions'>get\_intl\_messages
-========================
-</div>
-
-
-<div class='vsv-descriptions'>get\_intl\_messages</div>
-
-
-<h3>t_vtype_input_of_get_available_intl_messages</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_get_available_intl_messages:array( string() )</code></pre>
-
-
-<h3>t_vtype_output_of_get_available_intl_messages</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_get_available_intl_messages:array_of( any() )</code></pre>
-
-
 <div class='vsv-descriptions'>get\_available\_intl\_messages
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>get\_available\_intl\_messages</div>
 
 
-<h3>t_vtype_input_of_create_or_update_user</h3>
+<h3>t_get_available_intl_messages_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_user:nargs(
-            user : object(
-              username : string(),
-            ),
-          )
-          </code></pre>
+<pre><code class="language-javascript">          t_get_available_intl_messages_input:array( string() )</code></pre>
 
 
-<h3>t_vtype_output_of_create_or_update_user</h3>
+<h3>t_get_available_intl_messages_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_user:object(
-            user : object(
-              username : string(),
-            ),
-          ),</code></pre>
+<pre><code class="language-javascript">          t_get_available_intl_messages_output:array_of( any() )</code></pre>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_user
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_user</div>
 
 
-<h3>t_vtype_input_of_delete_user</h3>
+<h3>t_create_or_update_user_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_user:nargs(
+<pre><code class="language-javascript">          t_create_or_update_user_input:nargs(
+            user : object(
+              username : string(),
+            ),
+          )
+          </code></pre>
+
+
+<h3>t_create_or_update_user_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_create_or_update_user_output:object(
+            user : object(
+              username : string(),
+            ),
+          ),</code></pre>
+
+
+<div class='vsv-descriptions'>delete\_user
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>delete\_user</div>
+
+
+<h3>t_delete_user_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_delete_user_input:nargs(
             user : t_username_or_user_id(),
           )
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_user</h3>
+<h3>t_delete_user_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_user:object(
+<pre><code class="language-javascript">          t_delete_user_output:object(
             user : object(
               user_id  : t_user_id(),
               username : t_username(),
@@ -414,83 +152,83 @@ See read\_accounts()</div>
           ),</code></pre>
 
 
-<div class='vsv-descriptions'>delete\_user
-========================
-</div>
-
-
-<div class='vsv-descriptions'>delete\_user</div>
-
-
-<h3>t_vtype_input_of_delete_multiple_users</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_multiple_users:nargs()
-          </code></pre>
-
-
-<h3>t_vtype_output_of_delete_multiple_users</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_multiple_users:any()
-          </code></pre>
-
-
 <div class='vsv-descriptions'>delete\_multiple\_users
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_multiple\_users</div>
 
 
-<h3>t_vtype_input_of_has_user</h3>
+<h3>t_delete_multiple_users_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_has_user:nargs()
+<pre><code class="language-javascript">          t_delete_multiple_users_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_has_user</h3>
+<h3>t_delete_multiple_users_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_has_user:any()
+<pre><code class="language-javascript">          t_delete_multiple_users_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>has\_user
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>has\_user</div>
 
 
-<h3>t_vtype_input_of_has_username</h3>
+<h3>t_has_user_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_has_username:nargs()
+<pre><code class="language-javascript">          t_has_user_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_has_username</h3>
+<h3>t_has_user_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_has_username:any()
+<pre><code class="language-javascript">          t_has_user_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>has\_username
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>has\_username</div>
 
 
-<h3>t_vtype_input_of_read_user</h3>
+<h3>t_has_username_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_user:nargs()
+<pre><code class="language-javascript">          t_has_username_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_user</h3>
+<h3>t_has_username_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_user:object(
+<pre><code class="language-javascript">          t_has_username_output:any()
+          </code></pre>
+
+
+<div class='vsv-descriptions'>read\_user
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>read\_user</div>
+
+
+<h3>t_read_user_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_read_user_input:nargs()
+          </code></pre>
+
+
+<h3>t_read_user_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_read_user_output:object(
             user : or(
               object(
                 user_id :t_user_id() ,
@@ -504,221 +242,221 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<div class='vsv-descriptions'>read\_user
-========================
-</div>
-
-
-<div class='vsv-descriptions'>read\_user</div>
-
-
-<h3>t_vtype_input_of_user_id2username</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_user_id2username:nargs()
-          </code></pre>
-
-
-<h3>t_vtype_output_of_user_id2username</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_user_id2username:any()
-          </code></pre>
-
-
 <div class='vsv-descriptions'>user\_id2username
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>user\_id2username</div>
 
 
-<h3>t_vtype_input_of_username2user_id</h3>
+<h3>t_user_id2username_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_username2user_id:nargs(
-            username : t_username(),
-          )
+<pre><code class="language-javascript">          t_user_id2username_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_username2user_id</h3>
+<h3>t_user_id2username_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_username2user_id:object(
-            user_id: t_user_id(),
-          )
+<pre><code class="language-javascript">          t_user_id2username_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>username2user\_id
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>username2user\_id</div>
 
 
-<h3>t_vtype_input_of_read_all_users</h3>
+<h3>t_username2user_id_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_all_users:nargs()
+<pre><code class="language-javascript">          t_username2user_id_input:nargs(
+            username : t_username(),
+          )
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_all_users</h3>
+<h3>t_username2user_id_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_all_users:any()
+<pre><code class="language-javascript">          t_username2user_id_output:object(
+            user_id: t_user_id(),
+          )
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_all\_users
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_all\_users</div>
 
 
-<h3>t_vtype_input_of_count_all_users</h3>
+<h3>t_read_all_users_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_count_all_users:nargs()
+<pre><code class="language-javascript">          t_read_all_users_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_count_all_users</h3>
+<h3>t_read_all_users_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_count_all_users:any()
+<pre><code class="language-javascript">          t_read_all_users_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>count\_all\_users
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>count\_all\_users</div>
 
 
-<h3>t_vtype_input_of_create_or_update_user_authentication</h3>
+<h3>t_count_all_users_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_user_authentication:nargs()
+<pre><code class="language-javascript">          t_count_all_users_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_or_update_user_authentication</h3>
+<h3>t_count_all_users_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_user_authentication:any()
+<pre><code class="language-javascript">          t_count_all_users_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_user\_authentication
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_user\_authentication</div>
 
 
-<h3>t_vtype_input_of_update_user_authentication</h3>
+<h3>t_create_or_update_user_authentication_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_update_user_authentication:nargs()
+<pre><code class="language-javascript">          t_create_or_update_user_authentication_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_update_user_authentication</h3>
+<h3>t_create_or_update_user_authentication_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_update_user_authentication:any()
+<pre><code class="language-javascript">          t_create_or_update_user_authentication_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>update\_user\_authentication
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>update\_user\_authentication</div>
 
 
-<h3>t_vtype_input_of_read_user_authentication</h3>
+<h3>t_update_user_authentication_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_user_authentication:nargs()
+<pre><code class="language-javascript">          t_update_user_authentication_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_user_authentication</h3>
+<h3>t_update_user_authentication_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_user_authentication:any()
+<pre><code class="language-javascript">          t_update_user_authentication_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_user\_authentication
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_user\_authentication</div>
 
 
-<h3>t_vtype_input_of_delete_user_authentication</h3>
+<h3>t_read_user_authentication_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_user_authentication:nargs()
+<pre><code class="language-javascript">          t_read_user_authentication_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_user_authentication</h3>
+<h3>t_read_user_authentication_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_user_authentication:any()
+<pre><code class="language-javascript">          t_read_user_authentication_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_user\_authentication
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_user\_authentication</div>
 
 
-<h3>t_vtype_input_of_read_all_user_authentications</h3>
+<h3>t_delete_user_authentication_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_all_user_authentications:nargs()
+<pre><code class="language-javascript">          t_delete_user_authentication_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_all_user_authentications</h3>
+<h3>t_delete_user_authentication_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_all_user_authentications:any()
+<pre><code class="language-javascript">          t_delete_user_authentication_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_all\_user\_authentications
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_all\_user\_authentications</div>
 
 
-<h3>t_vtype_input_of_get_parent_users</h3>
+<h3>t_read_all_user_authentications_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_get_parent_users:nargs()
+<pre><code class="language-javascript">          t_read_all_user_authentications_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_get_parent_users</h3>
+<h3>t_read_all_user_authentications_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_get_parent_users:any()
+<pre><code class="language-javascript">          t_read_all_user_authentications_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>get\_parent\_users
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>get\_parent\_users</div>
 
 
-<h3>t_vtype_input_of_get_wallet_contents</h3>
+<h3>t_get_parent_users_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_get_wallet_contents:fold_right(
+<pre><code class="language-javascript">          t_get_parent_users_input:nargs()
+          </code></pre>
+
+
+<h3>t_get_parent_users_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_get_parent_users_output:any()
+          </code></pre>
+
+
+<div class='vsv-descriptions'>get\_wallet\_contents
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>get\_wallet\_contents</div>
+
+
+<h3>t_get_wallet_contents_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_get_wallet_contents_input:fold_right(
             or(
               object(
                 username : t_username(),
@@ -730,9 +468,9 @@ See read\_accounts()</div>
           ),</code></pre>
 
 
-<h3>t_vtype_output_of_get_wallet_contents</h3>
+<h3>t_get_wallet_contents_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_get_wallet_contents:array_of(
+<pre><code class="language-javascript">          t_get_wallet_contents_output:array_of(
             object(
               wallet_id   : uuid(),
               valuable_id : uuid(),
@@ -743,82 +481,92 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<div class='vsv-descriptions'>get\_wallet\_contents
-========================
-</div>
-
-
-<div class='vsv-descriptions'>get\_wallet\_contents</div>
-
-
 <div class='vsv-descriptions'>abstract\_login
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>abstract\_login</div>
 
 
-<h3>t_vtype_input_of_abstract_login_information</h3>
+<h3>t_abstract_login_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_abstract_login_information:array(t_user_identity_token())</code></pre>
+<pre><code class="language-javascript"></code></pre>
 
 
-<h3>t_vtype_output_of_abstract_login_information</h3>
+<h3>t_abstract_login_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_abstract_login_information:t_user_login_info()</code></pre>
+<pre><code class="language-javascript"></code></pre>
 
 
 <div class='vsv-descriptions'>abstract\_login\_information
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>abstract\_login\_information</div>
 
 
-<h3>t_vtype_input_of_abstract_switch_current_user</h3>
+<h3>t_abstract_login_information_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_abstract_switch_current_user:nargs()
-          </code></pre>
+<pre><code class="language-javascript">          t_abstract_login_information_input:array(t_user_identity_token())</code></pre>
 
 
-<h3>t_vtype_output_of_abstract_switch_current_user</h3>
+<h3>t_abstract_login_information_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_abstract_switch_current_user:boolean()</code></pre>
+<pre><code class="language-javascript">          t_abstract_login_information_output:t_user_login_info()</code></pre>
 
 
 <div class='vsv-descriptions'>abstract\_switch\_current\_user
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>abstract\_switch\_current\_user</div>
 
 
-<h3>t_vtype_input_of_read_user_member</h3>
+<h3>t_abstract_switch_current_user_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_user_member:nargs()
+<pre><code class="language-javascript">          t_abstract_switch_current_user_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_user_member</h3>
+<h3>t_abstract_switch_current_user_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_user_member:any()
-          </code></pre>
+<pre><code class="language-javascript">          t_abstract_switch_current_user_output:boolean()</code></pre>
 
 
 <div class='vsv-descriptions'>read\_user\_member
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_user\_member</div>
 
 
-<h3>t_vtype_input_of_var_ensure_user_id</h3>
+<h3>t_read_user_member_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_var_ensure_user_id:array(
+<pre><code class="language-javascript">          t_read_user_member_input:nargs()
+          </code></pre>
+
+
+<h3>t_read_user_member_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_read_user_member_output:any()
+          </code></pre>
+
+
+<div class='vsv-descriptions'>var\_ensure\_user\_id
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>var\_ensure\_user\_id</div>
+
+
+<h3>t_var_ensure_user_id_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_var_ensure_user_id_input:array(
             or(
               object(
                 user_id : uuid(),
@@ -830,26 +578,26 @@ See read\_accounts()</div>
           )</code></pre>
 
 
-<h3>t_vtype_output_of_var_ensure_user_id</h3>
+<h3>t_var_ensure_user_id_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_var_ensure_user_id:object(
+<pre><code class="language-javascript">          t_var_ensure_user_id_output:object(
             user_id  : or( t_user_id(),  null()      ),
             username : or( t_username(), undefined() ),
           )
           </code></pre>
 
 
-<div class='vsv-descriptions'>var\_ensure\_user\_id
-========================
+<div class='vsv-descriptions'>var\_ensure\_member\_user\_id
+-------------
 </div>
 
 
-<div class='vsv-descriptions'>var\_ensure\_user\_id</div>
+<div class='vsv-descriptions'>var\_ensure\_member\_user\_id</div>
 
 
-<h3>t_vtype_input_of_var_ensure_member_user_id</h3>
+<h3>t_var_ensure_member_user_id_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_var_ensure_member_user_id:array(
+<pre><code class="language-javascript">          t_var_ensure_member_user_id_input:array(
             or(
               object(
                 member_user_id  : uuid(),
@@ -862,269 +610,269 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<h3>t_vtype_output_of_var_ensure_member_user_id</h3>
+<h3>t_var_ensure_member_user_id_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_var_ensure_member_user_id:object(
+<pre><code class="language-javascript">          t_var_ensure_member_user_id_output:object(
             member_user_id  : or( t_user_id(), null() ),
             member_username : or( t_username(), undefined() ),
           )
           </code></pre>
 
 
-<div class='vsv-descriptions'>var\_ensure\_member\_user\_id
-========================
-</div>
-
-
-<div class='vsv-descriptions'>var\_ensure\_member\_user\_id</div>
-
-
-<h3>t_vtype_input_of_create_or_update_user_member</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_user_member:nargs()
-          </code></pre>
-
-
-<h3>t_vtype_output_of_create_or_update_user_member</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_user_member:any()
-          </code></pre>
-
-
 <div class='vsv-descriptions'>create\_or\_update\_user\_member
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_user\_member</div>
 
 
-<h3>t_vtype_input_of_delete_user_member</h3>
+<h3>t_create_or_update_user_member_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_user_member:nargs()
+<pre><code class="language-javascript">          t_create_or_update_user_member_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_user_member</h3>
+<h3>t_create_or_update_user_member_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_user_member:any()
+<pre><code class="language-javascript">          t_create_or_update_user_member_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_user\_member
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_user\_member</div>
 
 
-<h3>t_vtype_input_of_delete_multiple_user_members</h3>
+<h3>t_delete_user_member_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_multiple_user_members:nargs()
+<pre><code class="language-javascript">          t_delete_user_member_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_multiple_user_members</h3>
+<h3>t_delete_user_member_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_multiple_user_members:any()
+<pre><code class="language-javascript">          t_delete_user_member_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_multiple\_user\_members
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_multiple\_user\_members</div>
 
 
-<h3>t_vtype_input_of_read_filtered_user_members</h3>
+<h3>t_delete_multiple_user_members_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_filtered_user_members:nargs()
+<pre><code class="language-javascript">          t_delete_multiple_user_members_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_filtered_user_members</h3>
+<h3>t_delete_multiple_user_members_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_filtered_user_members:any()
+<pre><code class="language-javascript">          t_delete_multiple_user_members_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_filtered\_user\_members
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_filtered\_user\_members</div>
 
 
-<h3>t_vtype_input_of_read_accounts</h3>
+<h3>t_read_filtered_user_members_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_accounts:nargs(
-            username : or( t_username(), null() ),
-            mode     : or( t_read_accounts_mode(), null() ),
-          )
+<pre><code class="language-javascript">          t_read_filtered_user_members_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_accounts</h3>
+<h3>t_read_filtered_user_members_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_accounts:any()
+<pre><code class="language-javascript">          t_read_filtered_user_members_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_accounts
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_accounts</div>
 
 
-<h3>t_vtype_input_of_create_or_update_account</h3>
+<h3>t_read_accounts_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_account:nargs()
+<pre><code class="language-javascript">          t_read_accounts_input:nargs(
+            username : or( t_username(), null() ),
+            mode     : or( t_read_accounts_mode(), null() ),
+          )
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_or_update_account</h3>
+<h3>t_read_accounts_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_account:any()
+<pre><code class="language-javascript">          t_read_accounts_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_account
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_account</div>
 
 
-<h3>t_vtype_input_of_create_or_update_accounts</h3>
+<h3>t_create_or_update_account_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_accounts:nargs()
+<pre><code class="language-javascript">          t_create_or_update_account_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_or_update_accounts</h3>
+<h3>t_create_or_update_account_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_accounts:any()
+<pre><code class="language-javascript">          t_create_or_update_account_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_accounts
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_accounts</div>
 
 
-<h3>t_vtype_input_of_create_message</h3>
+<h3>t_create_or_update_accounts_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_message:nargs()
+<pre><code class="language-javascript">          t_create_or_update_accounts_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_message</h3>
+<h3>t_create_or_update_accounts_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_message:any()
+<pre><code class="language-javascript">          t_create_or_update_accounts_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_message
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_message</div>
 
 
-<h3>t_vtype_input_of_write_message</h3>
+<h3>t_create_message_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_write_message:nargs()
+<pre><code class="language-javascript">          t_create_message_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_write_message</h3>
+<h3>t_create_message_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_write_message:any()
+<pre><code class="language-javascript">          t_create_message_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>write\_message
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>write\_message</div>
 
 
-<h3>t_vtype_input_of_read_message</h3>
+<h3>t_write_message_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_message:nargs()
+<pre><code class="language-javascript">          t_write_message_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_message</h3>
+<h3>t_write_message_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_message:any()
+<pre><code class="language-javascript">          t_write_message_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_message
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_message</div>
 
 
-<h3>t_vtype_input_of_delete_message</h3>
+<h3>t_read_message_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_message:nargs()
+<pre><code class="language-javascript">          t_read_message_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_message</h3>
+<h3>t_read_message_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_message:any()
+<pre><code class="language-javascript">          t_read_message_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_message
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_message</div>
 
 
-<h3>t_vtype_input_of_test_stored_procedure</h3>
+<h3>t_delete_message_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_test_stored_procedure:nargs()
+<pre><code class="language-javascript">          t_delete_message_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_test_stored_procedure</h3>
+<h3>t_delete_message_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_test_stored_procedure:any()
+<pre><code class="language-javascript">          t_delete_message_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>test\_stored\_procedure
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>test\_stored\_procedure</div>
 
 
-<h3>t_vtype_input_of_create_timeline</h3>
+<h3>t_test_stored_procedure_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_timeline:nargs(
+<pre><code class="language-javascript">          t_test_stored_procedure_input:nargs()
+          </code></pre>
+
+
+<h3>t_test_stored_procedure_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_test_stored_procedure_output:any()
+          </code></pre>
+
+
+<div class='vsv-descriptions'>create\_timeline
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>create\_timeline</div>
+
+
+<h3>t_create_timeline_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_create_timeline_input:nargs(
             timeline : or(
               object(),
               object(
@@ -1135,83 +883,83 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_timeline</h3>
+<h3>t_create_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_timeline:any()
-          </code></pre>
-
-
-<div class='vsv-descriptions'>create\_timeline
-========================
-</div>
-
-
-<div class='vsv-descriptions'>create\_timeline</div>
-
-
-<h3>t_vtype_input_of_read_timeline</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_timeline:nargs()
-          </code></pre>
-
-
-<h3>t_vtype_output_of_read_timeline</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_timeline:any()
+<pre><code class="language-javascript">          t_create_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_timeline</div>
 
 
-<h3>t_vtype_input_of_delete_timeline</h3>
+<h3>t_read_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_timeline:nargs()
+<pre><code class="language-javascript">          t_read_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_timeline</h3>
+<h3>t_read_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_timeline:any()
+<pre><code class="language-javascript">          t_read_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_timeline</div>
 
 
-<h3>t_vtype_input_of_read_view_timeline_and_profile</h3>
+<h3>t_delete_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_view_timeline_and_profile:nargs()
+<pre><code class="language-javascript">          t_delete_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_view_timeline_and_profile</h3>
+<h3>t_delete_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_view_timeline_and_profile:any()
+<pre><code class="language-javascript">          t_delete_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_view\_timeline\_and\_profile
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_view\_timeline\_and\_profile</div>
 
 
-<h3>t_vtype_input_of_create_or_update_view_user_and_user_timeline_and_timeline_and_profile</h3>
+<h3>t_read_view_timeline_and_profile_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_view_user_and_user_timeline_and_timeline_and_profile:fold_right(
+<pre><code class="language-javascript">          t_read_view_timeline_and_profile_input:nargs()
+          </code></pre>
+
+
+<h3>t_read_view_timeline_and_profile_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_read_view_timeline_and_profile_output:any()
+          </code></pre>
+
+
+<div class='vsv-descriptions'>create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile</div>
+
+
+<h3>t_create_or_update_view_user_and_user_timeline_and_timeline_and_profile_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_create_or_update_view_user_and_user_timeline_and_timeline_and_profile_input:fold_right(
             and(
               t_username_or_user_id(),
               object(
@@ -1227,463 +975,463 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_or_update_view_user_and_user_timeline_and_timeline_and_profile</h3>
+<h3>t_create_or_update_view_user_and_user_timeline_and_timeline_and_profile_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_view_user_and_user_timeline_and_timeline_and_profile:any()
-          </code></pre>
-
-
-<div class='vsv-descriptions'>create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile
-========================
-</div>
-
-
-<div class='vsv-descriptions'>create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile</div>
-
-
-<h3>t_vtype_input_of_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile:nargs()
-          </code></pre>
-
-
-<h3>t_vtype_output_of_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile:any()
+<pre><code class="language-javascript">          t_create_or_update_view_user_and_user_timeline_and_timeline_and_profile_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile</div>
 
 
-<h3>t_vtype_input_of_read_view_users_and_user_timeline_and_timeline_and_profile</h3>
+<h3>t_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_view_users_and_user_timeline_and_timeline_and_profile:nargs()
+<pre><code class="language-javascript">          t_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_view_users_and_user_timeline_and_timeline_and_profile</h3>
+<h3>t_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_view_users_and_user_timeline_and_timeline_and_profile:any()
+<pre><code class="language-javascript">          t_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile</div>
 
 
-<h3>t_vtype_input_of_read_view_user_member_and_user_timeline_and_timeline_and_profile</h3>
+<h3>t_read_view_users_and_user_timeline_and_timeline_and_profile_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_view_user_member_and_user_timeline_and_timeline_and_profile:nargs()
+<pre><code class="language-javascript">          t_read_view_users_and_user_timeline_and_timeline_and_profile_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_view_user_member_and_user_timeline_and_timeline_and_profile</h3>
+<h3>t_read_view_users_and_user_timeline_and_timeline_and_profile_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_view_user_member_and_user_timeline_and_timeline_and_profile:any()
+<pre><code class="language-javascript">          t_read_view_users_and_user_timeline_and_timeline_and_profile_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile</div>
 
 
-<h3>t_vtype_input_of_user_timelines_to_object</h3>
+<h3>t_read_view_user_member_and_user_timeline_and_timeline_and_profile_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_user_timelines_to_object:nargs()
+<pre><code class="language-javascript">          t_read_view_user_member_and_user_timeline_and_timeline_and_profile_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_user_timelines_to_object</h3>
+<h3>t_read_view_user_member_and_user_timeline_and_timeline_and_profile_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_user_timelines_to_object:any()
+<pre><code class="language-javascript">          t_read_view_user_member_and_user_timeline_and_timeline_and_profile_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>user\_timelines\_to\_object
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>user\_timelines\_to\_object</div>
 
 
-<h3>t_vtype_input_of_object_to_user_timelines</h3>
+<h3>t_user_timelines_to_object_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_object_to_user_timelines:nargs()
+<pre><code class="language-javascript">          t_user_timelines_to_object_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_object_to_user_timelines</h3>
+<h3>t_user_timelines_to_object_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_object_to_user_timelines:any()
+<pre><code class="language-javascript">          t_user_timelines_to_object_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>object\_to\_user\_timelines
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>object\_to\_user\_timelines</div>
 
 
-<h3>t_vtype_input_of_create_or_update_profile</h3>
+<h3>t_object_to_user_timelines_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_profile:nargs()
+<pre><code class="language-javascript">          t_object_to_user_timelines_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_or_update_profile</h3>
+<h3>t_object_to_user_timelines_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_profile:any()
+<pre><code class="language-javascript">          t_object_to_user_timelines_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_profile
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_profile</div>
 
 
-<h3>t_vtype_input_of_read_profile</h3>
+<h3>t_create_or_update_profile_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_profile:nargs()
+<pre><code class="language-javascript">          t_create_or_update_profile_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_profile</h3>
+<h3>t_create_or_update_profile_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_profile:any()
+<pre><code class="language-javascript">          t_create_or_update_profile_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_profile
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_profile</div>
 
 
-<h3>t_vtype_input_of_delete_profile</h3>
+<h3>t_read_profile_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_profile:nargs()
+<pre><code class="language-javascript">          t_read_profile_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_profile</h3>
+<h3>t_read_profile_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_profile:any()
+<pre><code class="language-javascript">          t_read_profile_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_profile
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_profile</div>
 
 
-<h3>t_vtype_input_of_create_timeline_content</h3>
+<h3>t_delete_profile_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_timeline_content:nargs()
+<pre><code class="language-javascript">          t_delete_profile_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_timeline_content</h3>
+<h3>t_delete_profile_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_timeline_content:any()
+<pre><code class="language-javascript">          t_delete_profile_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_timeline\_content
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_timeline\_content</div>
 
 
-<h3>t_vtype_input_of_read_timeline_content</h3>
+<h3>t_create_timeline_content_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_timeline_content:nargs()
+<pre><code class="language-javascript">          t_create_timeline_content_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_timeline_content</h3>
+<h3>t_create_timeline_content_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_timeline_content:any()
+<pre><code class="language-javascript">          t_create_timeline_content_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_timeline\_content
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_timeline\_content</div>
 
 
-<h3>t_vtype_input_of_delete_timeline_content</h3>
+<h3>t_read_timeline_content_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_timeline_content:nargs()
+<pre><code class="language-javascript">          t_read_timeline_content_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_timeline_content</h3>
+<h3>t_read_timeline_content_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_timeline_content:any()
+<pre><code class="language-javascript">          t_read_timeline_content_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_timeline\_content
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_timeline\_content</div>
 
 
-<h3>t_vtype_input_of_is_timeline_following</h3>
+<h3>t_delete_timeline_content_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_is_timeline_following:nargs()
+<pre><code class="language-javascript">          t_delete_timeline_content_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_is_timeline_following</h3>
+<h3>t_delete_timeline_content_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_is_timeline_following:any()
+<pre><code class="language-javascript">          t_delete_timeline_content_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>is\_timeline\_following
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>is\_timeline\_following</div>
 
 
-<h3>t_vtype_input_of_follow_timeline</h3>
+<h3>t_is_timeline_following_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_follow_timeline:nargs()
+<pre><code class="language-javascript">          t_is_timeline_following_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_follow_timeline</h3>
+<h3>t_is_timeline_following_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_follow_timeline:any()
+<pre><code class="language-javascript">          t_is_timeline_following_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>follow\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>follow\_timeline</div>
 
 
-<h3>t_vtype_input_of_unfollow_timeline</h3>
+<h3>t_follow_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_unfollow_timeline:nargs()
+<pre><code class="language-javascript">          t_follow_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_unfollow_timeline</h3>
+<h3>t_follow_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_unfollow_timeline:any()
+<pre><code class="language-javascript">          t_follow_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>unfollow\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>unfollow\_timeline</div>
 
 
-<h3>t_vtype_input_of_create_or_update_valuable</h3>
+<h3>t_unfollow_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_valuable:nargs()
+<pre><code class="language-javascript">          t_unfollow_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_or_update_valuable</h3>
+<h3>t_unfollow_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_valuable:any()
+<pre><code class="language-javascript">          t_unfollow_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_valuable
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_valuable</div>
 
 
-<h3>t_vtype_input_of_create_valuable</h3>
+<h3>t_create_or_update_valuable_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_valuable:nargs()
+<pre><code class="language-javascript">          t_create_or_update_valuable_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_valuable</h3>
+<h3>t_create_or_update_valuable_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_valuable:any()
+<pre><code class="language-javascript">          t_create_or_update_valuable_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_valuable
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_valuable</div>
 
 
-<h3>t_vtype_input_of_update_valuable</h3>
+<h3>t_create_valuable_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_update_valuable:nargs()
+<pre><code class="language-javascript">          t_create_valuable_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_update_valuable</h3>
+<h3>t_create_valuable_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_update_valuable:any()
+<pre><code class="language-javascript">          t_create_valuable_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>update\_valuable
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>update\_valuable</div>
 
 
-<h3>t_vtype_input_of_disableValuable</h3>
+<h3>t_update_valuable_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_disableValuable:nargs()
+<pre><code class="language-javascript">          t_update_valuable_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_disableValuable</h3>
+<h3>t_update_valuable_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_disableValuable:any()
+<pre><code class="language-javascript">          t_update_valuable_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>disableValuable
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>disableValuable</div>
 
 
-<h3>t_vtype_input_of_read_valuable</h3>
+<h3>t_disableValuable_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_valuable:nargs()
+<pre><code class="language-javascript">          t_disableValuable_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_valuable</h3>
+<h3>t_disableValuable_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_valuable:any()
+<pre><code class="language-javascript">          t_disableValuable_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_valuable
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_valuable</div>
 
 
-<h3>t_vtype_input_of_delete_valuable</h3>
+<h3>t_read_valuable_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_valuable:nargs()
+<pre><code class="language-javascript">          t_read_valuable_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_valuable</h3>
+<h3>t_read_valuable_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_valuable:any()
+<pre><code class="language-javascript">          t_read_valuable_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_valuable
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_valuable</div>
 
 
-<h3>t_vtype_input_of_read_all_valuables</h3>
+<h3>t_delete_valuable_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_all_valuables:nargs()
+<pre><code class="language-javascript">          t_delete_valuable_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_all_valuables</h3>
+<h3>t_delete_valuable_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_all_valuables:any()
+<pre><code class="language-javascript">          t_delete_valuable_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_all\_valuables
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_all\_valuables</div>
 
 
-<h3>t_vtype_input_of_issue_valuables</h3>
+<h3>t_read_all_valuables_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_issue_valuables:nargs()
+<pre><code class="language-javascript">          t_read_all_valuables_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_issue_valuables</h3>
+<h3>t_read_all_valuables_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_issue_valuables:any()
+<pre><code class="language-javascript">          t_read_all_valuables_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>issue\_valuables
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>issue\_valuables</div>
 
 
-<h3>t_vtype_input_of_update_valuable_state</h3>
+<h3>t_issue_valuables_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_update_valuable_state:array(
+<pre><code class="language-javascript">          t_issue_valuables_input:nargs()
+          </code></pre>
+
+
+<h3>t_issue_valuables_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_issue_valuables_output:any()
+          </code></pre>
+
+
+<div class='vsv-descriptions'>update\_valuable\_state
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>update\_valuable\_state</div>
+
+
+<h3>t_update_valuable_state_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_update_valuable_state_input:array(
             object(
               valuable_id      : uuid(),
               valuable_enabled : boolean(),
@@ -1691,23 +1439,23 @@ See read\_accounts()</div>
           )</code></pre>
 
 
-<h3>t_vtype_output_of_update_valuable_state</h3>
+<h3>t_update_valuable_state_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_update_valuable_state:any()
+<pre><code class="language-javascript">          t_update_valuable_state_output:any()
           </code></pre>
 
 
-<div class='vsv-descriptions'>update\_valuable\_state
-========================
+<div class='vsv-descriptions'>download\_valuable\_state
+-------------
 </div>
 
 
-<div class='vsv-descriptions'>update\_valuable\_state</div>
+<div class='vsv-descriptions'>download\_valuable\_state</div>
 
 
-<h3>t_vtype_input_of_download_valuable_state</h3>
+<h3>t_download_valuable_state_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_download_valuable_state:array(
+<pre><code class="language-javascript">          t_download_valuable_state_input:array(
             object(
               valuable_id      : uuid(),
             )
@@ -1715,192 +1463,192 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<h3>t_vtype_output_of_download_valuable_state</h3>
+<h3>t_download_valuable_state_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_download_valuable_state:any()
-          </code></pre>
-
-
-<div class='vsv-descriptions'>download\_valuable\_state
-========================
-</div>
-
-
-<div class='vsv-descriptions'>download\_valuable\_state</div>
-
-
-<h3>t_vtype_input_of_confiscate_all_valuable_deposits</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_confiscate_all_valuable_deposits:nargs()
-          </code></pre>
-
-
-<h3>t_vtype_output_of_confiscate_all_valuable_deposits</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_confiscate_all_valuable_deposits:any()
+<pre><code class="language-javascript">          t_download_valuable_state_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>confiscate\_all\_valuable\_deposits
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>confiscate\_all\_valuable\_deposits</div>
 
 
-<h3>t_vtype_input_of_create_wallet</h3>
+<h3>t_confiscate_all_valuable_deposits_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_wallet:nargs()
+<pre><code class="language-javascript">          t_confiscate_all_valuable_deposits_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_wallet</h3>
+<h3>t_confiscate_all_valuable_deposits_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_wallet:any()
+<pre><code class="language-javascript">          t_confiscate_all_valuable_deposits_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_wallet
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_wallet</div>
 
 
-<h3>t_vtype_input_of_update_wallet</h3>
+<h3>t_create_wallet_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_update_wallet:nargs()
+<pre><code class="language-javascript">          t_create_wallet_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_update_wallet</h3>
+<h3>t_create_wallet_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_update_wallet:any()
+<pre><code class="language-javascript">          t_create_wallet_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>update\_wallet
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>update\_wallet</div>
 
 
-<h3>t_vtype_input_of_disableWallet</h3>
+<h3>t_update_wallet_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_disableWallet:nargs()
+<pre><code class="language-javascript">          t_update_wallet_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_disableWallet</h3>
+<h3>t_update_wallet_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_disableWallet:any()
+<pre><code class="language-javascript">          t_update_wallet_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>disableWallet
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>disableWallet</div>
 
 
-<h3>t_vtype_input_of_read_wallet</h3>
+<h3>t_disableWallet_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_wallet:nargs()
+<pre><code class="language-javascript">          t_disableWallet_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_wallet</h3>
+<h3>t_disableWallet_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_wallet:any()
+<pre><code class="language-javascript">          t_disableWallet_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_wallet
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_wallet</div>
 
 
-<h3>t_vtype_input_of_delete_wallet</h3>
+<h3>t_read_wallet_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_wallet:nargs()
+<pre><code class="language-javascript">          t_read_wallet_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_wallet</h3>
+<h3>t_read_wallet_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_wallet:any()
+<pre><code class="language-javascript">          t_read_wallet_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_wallet
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_wallet</div>
 
 
-<h3>t_vtype_input_of_request_valuable_transfer</h3>
+<h3>t_delete_wallet_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_request_valuable_transfer:nargs()
+<pre><code class="language-javascript">          t_delete_wallet_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_request_valuable_transfer</h3>
+<h3>t_delete_wallet_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_request_valuable_transfer:any()
+<pre><code class="language-javascript">          t_delete_wallet_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>request\_valuable\_transfer
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>request\_valuable\_transfer</div>
 
 
-<h3>t_vtype_input_of_respond_valuable_transfer</h3>
+<h3>t_request_valuable_transfer_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_respond_valuable_transfer:nargs()
+<pre><code class="language-javascript">          t_request_valuable_transfer_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_respond_valuable_transfer</h3>
+<h3>t_request_valuable_transfer_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_respond_valuable_transfer:any()
+<pre><code class="language-javascript">          t_request_valuable_transfer_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>respond\_valuable\_transfer
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>respond\_valuable\_transfer</div>
 
 
-<h3>t_vtype_input_of_parse_message_commands</h3>
+<h3>t_respond_valuable_transfer_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_parse_message_commands:array(
+<pre><code class="language-javascript">          t_respond_valuable_transfer_input:nargs()
+          </code></pre>
+
+
+<h3>t_respond_valuable_transfer_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_respond_valuable_transfer_output:any()
+          </code></pre>
+
+
+<div class='vsv-descriptions'>parse\_message\_commands
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>parse\_message\_commands</div>
+
+
+<h3>t_parse_message_commands_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_parse_message_commands_input:array(
             object(
               message_text         : string(),
             )
           )</code></pre>
 
 
-<h3>t_vtype_output_of_parse_message_commands</h3>
+<h3>t_parse_message_commands_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_parse_message_commands:object(
+<pre><code class="language-javascript">          t_parse_message_commands_output:object(
             statements : array_of(
               object(
                 command_name : or(
@@ -1928,17 +1676,17 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<div class='vsv-descriptions'>parse\_message\_commands
-========================
+<div class='vsv-descriptions'>execute\_message\_commands
+-------------
 </div>
 
 
-<div class='vsv-descriptions'>parse\_message\_commands</div>
+<div class='vsv-descriptions'>execute\_message\_commands</div>
 
 
-<h3>t_vtype_input_of_execute_message_commands</h3>
+<h3>t_execute_message_commands_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_execute_message_commands:fold_right(
+<pre><code class="language-javascript">          t_execute_message_commands_input:fold_right(
             object(
               default_parent_user_id : t_user_id(),
               scope_id     : t_scope_id(),
@@ -1974,173 +1722,65 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<h3>t_vtype_output_of_execute_message_commands</h3>
+<h3>t_execute_message_commands_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_execute_message_commands:any(),</code></pre>
-
-
-<div class='vsv-descriptions'>execute\_message\_commands
-========================
-</div>
-
-
-<div class='vsv-descriptions'>execute\_message\_commands</div>
-
-
-<h3>t_vtype_input_of_get_notify_timeline_from_user</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_get_notify_timeline_from_user:nargs(
-            scope_id : t_scope_id(),
-            user_id  : t_user_id(),
-          ),</code></pre>
-
-
-<h3>t_vtype_output_of_get_notify_timeline_from_user</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_get_notify_timeline_from_user:t_tbl_user_timelines(),</code></pre>
+<pre><code class="language-javascript">          t_execute_message_commands_output:any(),</code></pre>
 
 
 <div class='vsv-descriptions'>get\_notify\_timeline\_from\_user
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>get\_notify\_timeline\_from\_user</div>
 
 
-<h3>t_vtype_input_of_get_notify_timeline_from_member_user</h3>
+<h3>t_get_notify_timeline_from_user_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_get_notify_timeline_from_member_user:nargs(
+<pre><code class="language-javascript">          t_get_notify_timeline_from_user_input:nargs(
             scope_id : t_scope_id(),
-            user_id  :t_user_id(),
-            member_user_id : t_user_id(),
+            user_id  : t_user_id(),
           ),</code></pre>
 
 
-<h3>t_vtype_output_of_get_notify_timeline_from_member_user</h3>
+<h3>t_get_notify_timeline_from_user_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_get_notify_timeline_from_member_user:t_tbl_user_member_timelines(),</code></pre>
+<pre><code class="language-javascript">          t_get_notify_timeline_from_user_output:t_tbl_user_timelines(),</code></pre>
 
 
 <div class='vsv-descriptions'>get\_notify\_timeline\_from\_member\_user
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>get\_notify\_timeline\_from\_member\_user</div>
 
 
-<h3>t_sndmsg_user</h3>
+<h3>t_get_notify_timeline_from_member_user_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_sndmsg_user:or(
-            and(
-              or(
-                object(
-                  username : string(),
-                ),
-                object(
-                  user_id  : uuid(),
-                ),
-              ),
-              or(
-                object(
-                  walletname : string(),
-                ),
-                object(
-                  wallet_id  : uuid(),
-                ),
-              ),
-            ),
-            and(
-              or(
-                object(
-                  username : string(),
-                ),
-                object(
-                  user_id  : uuid(),
-                ),
-              ),
-              or(
-                object(
-                  member_username : string(),
-                ),
-                object(
-                  member_user_id  : uuid(),
-                ),
-              ),
-              or(
-                object(
-                  walletname : string(),
-                ),
-                object(
-                  wallet_id  : uuid(),
-                ),
-              ),
-            ),
+<pre><code class="language-javascript">          t_get_notify_timeline_from_member_user_input:nargs(
+            scope_id : t_scope_id(),
+            user_id  :t_user_id(),
+            member_user_id : t_user_id(),
           ),</code></pre>
 
 
-<h3>t_tbl_valuable</h3>
+<h3>t_get_notify_timeline_from_member_user_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_tbl_valuable:object(
-            valuable_id              : uuid(),
-            valuable_name            : string(),
-            valuable_attrs           : object(),
-            valuable_script          : or( string(), null() ),
-            valuable_params          : object(),
-            valuable_created_date    : any(),
-            valuable_modified_date   : any(),
-            valuable_expiration_date : any(),
-            valuable_enabled         : boolean(),
-          ),</code></pre>
+<pre><code class="language-javascript">          t_get_notify_timeline_from_member_user_output:t_tbl_user_member_timelines(),</code></pre>
 
 
-<h3>t_sndmsg_cmd_base</h3>
+<div class='vsv-descriptions'>sndmsg\_util\_transfer
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>sndmsg\_util\_transfer</div>
+
+
+<h3>t_sndmsg_util_transfer_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_sndmsg_cmd_base:object(
-            default_parent_user_id : t_user_id(),
-            scope_id               : t_scope_id(),
-            subject_user  : object(
-              user_id : t_user_id(),
-              primary_wallet_id : uuid(),
-            ),
-            target_users      : array_of(
-              object(
-                primary_wallet_id : uuid(),
-              )
-            ),
-            message_id        : or( uuid() , null() ),
-          ),</code></pre>
-
-
-<h3>i_sndmsg_cmd2</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          i_sndmsg_cmd2:object(
-            valuable_id            : t_valuable_id(),
-            valuable_quantity      : number(),
-            valuable_script        : t_valuable_script(),
-            valuable_attrs         : object(),
-          ),</code></pre>
-
-
-<h3>i_sndmsg_cmd</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          i_sndmsg_cmd:object(
-            valuable   : t_tbl_valuable(),
-          ),</code></pre>
-
-
-<h3>t_sndmsg_cmd</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_sndmsg_cmd:and(
-            i_sndmsg_cmd(),
-            t_sndmsg_cmd_base(),
-          ),</code></pre>
-
-
-<h3>t_vtype_input_of_sndmsg_util_transfer</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_sndmsg_util_transfer:fold_right(
+<pre><code class="language-javascript">          t_sndmsg_util_transfer_input:fold_right(
             object(
               valuable_id       : uuid(),
               valuable_quantity : number(),
@@ -2152,23 +1792,23 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<h3>t_vtype_output_of_sndmsg_util_transfer</h3>
+<h3>t_sndmsg_util_transfer_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_sndmsg_util_transfer:any()
+<pre><code class="language-javascript">          t_sndmsg_util_transfer_output:any()
           </code></pre>
 
 
-<div class='vsv-descriptions'>sndmsg\_util\_transfer
-========================
+<div class='vsv-descriptions'>sndmsg\_util\_notification
+-------------
 </div>
 
 
-<div class='vsv-descriptions'>sndmsg\_util\_transfer</div>
+<div class='vsv-descriptions'>sndmsg\_util\_notification</div>
 
 
-<h3>t_vtype_input_of_sndmsg_util_notification</h3>
+<h3>t_sndmsg_util_notification_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_sndmsg_util_notification:fold_right(
+<pre><code class="language-javascript">          t_sndmsg_util_notification_input:fold_right(
             object(
               scope_id               : t_scope_id(),
               default_parent_user_id : t_user_id(),
@@ -2180,88 +1820,88 @@ See read\_accounts()</div>
           ),</code></pre>
 
 
-<h3>t_vtype_output_of_sndmsg_util_notification</h3>
+<h3>t_sndmsg_util_notification_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_sndmsg_util_notification:undefined(),</code></pre>
-
-
-<div class='vsv-descriptions'>sndmsg\_util\_notification
-========================
-</div>
-
-
-<div class='vsv-descriptions'>sndmsg\_util\_notification</div>
-
-
-<h3>t_vtype_input_of_sndmsg_cmd_message</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_sndmsg_cmd_message:fold_right(
-            t_sndmsg_cmd_base()
-          )
-          </code></pre>
-
-
-<h3>t_vtype_output_of_sndmsg_cmd_message</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_sndmsg_cmd_message:any()
-          </code></pre>
+<pre><code class="language-javascript">          t_sndmsg_util_notification_output:undefined(),</code></pre>
 
 
 <div class='vsv-descriptions'>sndmsg\_cmd\_message
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>sndmsg\_cmd\_message</div>
 
 
-<h3>t_vtype_input_of_sndmsg_cmd_check</h3>
+<h3>t_sndmsg_cmd_message_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_sndmsg_cmd_check:array(
-            t_sndmsg_cmd(),
+<pre><code class="language-javascript">          t_sndmsg_cmd_message_input:fold_right(
+            t_sndmsg_cmd_base()
           )
           </code></pre>
 
 
-<h3>t_vtype_output_of_sndmsg_cmd_check</h3>
+<h3>t_sndmsg_cmd_message_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_sndmsg_cmd_check:any()
+<pre><code class="language-javascript">          t_sndmsg_cmd_message_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>sndmsg\_cmd\_check
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>sndmsg\_cmd\_check</div>
 
 
-<h3>t_vtype_input_of_sndmsg_cmd_valuable</h3>
+<h3>t_sndmsg_cmd_check_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_sndmsg_cmd_valuable:fold_right(
+<pre><code class="language-javascript">          t_sndmsg_cmd_check_input:array(
             t_sndmsg_cmd(),
           )
           </code></pre>
 
 
-<h3>t_vtype_output_of_sndmsg_cmd_valuable</h3>
+<h3>t_sndmsg_cmd_check_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_sndmsg_cmd_valuable:any()
+<pre><code class="language-javascript">          t_sndmsg_cmd_check_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>sndmsg\_cmd\_valuable
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>sndmsg\_cmd\_valuable</div>
 
 
-<h3>t_vtype_input_of_read_valuable_transactions</h3>
+<h3>t_sndmsg_cmd_valuable_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_valuable_transactions:nargs(
+<pre><code class="language-javascript">          t_sndmsg_cmd_valuable_input:fold_right(
+            t_sndmsg_cmd(),
+          )
+          </code></pre>
+
+
+<h3>t_sndmsg_cmd_valuable_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_sndmsg_cmd_valuable_output:any()
+          </code></pre>
+
+
+<div class='vsv-descriptions'>read\_valuable\_transactions
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>read\_valuable\_transactions</div>
+
+
+<h3>t_read_valuable_transactions_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_read_valuable_transactions_input:nargs(
             valuable_id : uuid(),
             from : or( string(), null() ),
             to   : or( string(), null() ),
@@ -2269,64 +1909,45 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_valuable_transactions</h3>
+<h3>t_read_valuable_transactions_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_valuable_transactions:any()
-          </code></pre>
-
-
-<div class='vsv-descriptions'>read\_valuable\_transactions
-========================
-</div>
-
-
-<div class='vsv-descriptions'>read\_valuable\_transactions</div>
-
-
-<h3>t_vtype_input_of_read_valuable_deposits</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_valuable_deposits:nargs(
-            valuable_id : uuid(),
-          )
-          </code></pre>
-
-
-<h3>t_vtype_output_of_read_valuable_deposits</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_valuable_deposits:any()
+<pre><code class="language-javascript">          t_read_valuable_transactions_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_valuable\_deposits
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_valuable\_deposits</div>
 
 
-<h3>t_message_content_type</h3>
+<h3>t_read_valuable_deposits_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_message_content_type:or(
-            equals( << 'content_json' >>  ),
-            equals( << 'content_text' >>  ),
+<pre><code class="language-javascript">          t_read_valuable_deposits_input:nargs(
+            valuable_id : uuid(),
           )
           </code></pre>
 
 
-<h3>t_message_text_content_text</h3>
+<h3>t_read_valuable_deposits_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_message_text_content_text:string(),</code></pre>
+<pre><code class="language-javascript">          t_read_valuable_deposits_output:any()
+          </code></pre>
 
 
-<h3>t_message_text_content_json</h3>
+<div class='vsv-descriptions'>send\_message
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>send\_message</div>
+
+
+<h3>t_send_message_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_message_text_content_json:object(),</code></pre>
-
-
-<h3>t_vtype_input_of_send_message</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_send_message:nargs(
+<pre><code class="language-javascript">          t_send_message_input:nargs(
             timeline_id          : or( t_timeline_id(), null() ),
             user_id              : or( t_user_id(), null() ),
             parent_message_id    : or( uuid(), null() ),
@@ -2339,22 +1960,22 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<h3>t_vtype_output_of_send_message</h3>
+<h3>t_send_message_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_send_message:any()</code></pre>
+<pre><code class="language-javascript">          t_send_message_output:any()</code></pre>
 
 
-<div class='vsv-descriptions'>send\_message
-========================
+<div class='vsv-descriptions'>send\_tweet
+-------------
 </div>
 
 
-<div class='vsv-descriptions'>send\_message</div>
+<div class='vsv-descriptions'>send\_tweet</div>
 
 
-<h3>t_vtype_input_of_send_tweet</h3>
+<h3>t_send_tweet_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_send_tweet:nargs(
+<pre><code class="language-javascript">          t_send_tweet_input:nargs(
             user_id                : t_user_id(),
             scope_id               : t_scope_id(),
             default_parent_user_id : t_user_id(),
@@ -2365,22 +1986,22 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<h3>t_vtype_output_of_send_tweet</h3>
+<h3>t_send_tweet_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_send_tweet:any()</code></pre>
+<pre><code class="language-javascript">          t_send_tweet_output:any()</code></pre>
 
 
-<div class='vsv-descriptions'>send\_tweet
-========================
+<div class='vsv-descriptions'>receive\_tweets
+-------------
 </div>
 
 
-<div class='vsv-descriptions'>send\_tweet</div>
+<div class='vsv-descriptions'>receive\_tweets</div>
 
 
-<h3>t_vtype_input_of_receive_tweets</h3>
+<h3>t_receive_tweets_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_receive_tweets:array(
+<pre><code class="language-javascript">          t_receive_tweets_input:array(
             object(
               user_id     : or( null(), uuid() ),
               timeline_id : or( null(), uuid() ),
@@ -2394,63 +2015,63 @@ See read\_accounts()</div>
           )</code></pre>
 
 
-<h3>t_vtype_output_of_receive_tweets</h3>
+<h3>t_receive_tweets_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_receive_tweets:any()
-          </code></pre>
-
-
-<div class='vsv-descriptions'>receive\_tweets
-========================
-</div>
-
-
-<div class='vsv-descriptions'>receive\_tweets</div>
-
-
-<h3>t_vtype_input_of_get_locale_message</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_get_locale_message:array_of(
-            string()
-          )
-          </code></pre>
-
-
-<h3>t_vtype_output_of_get_locale_message</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_get_locale_message:any()
+<pre><code class="language-javascript">          t_receive_tweets_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>get\_locale\_message
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>get\_locale\_message</div>
 
 
-<h3>t_vtype_input_of_get_global_common_input_timeline_id</h3>
+<h3>t_get_locale_message_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_get_global_common_input_timeline_id:array()</code></pre>
+<pre><code class="language-javascript">          t_get_locale_message_input:array_of(
+            string()
+          )
+          </code></pre>
 
 
-<h3>t_vtype_output_of_get_global_common_input_timeline_id</h3>
+<h3>t_get_locale_message_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_get_global_common_input_timeline_id:uuid()</code></pre>
+<pre><code class="language-javascript">          t_get_locale_message_output:any()
+          </code></pre>
 
 
 <div class='vsv-descriptions'>get\_global\_common\_input\_timeline\_id
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>get\_global\_common\_input\_timeline\_id</div>
 
 
-<h3>t_vtype_input_of_create_or_update_user_timeline</h3>
+<h3>t_get_global_common_input_timeline_id_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_user_timeline:nargs(
+<pre><code class="language-javascript">          t_get_global_common_input_timeline_id_input:array()</code></pre>
+
+
+<h3>t_get_global_common_input_timeline_id_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_get_global_common_input_timeline_id_output:uuid()</code></pre>
+
+
+<div class='vsv-descriptions'>create\_or\_update\_user\_timeline
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>create\_or\_update\_user\_timeline</div>
+
+
+<h3>t_create_or_update_user_timeline_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_create_or_update_user_timeline_input:nargs(
             user_id : t_user_id(),
             timelinename : t_timelinename(),
             timeline_id : or(
@@ -2462,145 +2083,145 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_or_update_user_timeline</h3>
+<h3>t_create_or_update_user_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_user_timeline:object(
+<pre><code class="language-javascript">          t_create_or_update_user_timeline_output:object(
             timeline_id : t_timeline_id(),
           )
           </code></pre>
 
 
-<div class='vsv-descriptions'>create\_or\_update\_user\_timeline
-========================
-</div>
-
-
-<div class='vsv-descriptions'>create\_or\_update\_user\_timeline</div>
-
-
-<h3>t_vtype_input_of_read_user_timeline</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_user_timeline:nargs()
-          </code></pre>
-
-
-<h3>t_vtype_output_of_read_user_timeline</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_user_timeline:any()
-          </code></pre>
-
-
 <div class='vsv-descriptions'>read\_user\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_user\_timeline</div>
 
 
-<h3>t_vtype_input_of_delete_user_timeline</h3>
+<h3>t_read_user_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_user_timeline:nargs()
+<pre><code class="language-javascript">          t_read_user_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_user_timeline</h3>
+<h3>t_read_user_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_user_timeline:any()
+<pre><code class="language-javascript">          t_read_user_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_user\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_user\_timeline</div>
 
 
-<h3>t_vtype_input_of_create_or_update_user_watching_timeline</h3>
+<h3>t_delete_user_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_user_watching_timeline:nargs()
+<pre><code class="language-javascript">          t_delete_user_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_or_update_user_watching_timeline</h3>
+<h3>t_delete_user_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_user_watching_timeline:any()
+<pre><code class="language-javascript">          t_delete_user_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_user\_watching\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_user\_watching\_timeline</div>
 
 
-<h3>t_vtype_input_of_read_user_watching_timeline</h3>
+<h3>t_create_or_update_user_watching_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_user_watching_timeline:nargs()
+<pre><code class="language-javascript">          t_create_or_update_user_watching_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_user_watching_timeline</h3>
+<h3>t_create_or_update_user_watching_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_user_watching_timeline:any()
+<pre><code class="language-javascript">          t_create_or_update_user_watching_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_user\_watching\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_user\_watching\_timeline</div>
 
 
-<h3>t_vtype_input_of_delete_user_watching_timeline</h3>
+<h3>t_read_user_watching_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_user_watching_timeline:nargs()
+<pre><code class="language-javascript">          t_read_user_watching_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_user_watching_timeline</h3>
+<h3>t_read_user_watching_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_user_watching_timeline:any()
+<pre><code class="language-javascript">          t_read_user_watching_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_user\_watching\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_user\_watching\_timeline</div>
 
 
-<h3>t_vtype_input_of_create_or_update_user_member_timeline</h3>
+<h3>t_delete_user_watching_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_user_member_timeline:nargs()
+<pre><code class="language-javascript">          t_delete_user_watching_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_or_update_user_member_timeline</h3>
+<h3>t_delete_user_watching_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_user_member_timeline:any()
+<pre><code class="language-javascript">          t_delete_user_watching_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_user\_member\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_user\_member\_timeline</div>
 
 
-<h3>t_vtype_input_of_read_user_member_timeline</h3>
+<h3>t_create_or_update_user_member_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_user_member_timeline:fold_right(
+<pre><code class="language-javascript">          t_create_or_update_user_member_timeline_input:nargs()
+          </code></pre>
+
+
+<h3>t_create_or_update_user_member_timeline_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_create_or_update_user_member_timeline_output:any()
+          </code></pre>
+
+
+<div class='vsv-descriptions'>read\_user\_member\_timeline
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>read\_user\_member\_timeline</div>
+
+
+<h3>t_read_user_member_timeline_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_read_user_member_timeline_input:fold_right(
             and(
               object(
                 user_id        : t_user_id(),
@@ -2618,203 +2239,203 @@ See read\_accounts()</div>
           ),</code></pre>
 
 
-<h3>t_vtype_output_of_read_user_member_timeline</h3>
+<h3>t_read_user_member_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_user_member_timeline:t_tbl_user_member_timelines()
-          </code></pre>
-
-
-<div class='vsv-descriptions'>read\_user\_member\_timeline
-========================
-</div>
-
-
-<div class='vsv-descriptions'>read\_user\_member\_timeline</div>
-
-
-<h3>t_vtype_input_of_delete_user_member_timeline</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_user_member_timeline:nargs()
-          </code></pre>
-
-
-<h3>t_vtype_output_of_delete_user_member_timeline</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_user_member_timeline:any()
+<pre><code class="language-javascript">          t_read_user_member_timeline_output:t_tbl_user_member_timelines()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_user\_member\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_user\_member\_timeline</div>
 
 
-<h3>t_vtype_input_of_create_or_update_user_member_watching_timeline</h3>
+<h3>t_delete_user_member_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_create_or_update_user_member_watching_timeline:nargs()
+<pre><code class="language-javascript">          t_delete_user_member_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_create_or_update_user_member_watching_timeline</h3>
+<h3>t_delete_user_member_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_create_or_update_user_member_watching_timeline:any()
+<pre><code class="language-javascript">          t_delete_user_member_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_user\_member\_watching\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>create\_or\_update\_user\_member\_watching\_timeline</div>
 
 
-<h3>t_vtype_input_of_read_user_member_watching_timeline</h3>
+<h3>t_create_or_update_user_member_watching_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_read_user_member_watching_timeline:nargs()
+<pre><code class="language-javascript">          t_create_or_update_user_member_watching_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_read_user_member_watching_timeline</h3>
+<h3>t_create_or_update_user_member_watching_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_read_user_member_watching_timeline:any()
+<pre><code class="language-javascript">          t_create_or_update_user_member_watching_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>read\_user\_member\_watching\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>read\_user\_member\_watching\_timeline</div>
 
 
-<h3>t_vtype_input_of_delete_user_member_watching_timeline</h3>
+<h3>t_read_user_member_watching_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_delete_user_member_watching_timeline:nargs()
+<pre><code class="language-javascript">          t_read_user_member_watching_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_delete_user_member_watching_timeline</h3>
+<h3>t_read_user_member_watching_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_delete_user_member_watching_timeline:any()
+<pre><code class="language-javascript">          t_read_user_member_watching_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>delete\_user\_member\_watching\_timeline
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>delete\_user\_member\_watching\_timeline</div>
 
 
-<h3>t_vtype_input_of_list_child_users</h3>
+<h3>t_delete_user_member_watching_timeline_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_list_child_users:nargs()
+<pre><code class="language-javascript">          t_delete_user_member_watching_timeline_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_list_child_users</h3>
+<h3>t_delete_user_member_watching_timeline_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_list_child_users:any()
+<pre><code class="language-javascript">          t_delete_user_member_watching_timeline_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>list\_child\_users
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>list\_child\_users</div>
 
 
-<h3>t_vtype_input_of_get_random_user</h3>
+<h3>t_list_child_users_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_get_random_user:nargs()
+<pre><code class="language-javascript">          t_list_child_users_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_get_random_user</h3>
+<h3>t_list_child_users_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_get_random_user:any()
+<pre><code class="language-javascript">          t_list_child_users_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>get\_random\_user
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>get\_random\_user</div>
 
 
-<h3>t_vtype_input_of_get_random_member_user</h3>
+<h3>t_get_random_user_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_get_random_member_user:nargs()
+<pre><code class="language-javascript">          t_get_random_user_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_get_random_member_user</h3>
+<h3>t_get_random_user_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_get_random_member_user:any()
+<pre><code class="language-javascript">          t_get_random_user_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>get\_random\_member\_user
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>get\_random\_member\_user</div>
 
 
-<h3>t_vtype_input_of_parse_message_text</h3>
+<h3>t_get_random_member_user_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_parse_message_text:nargs()
+<pre><code class="language-javascript">          t_get_random_member_user_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_parse_message_text</h3>
+<h3>t_get_random_member_user_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_parse_message_text:any()
+<pre><code class="language-javascript">          t_get_random_member_user_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>parse\_message\_text
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>parse\_message\_text</div>
 
 
-<h3>t_vtype_input_of_send_random_member_user_tweet</h3>
+<h3>t_parse_message_text_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_send_random_member_user_tweet:nargs()
+<pre><code class="language-javascript">          t_parse_message_text_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_send_random_member_user_tweet</h3>
+<h3>t_parse_message_text_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_send_random_member_user_tweet:any()
+<pre><code class="language-javascript">          t_parse_message_text_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>send\_random\_member\_user\_tweet
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>send\_random\_member\_user\_tweet</div>
 
 
-<h3>t_vtype_input_of_send_random_user_tweet</h3>
+<h3>t_send_random_member_user_tweet_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_send_random_user_tweet:fold_right(
+<pre><code class="language-javascript">          t_send_random_member_user_tweet_input:nargs()
+          </code></pre>
+
+
+<h3>t_send_random_member_user_tweet_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_send_random_member_user_tweet_output:any()
+          </code></pre>
+
+
+<div class='vsv-descriptions'>send\_random\_user\_tweet
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>send\_random\_user\_tweet</div>
+
+
+<h3>t_send_random_user_tweet_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_send_random_user_tweet_input:fold_right(
             object(
               user_id                : t_user_id(),
               scope_id               : t_scope_id(),
@@ -2826,127 +2447,157 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<h3>t_vtype_output_of_send_random_user_tweet</h3>
+<h3>t_send_random_user_tweet_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_send_random_user_tweet:any()
-          </code></pre>
-
-
-<div class='vsv-descriptions'>send\_random\_user\_tweet
-========================
-</div>
-
-
-<div class='vsv-descriptions'>send\_random\_user\_tweet</div>
-
-
-<h3>t_vtype_input_of_test_blob</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_test_blob:nargs()
-          </code></pre>
-
-
-<h3>t_vtype_output_of_test_blob</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_test_blob:any()
+<pre><code class="language-javascript">          t_send_random_user_tweet_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>test\_blob
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>test\_blob</div>
 
 
-<h3>t_vtype_input_of_get_default_image</h3>
+<h3>t_test_blob_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_get_default_image:nargs()
+<pre><code class="language-javascript">          t_test_blob_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_get_default_image</h3>
+<h3>t_test_blob_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_get_default_image:any()
+<pre><code class="language-javascript">          t_test_blob_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>get\_default\_image
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>get\_default\_image</div>
 
 
+<h3>t_get_default_image_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_get_default_image_input:nargs()
+          </code></pre>
+
+
+<h3>t_get_default_image_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_get_default_image_output:any()
+          </code></pre>
+
+
 <div class='vsv-descriptions'>on\_open
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>on\_open</div>
 
 
+<h3>t_on_open_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript"></code></pre>
+
+
+<h3>t_on_open_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript"></code></pre>
+
+
 <div class='vsv-descriptions'>on\_close
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>on\_close</div>
 
 
+<h3>t_on_close_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript"></code></pre>
+
+
+<h3>t_on_close_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript"></code></pre>
+
+
 <div class='vsv-descriptions'>on\_error
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>on\_error</div>
 
 
-<h3>t_vtype_input_of_start_websocket</h3>
+<h3>t_on_error_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_start_websocket:nargs()
-          </code></pre>
+<pre><code class="language-javascript"></code></pre>
 
 
-<h3>t_vtype_output_of_start_websocket</h3>
+<h3>t_on_error_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_start_websocket:any()
-          </code></pre>
+<pre><code class="language-javascript"></code></pre>
 
 
 <div class='vsv-descriptions'>start\_websocket
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>start\_websocket</div>
 
 
-<h3>t_vtype_input_of_stop_websocket</h3>
+<h3>t_start_websocket_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_stop_websocket:nargs()
+<pre><code class="language-javascript">          t_start_websocket_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_stop_websocket</h3>
+<h3>t_start_websocket_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_stop_websocket:any()
+<pre><code class="language-javascript">          t_start_websocket_output:any()
           </code></pre>
 
 
 <div class='vsv-descriptions'>stop\_websocket
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>stop\_websocket</div>
 
 
-<h3>t_vtype_input_of_reveal_identity_via_token</h3>
+<h3>t_stop_websocket_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_reveal_identity_via_token:array(
+<pre><code class="language-javascript">          t_stop_websocket_input:nargs()
+          </code></pre>
+
+
+<h3>t_stop_websocket_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_stop_websocket_output:any()
+          </code></pre>
+
+
+<div class='vsv-descriptions'>reveal\_identity\_via\_token
+-------------
+</div>
+
+
+<div class='vsv-descriptions'>reveal\_identity\_via\_token</div>
+
+
+<h3>t_reveal_identity_via_token_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_reveal_identity_via_token_input:array(
             object(
               token : string()
             )
@@ -2954,122 +2605,114 @@ See read\_accounts()</div>
           </code></pre>
 
 
-<h3>t_vtype_output_of_reveal_identity_via_token</h3>
+<h3>t_reveal_identity_via_token_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_reveal_identity_via_token:equals( << true >>  )
-          </code></pre>
-
-
-<div class='vsv-descriptions'>reveal\_identity\_via\_token
-========================
-</div>
-
-
-<div class='vsv-descriptions'>reveal\_identity\_via\_token</div>
-
-
-<h3>t_vtype_input_of_initialize_identity</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_initialize_identity:nargs()
-          </code></pre>
-
-
-<h3>t_vtype_output_of_initialize_identity</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_initialize_identity:equals( << true >>  )
+<pre><code class="language-javascript">          t_reveal_identity_via_token_output:equals( << true >>  )
           </code></pre>
 
 
 <div class='vsv-descriptions'>initialize\_identity
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>initialize\_identity</div>
 
 
-<h3>t_vtype_input_of_finalize_identity</h3>
+<h3>t_initialize_identity_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_finalize_identity:nargs()
+<pre><code class="language-javascript">          t_initialize_identity_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_finalize_identity</h3>
+<h3>t_initialize_identity_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_finalize_identity:equals( << true >>  )
+<pre><code class="language-javascript">          t_initialize_identity_output:equals( << true >>  )
           </code></pre>
 
 
 <div class='vsv-descriptions'>finalize\_identity
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>finalize\_identity</div>
 
 
-<h3>t_vtype_input_of_listen_database_channel</h3>
+<h3>t_finalize_identity_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_listen_database_channel:nargs(
-            channel_id : regexp(<< /^[0-9a-zA-Z_-]+$/ >> )
-          )
+<pre><code class="language-javascript">          t_finalize_identity_input:nargs()
           </code></pre>
 
 
-<h3>t_vtype_output_of_listen_database_channel</h3>
+<h3>t_finalize_identity_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_listen_database_channel:equals( << true >>  )
+<pre><code class="language-javascript">          t_finalize_identity_output:equals( << true >>  )
           </code></pre>
 
 
 <div class='vsv-descriptions'>listen\_database\_channel
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>listen\_database\_channel</div>
 
 
-<h3>t_vtype_input_of_unlisten_database_channel</h3>
+<h3>t_listen_database_channel_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_unlisten_database_channel:nargs(
-            channel_id : uuid()
+<pre><code class="language-javascript">          t_listen_database_channel_input:nargs(
+            channel_id : regexp(<< /^[0-9a-zA-Z_-]+$/ >> )
           )
           </code></pre>
 
 
-<h3>t_vtype_output_of_unlisten_database_channel</h3>
+<h3>t_listen_database_channel_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_unlisten_database_channel:equals( << true >>  )
+<pre><code class="language-javascript">          t_listen_database_channel_output:equals( << true >>  )
           </code></pre>
 
 
 <div class='vsv-descriptions'>unlisten\_database\_channel
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>unlisten\_database\_channel</div>
 
 
-<h3>t_vtype_input_of_unlisten_all_database_channel</h3>
+<h3>t_unlisten_database_channel_input</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_input_of_unlisten_all_database_channel:nargs()
+<pre><code class="language-javascript">          t_unlisten_database_channel_input:nargs(
+            channel_id : uuid()
+          )
           </code></pre>
 
 
-<h3>t_vtype_output_of_unlisten_all_database_channel</h3>
+<h3>t_unlisten_database_channel_output</h3>
 <div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_vtype_output_of_unlisten_all_database_channel:equals( << true >>  )
+<pre><code class="language-javascript">          t_unlisten_database_channel_output:equals( << true >>  )
           </code></pre>
 
 
 <div class='vsv-descriptions'>unlisten\_all\_database\_channel
-========================
+-------------
 </div>
 
 
 <div class='vsv-descriptions'>unlisten\_all\_database\_channel</div>
+
+
+<h3>t_unlisten_all_database_channel_input</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_unlisten_all_database_channel_input:nargs()
+          </code></pre>
+
+
+<h3>t_unlisten_all_database_channel_output</h3>
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_unlisten_all_database_channel_output:equals( << true >>  )
+          </code></pre>
 
 
     </body>

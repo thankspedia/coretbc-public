@@ -1,313 +1,23 @@
 
   Documentation
 =====================
-### t\_scope\_id ###
-t\_scope\_id is a type which consists two string constat values as following:
-- "local"
-- "global"
-
-```javascript
-      /*          
-      * t_scope_id is a type which consists two string constat values as following:
-      * - "local"
-      * - "global"
-      */
-      t_scope_id:and(
-        /*
-         * s
-         */
-        string(),
-        or(
-          equals( << 'local'  >>  ),
-          equals( << 'global' >>  ),
-        )
-      ),
-```
-
-### t\_valuable\_id ###
-t\_valuable\_id is a type of id which is used to specify
-a "valuable". In Thankspedia.js, a valuable could be
-a valuable thing such as a currency, a trading card
-or other valuable materials.
-
-```javascript
-      /*          
-      * t_valuable_id is a type of id which is used to specify
-      * a "valuable". In Thankspedia.js, a valuable could be
-      * a valuable thing such as a currency, a trading card
-      * or other valuable materials.
-      */
-      t_valuable_id:uuid(),
-```
-
-### t\_valuable\_script ###
-t\_valuable\_script is an ID which indicates the function of a valuable.
-The possible values of t\_valuable\_script is currently following:
-
-- check
-- valuable
-
-When the value is "check", the valuable is check as the meaning of banking
-system. In that case, the valuable must specify other properties such as
-drawee or owner of the valuable.
-
-When the value is "valuable", currently it is always a currency. In future,
-it is exntended to other materials such as drawings or trading cards.
-
-```javascript
-      /*          
-      * t_valuable_script is an ID which indicates the function of a valuable.
-      * The possible values of t_valuable_script is currently following:
-      *
-      * - check
-      * - valuable
-      *
-      * When the value is "check", the valuable is check as the meaning of banking
-      * system. In that case, the valuable must specify other properties such as
-      * drawee or owner of the valuable.
-      *
-      * When the value is "valuable", currently it is always a currency. In future,
-      * it is exntended to other materials such as drawings or trading cards.
-      */
-      t_valuable_script:string(),
-```
-
-### t\_timeline\_id ###
-t\_timeline\_id is an ID which specifies a timeline in the Thankspedia.js
-system. A timeline could be a timeline which is visible to a group and
-shared in order to exchange messages; a timeline could also be a
-notification message queue.
-
-```javascript
-      /*          
-      * t_timeline_id is an ID which specifies a timeline in the Thankspedia.js
-      * system. A timeline could be a timeline which is visible to a group and
-      * shared in order to exchange messages; a timeline could also be a
-      * notification message queue.
-      */
-      t_timeline_id:uuid(),
-```
-
-### t\_timelinename ###
-t\_timelinename is a human readable ID which specifies a timeline. This ID
-is specifically used to specify timelines in relative manner. The possible
-values are following:
-
-- global\_public\_output\_timeline
-- global\_public\_input\_timeline
-- global\_public\_notify\_timeline
-- global\_private\_output\_timeline
-- global\_private\_input\_timeline
-- global\_private\_notify\_timeline
-- local\_public\_output\_timeline
-- local\_public\_input\_timeline
-- local\_public\_notify\_timeline
-- local\_private\_output\_timeline
-- local\_private\_input\_timeline
-- local\_private\_notify\_timeline
-
-```javascript
-      /*          
-      * t_timelinename is a human readable ID which specifies a timeline. This ID
-      * is specifically used to specify timelines in relative manner. The possible
-      * values are following:
-      *
-      * - global_public_output_timeline
-      * - global_public_input_timeline
-      * - global_public_notify_timeline
-      * - global_private_output_timeline
-      * - global_private_input_timeline
-      * - global_private_notify_timeline
-      * - local_public_output_timeline
-      * - local_public_input_timeline
-      * - local_public_notify_timeline
-      * - local_private_output_timeline
-      * - local_private_input_timeline
-      * - local_private_notify_timeline
-      *
-      */
-      t_timelinename:string(),
-```
-
-### t\_profile\_id ###
-t\_profile\_id is a type of IDs which specify profiles.  Note that In
-`Thankspedia.js` a user can hold multiple profiles; a profile is always
-attached to a timeline; and a timeline is always attached to a user. And A
-user has multiple timelines.
-
-For further information, see the tBC database definition.
-
-```javascript
-      /*          
-      * t_profile_id is a type of IDs which specify profiles.  Note that In
-      * `Thankspedia.js` a user can hold multiple profiles; a profile is always
-      * attached to a timeline; and a timeline is always attached to a user. And A
-      * user has multiple timelines.
-      *
-      * For further information, see the tBC database definition.
-      */
-      t_profile_id:uuid(),
-```
-
-### t\_has\_profile\_id ###
-The type `t\_has\_profile\_id` guarantees that the specified object has
-`profile\_id` property and its value is a proper value which is denoted
-by the type `t\_profile\_id`.
-
-```javascript
-      /*          
-      * The type `t_has_profile_id` guarantees that the specified object has
-      * `profile_id` property and its value is a proper value which is denoted
-      * by the type `t_profile_id`.
-      */
-      t_has_profile_id:object(
-        profile_id : t_profile_id(),
-      )
-
-```
-
-### t\_username\_or\_user\_id ###
-t\_username\_or\_user\_id is a utility type which indicates the object has
-either `user\_id` or `username`.
-
-```javascript
-      /*          
-      * t_username_or_user_id is a utility type which indicates the object has
-      * either `user_id` or `username`.
-      */
-      t_username_or_user_id:or(
-        object(
-          user_id : t_user_id(),
-        ),
-        object(
-          username : t_username(),
-        ),
-      )
-
-```
-
-### t\_tbl\_user\_member\_timelines ###
-t\_tbl\_user\_member\_timelines is a type which represents a row record
-of the table `user\_member\_timelines`.
-
-```javascript
-      /*          
-      * t_tbl_user_member_timelines is a type which represents a row record
-      * of the table `user_member_timelines`.
-      */
-      t_tbl_user_member_timelines:object(
-        user_id        : t_user_id(),
-        member_user_id : t_user_id(),
-        timelinename   : string(),
-        timeline_id    : t_timeline_id(),
-      )
-
-```
-
-### t\_tbl\_user\_timelines ###
-t\_tbl\_user\_timelines is a type which represetns a row record
-of the table `user\_timelines`.
-
-```javascript
-      /*          
-      * t_tbl_user_timelines is a type which represetns a row record
-      * of the table `user_timelines`.
-      */
-      t_tbl_user_timelines:object(
-        user_id        : t_user_id(),
-        timelinename   : string(),
-        timeline_id    : t_timeline_id(),
-      )
-
-```
-
-### t\_message\_template\_id ###
-t\_message\_template\_id is an enumeration type. A value of
-t\_message\_template\_id is indicates one of the predefined template
-messages. These template messages are usually used in notification
-timelines.
-
-```javascript
-      /*          
-      * t_message_template_id is an enumeration type. A value of
-      * t_message_template_id is indicates one of the predefined template
-      * messages. These template messages are usually used in notification
-      * timelines.
-      */
-      t_message_template_id:or(
-        equals( << "message_test"               >>  ),
-        equals( << "message_sent_valuables"     >>  ),
-        equals( << "message_received_valuables" >>  ),
-        equals( << "message_offered_valuables"  >>  ),
-        equals( << "message_acquired_valuables" >>  ),
-        equals( << "message_got_valuables"      >>  ),
-        equals( << "message_mentioned"          >>  ),
-        equals( << "message_liked"              >>  ),
-        equals( << "message_reacted"            >>  ),
-        equals( << "message_replied"            >>  ),
-        equals( << "message_unknown"            >>  ),
-        equals( << "message_error"              >>  ),
-      )
-
-```
-
-### t\_message\_json ###
-t\_message\_json is a type which represents the data formats of the
-arguments which are applied to each predefined templatem message.
-
-```javascript
-      /*          
-      * t_message_json is a type which represents the data formats of the
-      * arguments which are applied to each predefined templatem message.
-      */
-      t_message_json:object(
-        /*
-         * - message_template_id: the message id to be shown in the timeline.
-         * - subject_user: information of the user who sent the message.
-         * - target_user: information of the user who is sent the message.
-         * - message_template_id: a row record of the sent valuable.
-         */
-        message_template_id : t_message_template_id(),
-        subject_user : object(),
-        target_user : object(),
-        valuable : t_tbl_valuable(),
-      ),
-```
-
-### t\_read\_accounts\_mode ###
-t\_read\_accounts\_mode is a enumeration type which specifies
-the mode when a user calls read\_accounts() method.
-
-See read\_accounts()
-
-```javascript
-      /*          
-      * t_read_accounts_mode is a enumeration type which specifies
-      * the mode when a user calls read_accounts() method.
-      *
-      * See read_accounts()
-      */
-      t_read_accounts_mode:and(
-        string(),
-        or(
-          equals( << 'parents'  >>  ),
-          equals( << 'children' >>  ),
-          equals( << 'accounts'  >>  ),
-        )
-      ),
-```
 
 get\_intl\_message
 ----------------
 
-### t\_vtype\_input\_of\_get\_intl\_message ###
+get\_intl\_message
+-------------
+
+get\_intl\_message
+
+### t\_get\_intl\_message\_input ###
 test FOOOO
 
 ```javascript
       /*          
       * test FOOOO
       */
-      t_vtype_input_of_get_intl_message:array(
+      t_get_intl_message_input:array(
         or(
           object(
             path    : array_of( string() ),
@@ -317,22 +27,22 @@ test FOOOO
       )
 ```
 
-### t\_vtype\_output\_of\_get\_intl\_message ###
+### t\_get\_intl\_message\_output ###
 
 ```javascript
-      t_vtype_output_of_get_intl_message:any()
+      t_get_intl_message_output:any()
 
 ```
 
-get\_intl\_message
-========================
+get\_intl\_messages
+-------------
 
-get\_intl\_message
+get\_intl\_messages
 
-### t\_vtype\_input\_of\_get\_intl\_messages ###
+### t\_get\_intl\_messages\_input ###
 
 ```javascript
-      t_vtype_input_of_get_intl_messages:array(
+      t_get_intl_messages_input:array(
         or(
           object(
             lang_id : or( string(), null() ),
@@ -341,39 +51,39 @@ get\_intl\_message
       )
 ```
 
-### t\_vtype\_output\_of\_get\_intl\_messages ###
+### t\_get\_intl\_messages\_output ###
 
 ```javascript
-      t_vtype_output_of_get_intl_messages:any()
+      t_get_intl_messages_output:any()
 
-```
-
-get\_intl\_messages
-========================
-
-get\_intl\_messages
-
-### t\_vtype\_input\_of\_get\_available\_intl\_messages ###
-
-```javascript
-      t_vtype_input_of_get_available_intl_messages:array( string() )
-```
-
-### t\_vtype\_output\_of\_get\_available\_intl\_messages ###
-
-```javascript
-      t_vtype_output_of_get_available_intl_messages:array_of( any() )
 ```
 
 get\_available\_intl\_messages
-========================
+-------------
 
 get\_available\_intl\_messages
 
-### t\_vtype\_input\_of\_create\_or\_update\_user ###
+### t\_get\_available\_intl\_messages\_input ###
 
 ```javascript
-      t_vtype_input_of_create_or_update_user:nargs(
+      t_get_available_intl_messages_input:array( string() )
+```
+
+### t\_get\_available\_intl\_messages\_output ###
+
+```javascript
+      t_get_available_intl_messages_output:array_of( any() )
+```
+
+create\_or\_update\_user
+-------------
+
+create\_or\_update\_user
+
+### t\_create\_or\_update\_user\_input ###
+
+```javascript
+      t_create_or_update_user_input:nargs(
         user : object(
           username : string(),
         ),
@@ -381,34 +91,34 @@ get\_available\_intl\_messages
 
 ```
 
-### t\_vtype\_output\_of\_create\_or\_update\_user ###
+### t\_create\_or\_update\_user\_output ###
 
 ```javascript
-      t_vtype_output_of_create_or_update_user:object(
+      t_create_or_update_user_output:object(
         user : object(
           username : string(),
         ),
       ),
 ```
 
-create\_or\_update\_user
-========================
+delete\_user
+-------------
 
-create\_or\_update\_user
+delete\_user
 
-### t\_vtype\_input\_of\_delete\_user ###
+### t\_delete\_user\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_user:nargs(
+      t_delete_user_input:nargs(
         user : t_username_or_user_id(),
       )
 
 ```
 
-### t\_vtype\_output\_of\_delete\_user ###
+### t\_delete\_user\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_user:object(
+      t_delete_user_output:object(
         user : object(
           user_id  : t_user_id(),
           username : t_username(),
@@ -416,79 +126,79 @@ create\_or\_update\_user
       ),
 ```
 
-delete\_user
-========================
-
-delete\_user
-
-### t\_vtype\_input\_of\_delete\_multiple\_users ###
-
-```javascript
-      t_vtype_input_of_delete_multiple_users:nargs()
-
-```
-
-### t\_vtype\_output\_of\_delete\_multiple\_users ###
-
-```javascript
-      t_vtype_output_of_delete_multiple_users:any()
-
-```
-
 delete\_multiple\_users
-========================
+-------------
 
 delete\_multiple\_users
 
-### t\_vtype\_input\_of\_has\_user ###
+### t\_delete\_multiple\_users\_input ###
 
 ```javascript
-      t_vtype_input_of_has_user:nargs()
+      t_delete_multiple_users_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_has\_user ###
+### t\_delete\_multiple\_users\_output ###
 
 ```javascript
-      t_vtype_output_of_has_user:any()
+      t_delete_multiple_users_output:any()
 
 ```
 
 has\_user
-========================
+-------------
 
 has\_user
 
-### t\_vtype\_input\_of\_has\_username ###
+### t\_has\_user\_input ###
 
 ```javascript
-      t_vtype_input_of_has_username:nargs()
+      t_has_user_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_has\_username ###
+### t\_has\_user\_output ###
 
 ```javascript
-      t_vtype_output_of_has_username:any()
+      t_has_user_output:any()
 
 ```
 
 has\_username
-========================
+-------------
 
 has\_username
 
-### t\_vtype\_input\_of\_read\_user ###
+### t\_has\_username\_input ###
 
 ```javascript
-      t_vtype_input_of_read_user:nargs()
+      t_has_username_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_user ###
+### t\_has\_username\_output ###
 
 ```javascript
-      t_vtype_output_of_read_user:object(
+      t_has_username_output:any()
+
+```
+
+read\_user
+-------------
+
+read\_user
+
+### t\_read\_user\_input ###
+
+```javascript
+      t_read_user_input:nargs()
+
+```
+
+### t\_read\_user\_output ###
+
+```javascript
+      t_read_user_output:object(
         user : or(
           object(
             user_id :t_user_id() ,
@@ -502,209 +212,209 @@ has\_username
 
 ```
 
-read\_user
-========================
-
-read\_user
-
-### t\_vtype\_input\_of\_user\_id2username ###
-
-```javascript
-      t_vtype_input_of_user_id2username:nargs()
-
-```
-
-### t\_vtype\_output\_of\_user\_id2username ###
-
-```javascript
-      t_vtype_output_of_user_id2username:any()
-
-```
-
 user\_id2username
-========================
+-------------
 
 user\_id2username
 
-### t\_vtype\_input\_of\_username2user\_id ###
+### t\_user\_id2username\_input ###
 
 ```javascript
-      t_vtype_input_of_username2user_id:nargs(
+      t_user_id2username_input:nargs()
+
+```
+
+### t\_user\_id2username\_output ###
+
+```javascript
+      t_user_id2username_output:any()
+
+```
+
+username2user\_id
+-------------
+
+username2user\_id
+
+### t\_username2user\_id\_input ###
+
+```javascript
+      t_username2user_id_input:nargs(
         username : t_username(),
       )
 
 ```
 
-### t\_vtype\_output\_of\_username2user\_id ###
+### t\_username2user\_id\_output ###
 
 ```javascript
-      t_vtype_output_of_username2user_id:object(
+      t_username2user_id_output:object(
         user_id: t_user_id(),
       )
 
 ```
 
-username2user\_id
-========================
-
-username2user\_id
-
-### t\_vtype\_input\_of\_read\_all\_users ###
-
-```javascript
-      t_vtype_input_of_read_all_users:nargs()
-
-```
-
-### t\_vtype\_output\_of\_read\_all\_users ###
-
-```javascript
-      t_vtype_output_of_read_all_users:any()
-
-```
-
 read\_all\_users
-========================
+-------------
 
 read\_all\_users
 
-### t\_vtype\_input\_of\_count\_all\_users ###
+### t\_read\_all\_users\_input ###
 
 ```javascript
-      t_vtype_input_of_count_all_users:nargs()
+      t_read_all_users_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_count\_all\_users ###
+### t\_read\_all\_users\_output ###
 
 ```javascript
-      t_vtype_output_of_count_all_users:any()
+      t_read_all_users_output:any()
 
 ```
 
 count\_all\_users
-========================
+-------------
 
 count\_all\_users
 
-### t\_vtype\_input\_of\_create\_or\_update\_user\_authentication ###
+### t\_count\_all\_users\_input ###
 
 ```javascript
-      t_vtype_input_of_create_or_update_user_authentication:nargs()
+      t_count_all_users_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_create\_or\_update\_user\_authentication ###
+### t\_count\_all\_users\_output ###
 
 ```javascript
-      t_vtype_output_of_create_or_update_user_authentication:any()
+      t_count_all_users_output:any()
 
 ```
 
 create\_or\_update\_user\_authentication
-========================
+-------------
 
 create\_or\_update\_user\_authentication
 
-### t\_vtype\_input\_of\_update\_user\_authentication ###
+### t\_create\_or\_update\_user\_authentication\_input ###
 
 ```javascript
-      t_vtype_input_of_update_user_authentication:nargs()
+      t_create_or_update_user_authentication_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_update\_user\_authentication ###
+### t\_create\_or\_update\_user\_authentication\_output ###
 
 ```javascript
-      t_vtype_output_of_update_user_authentication:any()
+      t_create_or_update_user_authentication_output:any()
 
 ```
 
 update\_user\_authentication
-========================
+-------------
 
 update\_user\_authentication
 
-### t\_vtype\_input\_of\_read\_user\_authentication ###
+### t\_update\_user\_authentication\_input ###
 
 ```javascript
-      t_vtype_input_of_read_user_authentication:nargs()
+      t_update_user_authentication_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_user\_authentication ###
+### t\_update\_user\_authentication\_output ###
 
 ```javascript
-      t_vtype_output_of_read_user_authentication:any()
+      t_update_user_authentication_output:any()
 
 ```
 
 read\_user\_authentication
-========================
+-------------
 
 read\_user\_authentication
 
-### t\_vtype\_input\_of\_delete\_user\_authentication ###
+### t\_read\_user\_authentication\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_user_authentication:nargs()
+      t_read_user_authentication_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_delete\_user\_authentication ###
+### t\_read\_user\_authentication\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_user_authentication:any()
+      t_read_user_authentication_output:any()
 
 ```
 
 delete\_user\_authentication
-========================
+-------------
 
 delete\_user\_authentication
 
-### t\_vtype\_input\_of\_read\_all\_user\_authentications ###
+### t\_delete\_user\_authentication\_input ###
 
 ```javascript
-      t_vtype_input_of_read_all_user_authentications:nargs()
+      t_delete_user_authentication_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_all\_user\_authentications ###
+### t\_delete\_user\_authentication\_output ###
 
 ```javascript
-      t_vtype_output_of_read_all_user_authentications:any()
+      t_delete_user_authentication_output:any()
 
 ```
 
 read\_all\_user\_authentications
-========================
+-------------
 
 read\_all\_user\_authentications
 
-### t\_vtype\_input\_of\_get\_parent\_users ###
+### t\_read\_all\_user\_authentications\_input ###
 
 ```javascript
-      t_vtype_input_of_get_parent_users:nargs()
+      t_read_all_user_authentications_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_get\_parent\_users ###
+### t\_read\_all\_user\_authentications\_output ###
 
 ```javascript
-      t_vtype_output_of_get_parent_users:any()
+      t_read_all_user_authentications_output:any()
 
 ```
 
 get\_parent\_users
-========================
+-------------
 
 get\_parent\_users
 
-### t\_vtype\_input\_of\_get\_wallet\_contents ###
+### t\_get\_parent\_users\_input ###
 
 ```javascript
-      t_vtype_input_of_get_wallet_contents:fold_right(
+      t_get_parent_users_input:nargs()
+
+```
+
+### t\_get\_parent\_users\_output ###
+
+```javascript
+      t_get_parent_users_output:any()
+
+```
+
+get\_wallet\_contents
+-------------
+
+get\_wallet\_contents
+
+### t\_get\_wallet\_contents\_input ###
+
+```javascript
+      t_get_wallet_contents_input:fold_right(
         or(
           object(
             username : t_username(),
@@ -716,10 +426,10 @@ get\_parent\_users
       ),
 ```
 
-### t\_vtype\_output\_of\_get\_wallet\_contents ###
+### t\_get\_wallet\_contents\_output ###
 
 ```javascript
-      t_vtype_output_of_get_wallet_contents:array_of(
+      t_get_wallet_contents_output:array_of(
         object(
           wallet_id   : uuid(),
           valuable_id : uuid(),
@@ -730,74 +440,86 @@ get\_parent\_users
 
 ```
 
-get\_wallet\_contents
-========================
-
-get\_wallet\_contents
-
 abstract\_login
-========================
+-------------
 
 abstract\_login
 
-### t\_vtype\_input\_of\_abstract\_login\_information ###
+### t\_abstract\_login\_input ###
 
 ```javascript
-      t_vtype_input_of_abstract_login_information:array(t_user_identity_token())
+
 ```
 
-### t\_vtype\_output\_of\_abstract\_login\_information ###
+### t\_abstract\_login\_output ###
 
 ```javascript
-      t_vtype_output_of_abstract_login_information:t_user_login_info()
+
 ```
 
 abstract\_login\_information
-========================
+-------------
 
 abstract\_login\_information
 
-### t\_vtype\_input\_of\_abstract\_switch\_current\_user ###
+### t\_abstract\_login\_information\_input ###
 
 ```javascript
-      t_vtype_input_of_abstract_switch_current_user:nargs()
-
+      t_abstract_login_information_input:array(t_user_identity_token())
 ```
 
-### t\_vtype\_output\_of\_abstract\_switch\_current\_user ###
+### t\_abstract\_login\_information\_output ###
 
 ```javascript
-      t_vtype_output_of_abstract_switch_current_user:boolean()
+      t_abstract_login_information_output:t_user_login_info()
 ```
 
 abstract\_switch\_current\_user
-========================
+-------------
 
 abstract\_switch\_current\_user
 
-### t\_vtype\_input\_of\_read\_user\_member ###
+### t\_abstract\_switch\_current\_user\_input ###
 
 ```javascript
-      t_vtype_input_of_read_user_member:nargs()
+      t_abstract_switch_current_user_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_user\_member ###
+### t\_abstract\_switch\_current\_user\_output ###
 
 ```javascript
-      t_vtype_output_of_read_user_member:any()
-
+      t_abstract_switch_current_user_output:boolean()
 ```
 
 read\_user\_member
-========================
+-------------
 
 read\_user\_member
 
-### t\_vtype\_input\_of\_var\_ensure\_user\_id ###
+### t\_read\_user\_member\_input ###
 
 ```javascript
-      t_vtype_input_of_var_ensure_user_id:array(
+      t_read_user_member_input:nargs()
+
+```
+
+### t\_read\_user\_member\_output ###
+
+```javascript
+      t_read_user_member_output:any()
+
+```
+
+var\_ensure\_user\_id
+-------------
+
+var\_ensure\_user\_id
+
+### t\_var\_ensure\_user\_id\_input ###
+
+```javascript
+      t_var_ensure_user_id_input:array(
         or(
           object(
             user_id : uuid(),
@@ -809,25 +531,25 @@ read\_user\_member
       )
 ```
 
-### t\_vtype\_output\_of\_var\_ensure\_user\_id ###
+### t\_var\_ensure\_user\_id\_output ###
 
 ```javascript
-      t_vtype_output_of_var_ensure_user_id:object(
+      t_var_ensure_user_id_output:object(
         user_id  : or( t_user_id(),  null()      ),
         username : or( t_username(), undefined() ),
       )
 
 ```
 
-var\_ensure\_user\_id
-========================
+var\_ensure\_member\_user\_id
+-------------
 
-var\_ensure\_user\_id
+var\_ensure\_member\_user\_id
 
-### t\_vtype\_input\_of\_var\_ensure\_member\_user\_id ###
+### t\_var\_ensure\_member\_user\_id\_input ###
 
 ```javascript
-      t_vtype_input_of_var_ensure_member_user_id:array(
+      t_var_ensure_member_user_id_input:array(
         or(
           object(
             member_user_id  : uuid(),
@@ -840,256 +562,256 @@ var\_ensure\_user\_id
 
 ```
 
-### t\_vtype\_output\_of\_var\_ensure\_member\_user\_id ###
+### t\_var\_ensure\_member\_user\_id\_output ###
 
 ```javascript
-      t_vtype_output_of_var_ensure_member_user_id:object(
+      t_var_ensure_member_user_id_output:object(
         member_user_id  : or( t_user_id(), null() ),
         member_username : or( t_username(), undefined() ),
       )
 
 ```
 
-var\_ensure\_member\_user\_id
-========================
-
-var\_ensure\_member\_user\_id
-
-### t\_vtype\_input\_of\_create\_or\_update\_user\_member ###
-
-```javascript
-      t_vtype_input_of_create_or_update_user_member:nargs()
-
-```
-
-### t\_vtype\_output\_of\_create\_or\_update\_user\_member ###
-
-```javascript
-      t_vtype_output_of_create_or_update_user_member:any()
-
-```
-
 create\_or\_update\_user\_member
-========================
+-------------
 
 create\_or\_update\_user\_member
 
-### t\_vtype\_input\_of\_delete\_user\_member ###
+### t\_create\_or\_update\_user\_member\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_user_member:nargs()
+      t_create_or_update_user_member_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_delete\_user\_member ###
+### t\_create\_or\_update\_user\_member\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_user_member:any()
+      t_create_or_update_user_member_output:any()
 
 ```
 
 delete\_user\_member
-========================
+-------------
 
 delete\_user\_member
 
-### t\_vtype\_input\_of\_delete\_multiple\_user\_members ###
+### t\_delete\_user\_member\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_multiple_user_members:nargs()
+      t_delete_user_member_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_delete\_multiple\_user\_members ###
+### t\_delete\_user\_member\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_multiple_user_members:any()
+      t_delete_user_member_output:any()
 
 ```
 
 delete\_multiple\_user\_members
-========================
+-------------
 
 delete\_multiple\_user\_members
 
-### t\_vtype\_input\_of\_read\_filtered\_user\_members ###
+### t\_delete\_multiple\_user\_members\_input ###
 
 ```javascript
-      t_vtype_input_of_read_filtered_user_members:nargs()
+      t_delete_multiple_user_members_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_filtered\_user\_members ###
+### t\_delete\_multiple\_user\_members\_output ###
 
 ```javascript
-      t_vtype_output_of_read_filtered_user_members:any()
+      t_delete_multiple_user_members_output:any()
 
 ```
 
 read\_filtered\_user\_members
-========================
+-------------
 
 read\_filtered\_user\_members
 
-### t\_vtype\_input\_of\_read\_accounts ###
+### t\_read\_filtered\_user\_members\_input ###
 
 ```javascript
-      t_vtype_input_of_read_accounts:nargs(
+      t_read_filtered_user_members_input:nargs()
+
+```
+
+### t\_read\_filtered\_user\_members\_output ###
+
+```javascript
+      t_read_filtered_user_members_output:any()
+
+```
+
+read\_accounts
+-------------
+
+read\_accounts
+
+### t\_read\_accounts\_input ###
+
+```javascript
+      t_read_accounts_input:nargs(
         username : or( t_username(), null() ),
         mode     : or( t_read_accounts_mode(), null() ),
       )
 
 ```
 
-### t\_vtype\_output\_of\_read\_accounts ###
+### t\_read\_accounts\_output ###
 
 ```javascript
-      t_vtype_output_of_read_accounts:any()
-
-```
-
-read\_accounts
-========================
-
-read\_accounts
-
-### t\_vtype\_input\_of\_create\_or\_update\_account ###
-
-```javascript
-      t_vtype_input_of_create_or_update_account:nargs()
-
-```
-
-### t\_vtype\_output\_of\_create\_or\_update\_account ###
-
-```javascript
-      t_vtype_output_of_create_or_update_account:any()
+      t_read_accounts_output:any()
 
 ```
 
 create\_or\_update\_account
-========================
+-------------
 
 create\_or\_update\_account
 
-### t\_vtype\_input\_of\_create\_or\_update\_accounts ###
+### t\_create\_or\_update\_account\_input ###
 
 ```javascript
-      t_vtype_input_of_create_or_update_accounts:nargs()
+      t_create_or_update_account_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_create\_or\_update\_accounts ###
+### t\_create\_or\_update\_account\_output ###
 
 ```javascript
-      t_vtype_output_of_create_or_update_accounts:any()
+      t_create_or_update_account_output:any()
 
 ```
 
 create\_or\_update\_accounts
-========================
+-------------
 
 create\_or\_update\_accounts
 
-### t\_vtype\_input\_of\_create\_message ###
+### t\_create\_or\_update\_accounts\_input ###
 
 ```javascript
-      t_vtype_input_of_create_message:nargs()
+      t_create_or_update_accounts_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_create\_message ###
+### t\_create\_or\_update\_accounts\_output ###
 
 ```javascript
-      t_vtype_output_of_create_message:any()
+      t_create_or_update_accounts_output:any()
 
 ```
 
 create\_message
-========================
+-------------
 
 create\_message
 
-### t\_vtype\_input\_of\_write\_message ###
+### t\_create\_message\_input ###
 
 ```javascript
-      t_vtype_input_of_write_message:nargs()
+      t_create_message_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_write\_message ###
+### t\_create\_message\_output ###
 
 ```javascript
-      t_vtype_output_of_write_message:any()
+      t_create_message_output:any()
 
 ```
 
 write\_message
-========================
+-------------
 
 write\_message
 
-### t\_vtype\_input\_of\_read\_message ###
+### t\_write\_message\_input ###
 
 ```javascript
-      t_vtype_input_of_read_message:nargs()
+      t_write_message_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_message ###
+### t\_write\_message\_output ###
 
 ```javascript
-      t_vtype_output_of_read_message:any()
+      t_write_message_output:any()
 
 ```
 
 read\_message
-========================
+-------------
 
 read\_message
 
-### t\_vtype\_input\_of\_delete\_message ###
+### t\_read\_message\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_message:nargs()
+      t_read_message_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_delete\_message ###
+### t\_read\_message\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_message:any()
+      t_read_message_output:any()
 
 ```
 
 delete\_message
-========================
+-------------
 
 delete\_message
 
-### t\_vtype\_input\_of\_test\_stored\_procedure ###
+### t\_delete\_message\_input ###
 
 ```javascript
-      t_vtype_input_of_test_stored_procedure:nargs()
+      t_delete_message_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_test\_stored\_procedure ###
+### t\_delete\_message\_output ###
 
 ```javascript
-      t_vtype_output_of_test_stored_procedure:any()
+      t_delete_message_output:any()
 
 ```
 
 test\_stored\_procedure
-========================
+-------------
 
 test\_stored\_procedure
 
-### t\_vtype\_input\_of\_create\_timeline ###
+### t\_test\_stored\_procedure\_input ###
 
 ```javascript
-      t_vtype_input_of_create_timeline:nargs(
+      t_test_stored_procedure_input:nargs()
+
+```
+
+### t\_test\_stored\_procedure\_output ###
+
+```javascript
+      t_test_stored_procedure_output:any()
+
+```
+
+create\_timeline
+-------------
+
+create\_timeline
+
+### t\_create\_timeline\_input ###
+
+```javascript
+      t_create_timeline_input:nargs(
         timeline : or(
           object(),
           object(
@@ -1100,79 +822,79 @@ test\_stored\_procedure
 
 ```
 
-### t\_vtype\_output\_of\_create\_timeline ###
+### t\_create\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_create_timeline:any()
-
-```
-
-create\_timeline
-========================
-
-create\_timeline
-
-### t\_vtype\_input\_of\_read\_timeline ###
-
-```javascript
-      t_vtype_input_of_read_timeline:nargs()
-
-```
-
-### t\_vtype\_output\_of\_read\_timeline ###
-
-```javascript
-      t_vtype_output_of_read_timeline:any()
+      t_create_timeline_output:any()
 
 ```
 
 read\_timeline
-========================
+-------------
 
 read\_timeline
 
-### t\_vtype\_input\_of\_delete\_timeline ###
+### t\_read\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_timeline:nargs()
+      t_read_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_delete\_timeline ###
+### t\_read\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_timeline:any()
+      t_read_timeline_output:any()
 
 ```
 
 delete\_timeline
-========================
+-------------
 
 delete\_timeline
 
-### t\_vtype\_input\_of\_read\_view\_timeline\_and\_profile ###
+### t\_delete\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_read_view_timeline_and_profile:nargs()
+      t_delete_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_view\_timeline\_and\_profile ###
+### t\_delete\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_read_view_timeline_and_profile:any()
+      t_delete_timeline_output:any()
 
 ```
 
 read\_view\_timeline\_and\_profile
-========================
+-------------
 
 read\_view\_timeline\_and\_profile
 
-### t\_vtype\_input\_of\_create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile ###
+### t\_read\_view\_timeline\_and\_profile\_input ###
 
 ```javascript
-      t_vtype_input_of_create_or_update_view_user_and_user_timeline_and_timeline_and_profile:fold_right(
+      t_read_view_timeline_and_profile_input:nargs()
+
+```
+
+### t\_read\_view\_timeline\_and\_profile\_output ###
+
+```javascript
+      t_read_view_timeline_and_profile_output:any()
+
+```
+
+create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile
+-------------
+
+create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile
+
+### t\_create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile\_input ###
+
+```javascript
+      t_create_or_update_view_user_and_user_timeline_and_timeline_and_profile_input:fold_right(
         and(
           t_username_or_user_id(),
           object(
@@ -1188,440 +910,440 @@ read\_view\_timeline\_and\_profile
 
 ```
 
-### t\_vtype\_output\_of\_create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile ###
+### t\_create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile\_output ###
 
 ```javascript
-      t_vtype_output_of_create_or_update_view_user_and_user_timeline_and_timeline_and_profile:any()
-
-```
-
-create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile
-========================
-
-create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile
-
-### t\_vtype\_input\_of\_create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile ###
-
-```javascript
-      t_vtype_input_of_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile:nargs()
-
-```
-
-### t\_vtype\_output\_of\_create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile ###
-
-```javascript
-      t_vtype_output_of_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile:any()
+      t_create_or_update_view_user_and_user_timeline_and_timeline_and_profile_output:any()
 
 ```
 
 create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
-========================
+-------------
 
 create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
 
-### t\_vtype\_input\_of\_read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile ###
+### t\_create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile\_input ###
 
 ```javascript
-      t_vtype_input_of_read_view_users_and_user_timeline_and_timeline_and_profile:nargs()
+      t_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile ###
+### t\_create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile\_output ###
 
 ```javascript
-      t_vtype_output_of_read_view_users_and_user_timeline_and_timeline_and_profile:any()
+      t_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile_output:any()
 
 ```
 
 read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile
-========================
+-------------
 
 read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile
 
-### t\_vtype\_input\_of\_read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile ###
+### t\_read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile\_input ###
 
 ```javascript
-      t_vtype_input_of_read_view_user_member_and_user_timeline_and_timeline_and_profile:nargs()
+      t_read_view_users_and_user_timeline_and_timeline_and_profile_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile ###
+### t\_read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile\_output ###
 
 ```javascript
-      t_vtype_output_of_read_view_user_member_and_user_timeline_and_timeline_and_profile:any()
+      t_read_view_users_and_user_timeline_and_timeline_and_profile_output:any()
 
 ```
 
 read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
-========================
+-------------
 
 read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
 
-### t\_vtype\_input\_of\_user\_timelines\_to\_object ###
+### t\_read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile\_input ###
 
 ```javascript
-      t_vtype_input_of_user_timelines_to_object:nargs()
+      t_read_view_user_member_and_user_timeline_and_timeline_and_profile_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_user\_timelines\_to\_object ###
+### t\_read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile\_output ###
 
 ```javascript
-      t_vtype_output_of_user_timelines_to_object:any()
+      t_read_view_user_member_and_user_timeline_and_timeline_and_profile_output:any()
 
 ```
 
 user\_timelines\_to\_object
-========================
+-------------
 
 user\_timelines\_to\_object
 
-### t\_vtype\_input\_of\_object\_to\_user\_timelines ###
+### t\_user\_timelines\_to\_object\_input ###
 
 ```javascript
-      t_vtype_input_of_object_to_user_timelines:nargs()
+      t_user_timelines_to_object_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_object\_to\_user\_timelines ###
+### t\_user\_timelines\_to\_object\_output ###
 
 ```javascript
-      t_vtype_output_of_object_to_user_timelines:any()
+      t_user_timelines_to_object_output:any()
 
 ```
 
 object\_to\_user\_timelines
-========================
+-------------
 
 object\_to\_user\_timelines
 
-### t\_vtype\_input\_of\_create\_or\_update\_profile ###
+### t\_object\_to\_user\_timelines\_input ###
 
 ```javascript
-      t_vtype_input_of_create_or_update_profile:nargs()
+      t_object_to_user_timelines_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_create\_or\_update\_profile ###
+### t\_object\_to\_user\_timelines\_output ###
 
 ```javascript
-      t_vtype_output_of_create_or_update_profile:any()
+      t_object_to_user_timelines_output:any()
 
 ```
 
 create\_or\_update\_profile
-========================
+-------------
 
 create\_or\_update\_profile
 
-### t\_vtype\_input\_of\_read\_profile ###
+### t\_create\_or\_update\_profile\_input ###
 
 ```javascript
-      t_vtype_input_of_read_profile:nargs()
+      t_create_or_update_profile_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_profile ###
+### t\_create\_or\_update\_profile\_output ###
 
 ```javascript
-      t_vtype_output_of_read_profile:any()
+      t_create_or_update_profile_output:any()
 
 ```
 
 read\_profile
-========================
+-------------
 
 read\_profile
 
-### t\_vtype\_input\_of\_delete\_profile ###
+### t\_read\_profile\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_profile:nargs()
+      t_read_profile_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_delete\_profile ###
+### t\_read\_profile\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_profile:any()
+      t_read_profile_output:any()
 
 ```
 
 delete\_profile
-========================
+-------------
 
 delete\_profile
 
-### t\_vtype\_input\_of\_create\_timeline\_content ###
+### t\_delete\_profile\_input ###
 
 ```javascript
-      t_vtype_input_of_create_timeline_content:nargs()
+      t_delete_profile_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_create\_timeline\_content ###
+### t\_delete\_profile\_output ###
 
 ```javascript
-      t_vtype_output_of_create_timeline_content:any()
+      t_delete_profile_output:any()
 
 ```
 
 create\_timeline\_content
-========================
+-------------
 
 create\_timeline\_content
 
-### t\_vtype\_input\_of\_read\_timeline\_content ###
+### t\_create\_timeline\_content\_input ###
 
 ```javascript
-      t_vtype_input_of_read_timeline_content:nargs()
+      t_create_timeline_content_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_timeline\_content ###
+### t\_create\_timeline\_content\_output ###
 
 ```javascript
-      t_vtype_output_of_read_timeline_content:any()
+      t_create_timeline_content_output:any()
 
 ```
 
 read\_timeline\_content
-========================
+-------------
 
 read\_timeline\_content
 
-### t\_vtype\_input\_of\_delete\_timeline\_content ###
+### t\_read\_timeline\_content\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_timeline_content:nargs()
+      t_read_timeline_content_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_delete\_timeline\_content ###
+### t\_read\_timeline\_content\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_timeline_content:any()
+      t_read_timeline_content_output:any()
 
 ```
 
 delete\_timeline\_content
-========================
+-------------
 
 delete\_timeline\_content
 
-### t\_vtype\_input\_of\_is\_timeline\_following ###
+### t\_delete\_timeline\_content\_input ###
 
 ```javascript
-      t_vtype_input_of_is_timeline_following:nargs()
+      t_delete_timeline_content_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_is\_timeline\_following ###
+### t\_delete\_timeline\_content\_output ###
 
 ```javascript
-      t_vtype_output_of_is_timeline_following:any()
+      t_delete_timeline_content_output:any()
 
 ```
 
 is\_timeline\_following
-========================
+-------------
 
 is\_timeline\_following
 
-### t\_vtype\_input\_of\_follow\_timeline ###
+### t\_is\_timeline\_following\_input ###
 
 ```javascript
-      t_vtype_input_of_follow_timeline:nargs()
+      t_is_timeline_following_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_follow\_timeline ###
+### t\_is\_timeline\_following\_output ###
 
 ```javascript
-      t_vtype_output_of_follow_timeline:any()
+      t_is_timeline_following_output:any()
 
 ```
 
 follow\_timeline
-========================
+-------------
 
 follow\_timeline
 
-### t\_vtype\_input\_of\_unfollow\_timeline ###
+### t\_follow\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_unfollow_timeline:nargs()
+      t_follow_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_unfollow\_timeline ###
+### t\_follow\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_unfollow_timeline:any()
+      t_follow_timeline_output:any()
 
 ```
 
 unfollow\_timeline
-========================
+-------------
 
 unfollow\_timeline
 
-### t\_vtype\_input\_of\_create\_or\_update\_valuable ###
+### t\_unfollow\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_create_or_update_valuable:nargs()
+      t_unfollow_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_create\_or\_update\_valuable ###
+### t\_unfollow\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_create_or_update_valuable:any()
+      t_unfollow_timeline_output:any()
 
 ```
 
 create\_or\_update\_valuable
-========================
+-------------
 
 create\_or\_update\_valuable
 
-### t\_vtype\_input\_of\_create\_valuable ###
+### t\_create\_or\_update\_valuable\_input ###
 
 ```javascript
-      t_vtype_input_of_create_valuable:nargs()
+      t_create_or_update_valuable_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_create\_valuable ###
+### t\_create\_or\_update\_valuable\_output ###
 
 ```javascript
-      t_vtype_output_of_create_valuable:any()
+      t_create_or_update_valuable_output:any()
 
 ```
 
 create\_valuable
-========================
+-------------
 
 create\_valuable
 
-### t\_vtype\_input\_of\_update\_valuable ###
+### t\_create\_valuable\_input ###
 
 ```javascript
-      t_vtype_input_of_update_valuable:nargs()
+      t_create_valuable_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_update\_valuable ###
+### t\_create\_valuable\_output ###
 
 ```javascript
-      t_vtype_output_of_update_valuable:any()
+      t_create_valuable_output:any()
 
 ```
 
 update\_valuable
-========================
+-------------
 
 update\_valuable
 
-### t\_vtype\_input\_of\_disableValuable ###
+### t\_update\_valuable\_input ###
 
 ```javascript
-      t_vtype_input_of_disableValuable:nargs()
+      t_update_valuable_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_disableValuable ###
+### t\_update\_valuable\_output ###
 
 ```javascript
-      t_vtype_output_of_disableValuable:any()
+      t_update_valuable_output:any()
 
 ```
 
 disableValuable
-========================
+-------------
 
 disableValuable
 
-### t\_vtype\_input\_of\_read\_valuable ###
+### t\_disableValuable\_input ###
 
 ```javascript
-      t_vtype_input_of_read_valuable:nargs()
+      t_disableValuable_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_valuable ###
+### t\_disableValuable\_output ###
 
 ```javascript
-      t_vtype_output_of_read_valuable:any()
+      t_disableValuable_output:any()
 
 ```
 
 read\_valuable
-========================
+-------------
 
 read\_valuable
 
-### t\_vtype\_input\_of\_delete\_valuable ###
+### t\_read\_valuable\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_valuable:nargs()
+      t_read_valuable_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_delete\_valuable ###
+### t\_read\_valuable\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_valuable:any()
+      t_read_valuable_output:any()
 
 ```
 
 delete\_valuable
-========================
+-------------
 
 delete\_valuable
 
-### t\_vtype\_input\_of\_read\_all\_valuables ###
+### t\_delete\_valuable\_input ###
 
 ```javascript
-      t_vtype_input_of_read_all_valuables:nargs()
+      t_delete_valuable_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_all\_valuables ###
+### t\_delete\_valuable\_output ###
 
 ```javascript
-      t_vtype_output_of_read_all_valuables:any()
+      t_delete_valuable_output:any()
 
 ```
 
 read\_all\_valuables
-========================
+-------------
 
 read\_all\_valuables
 
-### t\_vtype\_input\_of\_issue\_valuables ###
+### t\_read\_all\_valuables\_input ###
 
 ```javascript
-      t_vtype_input_of_issue_valuables:nargs()
+      t_read_all_valuables_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_issue\_valuables ###
+### t\_read\_all\_valuables\_output ###
 
 ```javascript
-      t_vtype_output_of_issue_valuables:any()
+      t_read_all_valuables_output:any()
 
 ```
 
 issue\_valuables
-========================
+-------------
 
 issue\_valuables
 
-### t\_vtype\_input\_of\_update\_valuable\_state ###
+### t\_issue\_valuables\_input ###
 
 ```javascript
-      t_vtype_input_of_update_valuable_state:array(
+      t_issue_valuables_input:nargs()
+
+```
+
+### t\_issue\_valuables\_output ###
+
+```javascript
+      t_issue_valuables_output:any()
+
+```
+
+update\_valuable\_state
+-------------
+
+update\_valuable\_state
+
+### t\_update\_valuable\_state\_input ###
+
+```javascript
+      t_update_valuable_state_input:array(
         object(
           valuable_id      : uuid(),
           valuable_enabled : boolean(),
@@ -1629,22 +1351,22 @@ issue\_valuables
       )
 ```
 
-### t\_vtype\_output\_of\_update\_valuable\_state ###
+### t\_update\_valuable\_state\_output ###
 
 ```javascript
-      t_vtype_output_of_update_valuable_state:any()
+      t_update_valuable_state_output:any()
 
 ```
 
-update\_valuable\_state
-========================
+download\_valuable\_state
+-------------
 
-update\_valuable\_state
+download\_valuable\_state
 
-### t\_vtype\_input\_of\_download\_valuable\_state ###
+### t\_download\_valuable\_state\_input ###
 
 ```javascript
-      t_vtype_input_of_download_valuable_state:array(
+      t_download_valuable_state_input:array(
         object(
           valuable_id      : uuid(),
         )
@@ -1652,184 +1374,184 @@ update\_valuable\_state
 
 ```
 
-### t\_vtype\_output\_of\_download\_valuable\_state ###
+### t\_download\_valuable\_state\_output ###
 
 ```javascript
-      t_vtype_output_of_download_valuable_state:any()
-
-```
-
-download\_valuable\_state
-========================
-
-download\_valuable\_state
-
-### t\_vtype\_input\_of\_confiscate\_all\_valuable\_deposits ###
-
-```javascript
-      t_vtype_input_of_confiscate_all_valuable_deposits:nargs()
-
-```
-
-### t\_vtype\_output\_of\_confiscate\_all\_valuable\_deposits ###
-
-```javascript
-      t_vtype_output_of_confiscate_all_valuable_deposits:any()
+      t_download_valuable_state_output:any()
 
 ```
 
 confiscate\_all\_valuable\_deposits
-========================
+-------------
 
 confiscate\_all\_valuable\_deposits
 
-### t\_vtype\_input\_of\_create\_wallet ###
+### t\_confiscate\_all\_valuable\_deposits\_input ###
 
 ```javascript
-      t_vtype_input_of_create_wallet:nargs()
+      t_confiscate_all_valuable_deposits_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_create\_wallet ###
+### t\_confiscate\_all\_valuable\_deposits\_output ###
 
 ```javascript
-      t_vtype_output_of_create_wallet:any()
+      t_confiscate_all_valuable_deposits_output:any()
 
 ```
 
 create\_wallet
-========================
+-------------
 
 create\_wallet
 
-### t\_vtype\_input\_of\_update\_wallet ###
+### t\_create\_wallet\_input ###
 
 ```javascript
-      t_vtype_input_of_update_wallet:nargs()
+      t_create_wallet_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_update\_wallet ###
+### t\_create\_wallet\_output ###
 
 ```javascript
-      t_vtype_output_of_update_wallet:any()
+      t_create_wallet_output:any()
 
 ```
 
 update\_wallet
-========================
+-------------
 
 update\_wallet
 
-### t\_vtype\_input\_of\_disableWallet ###
+### t\_update\_wallet\_input ###
 
 ```javascript
-      t_vtype_input_of_disableWallet:nargs()
+      t_update_wallet_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_disableWallet ###
+### t\_update\_wallet\_output ###
 
 ```javascript
-      t_vtype_output_of_disableWallet:any()
+      t_update_wallet_output:any()
 
 ```
 
 disableWallet
-========================
+-------------
 
 disableWallet
 
-### t\_vtype\_input\_of\_read\_wallet ###
+### t\_disableWallet\_input ###
 
 ```javascript
-      t_vtype_input_of_read_wallet:nargs()
+      t_disableWallet_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_wallet ###
+### t\_disableWallet\_output ###
 
 ```javascript
-      t_vtype_output_of_read_wallet:any()
+      t_disableWallet_output:any()
 
 ```
 
 read\_wallet
-========================
+-------------
 
 read\_wallet
 
-### t\_vtype\_input\_of\_delete\_wallet ###
+### t\_read\_wallet\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_wallet:nargs()
+      t_read_wallet_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_delete\_wallet ###
+### t\_read\_wallet\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_wallet:any()
+      t_read_wallet_output:any()
 
 ```
 
 delete\_wallet
-========================
+-------------
 
 delete\_wallet
 
-### t\_vtype\_input\_of\_request\_valuable\_transfer ###
+### t\_delete\_wallet\_input ###
 
 ```javascript
-      t_vtype_input_of_request_valuable_transfer:nargs()
+      t_delete_wallet_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_request\_valuable\_transfer ###
+### t\_delete\_wallet\_output ###
 
 ```javascript
-      t_vtype_output_of_request_valuable_transfer:any()
+      t_delete_wallet_output:any()
 
 ```
 
 request\_valuable\_transfer
-========================
+-------------
 
 request\_valuable\_transfer
 
-### t\_vtype\_input\_of\_respond\_valuable\_transfer ###
+### t\_request\_valuable\_transfer\_input ###
 
 ```javascript
-      t_vtype_input_of_respond_valuable_transfer:nargs()
+      t_request_valuable_transfer_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_respond\_valuable\_transfer ###
+### t\_request\_valuable\_transfer\_output ###
 
 ```javascript
-      t_vtype_output_of_respond_valuable_transfer:any()
+      t_request_valuable_transfer_output:any()
 
 ```
 
 respond\_valuable\_transfer
-========================
+-------------
 
 respond\_valuable\_transfer
 
-### t\_vtype\_input\_of\_parse\_message\_commands ###
+### t\_respond\_valuable\_transfer\_input ###
 
 ```javascript
-      t_vtype_input_of_parse_message_commands:array(
+      t_respond_valuable_transfer_input:nargs()
+
+```
+
+### t\_respond\_valuable\_transfer\_output ###
+
+```javascript
+      t_respond_valuable_transfer_output:any()
+
+```
+
+parse\_message\_commands
+-------------
+
+parse\_message\_commands
+
+### t\_parse\_message\_commands\_input ###
+
+```javascript
+      t_parse_message_commands_input:array(
         object(
           message_text         : string(),
         )
       )
 ```
 
-### t\_vtype\_output\_of\_parse\_message\_commands ###
+### t\_parse\_message\_commands\_output ###
 
 ```javascript
-      t_vtype_output_of_parse_message_commands:object(
+      t_parse_message_commands_output:object(
         statements : array_of(
           object(
             command_name : or(
@@ -1857,15 +1579,15 @@ respond\_valuable\_transfer
 
 ```
 
-parse\_message\_commands
-========================
+execute\_message\_commands
+-------------
 
-parse\_message\_commands
+execute\_message\_commands
 
-### t\_vtype\_input\_of\_execute\_message\_commands ###
+### t\_execute\_message\_commands\_input ###
 
 ```javascript
-      t_vtype_input_of_execute_message_commands:fold_right(
+      t_execute_message_commands_input:fold_right(
         object(
           default_parent_user_id : t_user_id(),
           scope_id     : t_scope_id(),
@@ -1901,176 +1623,62 @@ parse\_message\_commands
 
 ```
 
-### t\_vtype\_output\_of\_execute\_message\_commands ###
+### t\_execute\_message\_commands\_output ###
 
 ```javascript
-      t_vtype_output_of_execute_message_commands:any(),
+      t_execute_message_commands_output:any(),
 ```
 
-execute\_message\_commands
-========================
+get\_notify\_timeline\_from\_user
+-------------
 
-execute\_message\_commands
+get\_notify\_timeline\_from\_user
 
-### t\_vtype\_input\_of\_get\_notify\_timeline\_from\_user ###
+### t\_get\_notify\_timeline\_from\_user\_input ###
 
 ```javascript
-      t_vtype_input_of_get_notify_timeline_from_user:nargs(
+      t_get_notify_timeline_from_user_input:nargs(
         scope_id : t_scope_id(),
         user_id  : t_user_id(),
       ),
 ```
 
-### t\_vtype\_output\_of\_get\_notify\_timeline\_from\_user ###
+### t\_get\_notify\_timeline\_from\_user\_output ###
 
 ```javascript
-      t_vtype_output_of_get_notify_timeline_from_user:t_tbl_user_timelines(),
+      t_get_notify_timeline_from_user_output:t_tbl_user_timelines(),
 ```
 
-get\_notify\_timeline\_from\_user
-========================
+get\_notify\_timeline\_from\_member\_user
+-------------
 
-get\_notify\_timeline\_from\_user
+get\_notify\_timeline\_from\_member\_user
 
-### t\_vtype\_input\_of\_get\_notify\_timeline\_from\_member\_user ###
+### t\_get\_notify\_timeline\_from\_member\_user\_input ###
 
 ```javascript
-      t_vtype_input_of_get_notify_timeline_from_member_user:nargs(
+      t_get_notify_timeline_from_member_user_input:nargs(
         scope_id : t_scope_id(),
         user_id  :t_user_id(),
         member_user_id : t_user_id(),
       ),
 ```
 
-### t\_vtype\_output\_of\_get\_notify\_timeline\_from\_member\_user ###
+### t\_get\_notify\_timeline\_from\_member\_user\_output ###
 
 ```javascript
-      t_vtype_output_of_get_notify_timeline_from_member_user:t_tbl_user_member_timelines(),
+      t_get_notify_timeline_from_member_user_output:t_tbl_user_member_timelines(),
 ```
 
-get\_notify\_timeline\_from\_member\_user
-========================
+sndmsg\_util\_transfer
+-------------
 
-get\_notify\_timeline\_from\_member\_user
+sndmsg\_util\_transfer
 
-### t\_sndmsg\_user ###
-
-```javascript
-      t_sndmsg_user:or(
-        and(
-          or(
-            object(
-              username : string(),
-            ),
-            object(
-              user_id  : uuid(),
-            ),
-          ),
-          or(
-            object(
-              walletname : string(),
-            ),
-            object(
-              wallet_id  : uuid(),
-            ),
-          ),
-        ),
-        and(
-          or(
-            object(
-              username : string(),
-            ),
-            object(
-              user_id  : uuid(),
-            ),
-          ),
-          or(
-            object(
-              member_username : string(),
-            ),
-            object(
-              member_user_id  : uuid(),
-            ),
-          ),
-          or(
-            object(
-              walletname : string(),
-            ),
-            object(
-              wallet_id  : uuid(),
-            ),
-          ),
-        ),
-      ),
-```
-
-### t\_tbl\_valuable ###
+### t\_sndmsg\_util\_transfer\_input ###
 
 ```javascript
-      t_tbl_valuable:object(
-        valuable_id              : uuid(),
-        valuable_name            : string(),
-        valuable_attrs           : object(),
-        valuable_script          : or( string(), null() ),
-        valuable_params          : object(),
-        valuable_created_date    : any(),
-        valuable_modified_date   : any(),
-        valuable_expiration_date : any(),
-        valuable_enabled         : boolean(),
-      ),
-```
-
-### t\_sndmsg\_cmd\_base ###
-
-```javascript
-      t_sndmsg_cmd_base:object(
-        default_parent_user_id : t_user_id(),
-        scope_id               : t_scope_id(),
-        subject_user  : object(
-          user_id : t_user_id(),
-          primary_wallet_id : uuid(),
-        ),
-        target_users      : array_of(
-          object(
-            primary_wallet_id : uuid(),
-          )
-        ),
-        message_id        : or( uuid() , null() ),
-      ),
-```
-
-### i\_sndmsg\_cmd2 ###
-
-```javascript
-      i_sndmsg_cmd2:object(
-        valuable_id            : t_valuable_id(),
-        valuable_quantity      : number(),
-        valuable_script        : t_valuable_script(),
-        valuable_attrs         : object(),
-      ),
-```
-
-### i\_sndmsg\_cmd ###
-
-```javascript
-      i_sndmsg_cmd:object(
-        valuable   : t_tbl_valuable(),
-      ),
-```
-
-### t\_sndmsg\_cmd ###
-
-```javascript
-      t_sndmsg_cmd:and(
-        i_sndmsg_cmd(),
-        t_sndmsg_cmd_base(),
-      ),
-```
-
-### t\_vtype\_input\_of\_sndmsg\_util\_transfer ###
-
-```javascript
-      t_vtype_input_of_sndmsg_util_transfer:fold_right(
+      t_sndmsg_util_transfer_input:fold_right(
         object(
           valuable_id       : uuid(),
           valuable_quantity : number(),
@@ -2082,22 +1690,22 @@ get\_notify\_timeline\_from\_member\_user
 
 ```
 
-### t\_vtype\_output\_of\_sndmsg\_util\_transfer ###
+### t\_sndmsg\_util\_transfer\_output ###
 
 ```javascript
-      t_vtype_output_of_sndmsg_util_transfer:any()
+      t_sndmsg_util_transfer_output:any()
 
 ```
 
-sndmsg\_util\_transfer
-========================
+sndmsg\_util\_notification
+-------------
 
-sndmsg\_util\_transfer
+sndmsg\_util\_notification
 
-### t\_vtype\_input\_of\_sndmsg\_util\_notification ###
+### t\_sndmsg\_util\_notification\_input ###
 
 ```javascript
-      t_vtype_input_of_sndmsg_util_notification:fold_right(
+      t_sndmsg_util_notification_input:fold_right(
         object(
           scope_id               : t_scope_id(),
           default_parent_user_id : t_user_id(),
@@ -2109,84 +1717,84 @@ sndmsg\_util\_transfer
       ),
 ```
 
-### t\_vtype\_output\_of\_sndmsg\_util\_notification ###
+### t\_sndmsg\_util\_notification\_output ###
 
 ```javascript
-      t_vtype_output_of_sndmsg_util_notification:undefined(),
+      t_sndmsg_util_notification_output:undefined(),
 ```
 
-sndmsg\_util\_notification
-========================
+sndmsg\_cmd\_message
+-------------
 
-sndmsg\_util\_notification
+sndmsg\_cmd\_message
 
-### t\_vtype\_input\_of\_sndmsg\_cmd\_message ###
+### t\_sndmsg\_cmd\_message\_input ###
 
 ```javascript
-      t_vtype_input_of_sndmsg_cmd_message:fold_right(
+      t_sndmsg_cmd_message_input:fold_right(
         t_sndmsg_cmd_base()
       )
 
 ```
 
-### t\_vtype\_output\_of\_sndmsg\_cmd\_message ###
+### t\_sndmsg\_cmd\_message\_output ###
 
 ```javascript
-      t_vtype_output_of_sndmsg_cmd_message:any()
+      t_sndmsg_cmd_message_output:any()
 
 ```
 
-sndmsg\_cmd\_message
-========================
+sndmsg\_cmd\_check
+-------------
 
-sndmsg\_cmd\_message
+sndmsg\_cmd\_check
 
-### t\_vtype\_input\_of\_sndmsg\_cmd\_check ###
+### t\_sndmsg\_cmd\_check\_input ###
 
 ```javascript
-      t_vtype_input_of_sndmsg_cmd_check:array(
+      t_sndmsg_cmd_check_input:array(
         t_sndmsg_cmd(),
       )
 
 ```
 
-### t\_vtype\_output\_of\_sndmsg\_cmd\_check ###
+### t\_sndmsg\_cmd\_check\_output ###
 
 ```javascript
-      t_vtype_output_of_sndmsg_cmd_check:any()
+      t_sndmsg_cmd_check_output:any()
 
 ```
 
-sndmsg\_cmd\_check
-========================
+sndmsg\_cmd\_valuable
+-------------
 
-sndmsg\_cmd\_check
+sndmsg\_cmd\_valuable
 
-### t\_vtype\_input\_of\_sndmsg\_cmd\_valuable ###
+### t\_sndmsg\_cmd\_valuable\_input ###
 
 ```javascript
-      t_vtype_input_of_sndmsg_cmd_valuable:fold_right(
+      t_sndmsg_cmd_valuable_input:fold_right(
         t_sndmsg_cmd(),
       )
 
 ```
 
-### t\_vtype\_output\_of\_sndmsg\_cmd\_valuable ###
+### t\_sndmsg\_cmd\_valuable\_output ###
 
 ```javascript
-      t_vtype_output_of_sndmsg_cmd_valuable:any()
+      t_sndmsg_cmd_valuable_output:any()
 
 ```
 
-sndmsg\_cmd\_valuable
-========================
+read\_valuable\_transactions
+-------------
 
-sndmsg\_cmd\_valuable
+read\_valuable\_transactions
 
-### t\_vtype\_input\_of\_read\_valuable\_transactions ###
+### t\_read\_valuable\_transactions\_input ###
 
 ```javascript
-      t_vtype_input_of_read_valuable_transactions:nargs(
+      t_read_valuable_transactions_input:nargs(
         valuable_id : uuid(),
         from : or( string(), null() ),
         to   : or( string(), null() ),
@@ -2194,65 +1802,43 @@ sndmsg\_cmd\_valuable
 
 ```
 
-### t\_vtype\_output\_of\_read\_valuable\_transactions ###
+### t\_read\_valuable\_transactions\_output ###
 
 ```javascript
-      t_vtype_output_of_read_valuable_transactions:any()
+      t_read_valuable_transactions_output:any()
 
 ```
 
-read\_valuable\_transactions
-========================
+read\_valuable\_deposits
+-------------
 
-read\_valuable\_transactions
+read\_valuable\_deposits
 
-### t\_vtype\_input\_of\_read\_valuable\_deposits ###
+### t\_read\_valuable\_deposits\_input ###
 
 ```javascript
-      t_vtype_input_of_read_valuable_deposits:nargs(
+      t_read_valuable_deposits_input:nargs(
         valuable_id : uuid(),
       )
 
 ```
 
-### t\_vtype\_output\_of\_read\_valuable\_deposits ###
+### t\_read\_valuable\_deposits\_output ###
 
 ```javascript
-      t_vtype_output_of_read_valuable_deposits:any()
+      t_read_valuable_deposits_output:any()
 
 ```
 
-read\_valuable\_deposits
-========================
+send\_message
+-------------
 
-read\_valuable\_deposits
+send\_message
 
-### t\_message\_content\_type ###
-
-```javascript
-      t_message_content_type:or(
-        equals( << 'content_json' >>  ),
-        equals( << 'content_text' >>  ),
-      )
-
-```
-
-### t\_message\_text\_content\_text ###
+### t\_send\_message\_input ###
 
 ```javascript
-      t_message_text_content_text:string(),
-```
-
-### t\_message\_text\_content\_json ###
-
-```javascript
-      t_message_text_content_json:object(),
-```
-
-### t\_vtype\_input\_of\_send\_message ###
-
-```javascript
-      t_vtype_input_of_send_message:nargs(
+      t_send_message_input:nargs(
         timeline_id          : or( t_timeline_id(), null() ),
         user_id              : or( t_user_id(), null() ),
         parent_message_id    : or( uuid(), null() ),
@@ -2265,21 +1851,21 @@ read\_valuable\_deposits
 
 ```
 
-### t\_vtype\_output\_of\_send\_message ###
+### t\_send\_message\_output ###
 
 ```javascript
-      t_vtype_output_of_send_message:any()
+      t_send_message_output:any()
 ```
 
-send\_message
-========================
+send\_tweet
+-------------
 
-send\_message
+send\_tweet
 
-### t\_vtype\_input\_of\_send\_tweet ###
+### t\_send\_tweet\_input ###
 
 ```javascript
-      t_vtype_input_of_send_tweet:nargs(
+      t_send_tweet_input:nargs(
         user_id                : t_user_id(),
         scope_id               : t_scope_id(),
         default_parent_user_id : t_user_id(),
@@ -2290,21 +1876,21 @@ send\_message
 
 ```
 
-### t\_vtype\_output\_of\_send\_tweet ###
+### t\_send\_tweet\_output ###
 
 ```javascript
-      t_vtype_output_of_send_tweet:any()
+      t_send_tweet_output:any()
 ```
 
-send\_tweet
-========================
+receive\_tweets
+-------------
 
-send\_tweet
+receive\_tweets
 
-### t\_vtype\_input\_of\_receive\_tweets ###
+### t\_receive\_tweets\_input ###
 
 ```javascript
-      t_vtype_input_of_receive_tweets:array(
+      t_receive_tweets_input:array(
         object(
           user_id     : or( null(), uuid() ),
           timeline_id : or( null(), uuid() ),
@@ -2318,60 +1904,60 @@ send\_tweet
       )
 ```
 
-### t\_vtype\_output\_of\_receive\_tweets ###
+### t\_receive\_tweets\_output ###
 
 ```javascript
-      t_vtype_output_of_receive_tweets:any()
+      t_receive_tweets_output:any()
 
 ```
 
-receive\_tweets
-========================
+get\_locale\_message
+-------------
 
-receive\_tweets
+get\_locale\_message
 
-### t\_vtype\_input\_of\_get\_locale\_message ###
+### t\_get\_locale\_message\_input ###
 
 ```javascript
-      t_vtype_input_of_get_locale_message:array_of(
+      t_get_locale_message_input:array_of(
         string()
       )
 
 ```
 
-### t\_vtype\_output\_of\_get\_locale\_message ###
+### t\_get\_locale\_message\_output ###
 
 ```javascript
-      t_vtype_output_of_get_locale_message:any()
+      t_get_locale_message_output:any()
 
-```
-
-get\_locale\_message
-========================
-
-get\_locale\_message
-
-### t\_vtype\_input\_of\_get\_global\_common\_input\_timeline\_id ###
-
-```javascript
-      t_vtype_input_of_get_global_common_input_timeline_id:array()
-```
-
-### t\_vtype\_output\_of\_get\_global\_common\_input\_timeline\_id ###
-
-```javascript
-      t_vtype_output_of_get_global_common_input_timeline_id:uuid()
 ```
 
 get\_global\_common\_input\_timeline\_id
-========================
+-------------
 
 get\_global\_common\_input\_timeline\_id
 
-### t\_vtype\_input\_of\_create\_or\_update\_user\_timeline ###
+### t\_get\_global\_common\_input\_timeline\_id\_input ###
 
 ```javascript
-      t_vtype_input_of_create_or_update_user_timeline:nargs(
+      t_get_global_common_input_timeline_id_input:array()
+```
+
+### t\_get\_global\_common\_input\_timeline\_id\_output ###
+
+```javascript
+      t_get_global_common_input_timeline_id_output:uuid()
+```
+
+create\_or\_update\_user\_timeline
+-------------
+
+create\_or\_update\_user\_timeline
+
+### t\_create\_or\_update\_user\_timeline\_input ###
+
+```javascript
+      t_create_or_update_user_timeline_input:nargs(
         user_id : t_user_id(),
         timelinename : t_timelinename(),
         timeline_id : or(
@@ -2383,138 +1969,138 @@ get\_global\_common\_input\_timeline\_id
 
 ```
 
-### t\_vtype\_output\_of\_create\_or\_update\_user\_timeline ###
+### t\_create\_or\_update\_user\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_create_or_update_user_timeline:object(
+      t_create_or_update_user_timeline_output:object(
         timeline_id : t_timeline_id(),
       )
 
 ```
 
-create\_or\_update\_user\_timeline
-========================
-
-create\_or\_update\_user\_timeline
-
-### t\_vtype\_input\_of\_read\_user\_timeline ###
-
-```javascript
-      t_vtype_input_of_read_user_timeline:nargs()
-
-```
-
-### t\_vtype\_output\_of\_read\_user\_timeline ###
-
-```javascript
-      t_vtype_output_of_read_user_timeline:any()
-
-```
-
 read\_user\_timeline
-========================
+-------------
 
 read\_user\_timeline
 
-### t\_vtype\_input\_of\_delete\_user\_timeline ###
+### t\_read\_user\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_user_timeline:nargs()
+      t_read_user_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_delete\_user\_timeline ###
+### t\_read\_user\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_user_timeline:any()
+      t_read_user_timeline_output:any()
 
 ```
 
 delete\_user\_timeline
-========================
+-------------
 
 delete\_user\_timeline
 
-### t\_vtype\_input\_of\_create\_or\_update\_user\_watching\_timeline ###
+### t\_delete\_user\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_create_or_update_user_watching_timeline:nargs()
+      t_delete_user_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_create\_or\_update\_user\_watching\_timeline ###
+### t\_delete\_user\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_create_or_update_user_watching_timeline:any()
+      t_delete_user_timeline_output:any()
 
 ```
 
 create\_or\_update\_user\_watching\_timeline
-========================
+-------------
 
 create\_or\_update\_user\_watching\_timeline
 
-### t\_vtype\_input\_of\_read\_user\_watching\_timeline ###
+### t\_create\_or\_update\_user\_watching\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_read_user_watching_timeline:nargs()
+      t_create_or_update_user_watching_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_user\_watching\_timeline ###
+### t\_create\_or\_update\_user\_watching\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_read_user_watching_timeline:any()
+      t_create_or_update_user_watching_timeline_output:any()
 
 ```
 
 read\_user\_watching\_timeline
-========================
+-------------
 
 read\_user\_watching\_timeline
 
-### t\_vtype\_input\_of\_delete\_user\_watching\_timeline ###
+### t\_read\_user\_watching\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_user_watching_timeline:nargs()
+      t_read_user_watching_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_delete\_user\_watching\_timeline ###
+### t\_read\_user\_watching\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_user_watching_timeline:any()
+      t_read_user_watching_timeline_output:any()
 
 ```
 
 delete\_user\_watching\_timeline
-========================
+-------------
 
 delete\_user\_watching\_timeline
 
-### t\_vtype\_input\_of\_create\_or\_update\_user\_member\_timeline ###
+### t\_delete\_user\_watching\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_create_or_update_user_member_timeline:nargs()
+      t_delete_user_watching_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_create\_or\_update\_user\_member\_timeline ###
+### t\_delete\_user\_watching\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_create_or_update_user_member_timeline:any()
+      t_delete_user_watching_timeline_output:any()
 
 ```
 
 create\_or\_update\_user\_member\_timeline
-========================
+-------------
 
 create\_or\_update\_user\_member\_timeline
 
-### t\_vtype\_input\_of\_read\_user\_member\_timeline ###
+### t\_create\_or\_update\_user\_member\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_read_user_member_timeline:fold_right(
+      t_create_or_update_user_member_timeline_input:nargs()
+
+```
+
+### t\_create\_or\_update\_user\_member\_timeline\_output ###
+
+```javascript
+      t_create_or_update_user_member_timeline_output:any()
+
+```
+
+read\_user\_member\_timeline
+-------------
+
+read\_user\_member\_timeline
+
+### t\_read\_user\_member\_timeline\_input ###
+
+```javascript
+      t_read_user_member_timeline_input:fold_right(
         and(
           object(
             user_id        : t_user_id(),
@@ -2532,193 +2118,193 @@ create\_or\_update\_user\_member\_timeline
       ),
 ```
 
-### t\_vtype\_output\_of\_read\_user\_member\_timeline ###
+### t\_read\_user\_member\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_read_user_member_timeline:t_tbl_user_member_timelines()
-
-```
-
-read\_user\_member\_timeline
-========================
-
-read\_user\_member\_timeline
-
-### t\_vtype\_input\_of\_delete\_user\_member\_timeline ###
-
-```javascript
-      t_vtype_input_of_delete_user_member_timeline:nargs()
-
-```
-
-### t\_vtype\_output\_of\_delete\_user\_member\_timeline ###
-
-```javascript
-      t_vtype_output_of_delete_user_member_timeline:any()
+      t_read_user_member_timeline_output:t_tbl_user_member_timelines()
 
 ```
 
 delete\_user\_member\_timeline
-========================
+-------------
 
 delete\_user\_member\_timeline
 
-### t\_vtype\_input\_of\_create\_or\_update\_user\_member\_watching\_timeline ###
+### t\_delete\_user\_member\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_create_or_update_user_member_watching_timeline:nargs()
+      t_delete_user_member_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_create\_or\_update\_user\_member\_watching\_timeline ###
+### t\_delete\_user\_member\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_create_or_update_user_member_watching_timeline:any()
+      t_delete_user_member_timeline_output:any()
 
 ```
 
 create\_or\_update\_user\_member\_watching\_timeline
-========================
+-------------
 
 create\_or\_update\_user\_member\_watching\_timeline
 
-### t\_vtype\_input\_of\_read\_user\_member\_watching\_timeline ###
+### t\_create\_or\_update\_user\_member\_watching\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_read_user_member_watching_timeline:nargs()
+      t_create_or_update_user_member_watching_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_read\_user\_member\_watching\_timeline ###
+### t\_create\_or\_update\_user\_member\_watching\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_read_user_member_watching_timeline:any()
+      t_create_or_update_user_member_watching_timeline_output:any()
 
 ```
 
 read\_user\_member\_watching\_timeline
-========================
+-------------
 
 read\_user\_member\_watching\_timeline
 
-### t\_vtype\_input\_of\_delete\_user\_member\_watching\_timeline ###
+### t\_read\_user\_member\_watching\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_delete_user_member_watching_timeline:nargs()
+      t_read_user_member_watching_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_delete\_user\_member\_watching\_timeline ###
+### t\_read\_user\_member\_watching\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_delete_user_member_watching_timeline:any()
+      t_read_user_member_watching_timeline_output:any()
 
 ```
 
 delete\_user\_member\_watching\_timeline
-========================
+-------------
 
 delete\_user\_member\_watching\_timeline
 
-### t\_vtype\_input\_of\_list\_child\_users ###
+### t\_delete\_user\_member\_watching\_timeline\_input ###
 
 ```javascript
-      t_vtype_input_of_list_child_users:nargs()
+      t_delete_user_member_watching_timeline_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_list\_child\_users ###
+### t\_delete\_user\_member\_watching\_timeline\_output ###
 
 ```javascript
-      t_vtype_output_of_list_child_users:any()
+      t_delete_user_member_watching_timeline_output:any()
 
 ```
 
 list\_child\_users
-========================
+-------------
 
 list\_child\_users
 
-### t\_vtype\_input\_of\_get\_random\_user ###
+### t\_list\_child\_users\_input ###
 
 ```javascript
-      t_vtype_input_of_get_random_user:nargs()
+      t_list_child_users_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_get\_random\_user ###
+### t\_list\_child\_users\_output ###
 
 ```javascript
-      t_vtype_output_of_get_random_user:any()
+      t_list_child_users_output:any()
 
 ```
 
 get\_random\_user
-========================
+-------------
 
 get\_random\_user
 
-### t\_vtype\_input\_of\_get\_random\_member\_user ###
+### t\_get\_random\_user\_input ###
 
 ```javascript
-      t_vtype_input_of_get_random_member_user:nargs()
+      t_get_random_user_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_get\_random\_member\_user ###
+### t\_get\_random\_user\_output ###
 
 ```javascript
-      t_vtype_output_of_get_random_member_user:any()
+      t_get_random_user_output:any()
 
 ```
 
 get\_random\_member\_user
-========================
+-------------
 
 get\_random\_member\_user
 
-### t\_vtype\_input\_of\_parse\_message\_text ###
+### t\_get\_random\_member\_user\_input ###
 
 ```javascript
-      t_vtype_input_of_parse_message_text:nargs()
+      t_get_random_member_user_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_parse\_message\_text ###
+### t\_get\_random\_member\_user\_output ###
 
 ```javascript
-      t_vtype_output_of_parse_message_text:any()
+      t_get_random_member_user_output:any()
 
 ```
 
 parse\_message\_text
-========================
+-------------
 
 parse\_message\_text
 
-### t\_vtype\_input\_of\_send\_random\_member\_user\_tweet ###
+### t\_parse\_message\_text\_input ###
 
 ```javascript
-      t_vtype_input_of_send_random_member_user_tweet:nargs()
+      t_parse_message_text_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_send\_random\_member\_user\_tweet ###
+### t\_parse\_message\_text\_output ###
 
 ```javascript
-      t_vtype_output_of_send_random_member_user_tweet:any()
+      t_parse_message_text_output:any()
 
 ```
 
 send\_random\_member\_user\_tweet
-========================
+-------------
 
 send\_random\_member\_user\_tweet
 
-### t\_vtype\_input\_of\_send\_random\_user\_tweet ###
+### t\_send\_random\_member\_user\_tweet\_input ###
 
 ```javascript
-      t_vtype_input_of_send_random_user_tweet:fold_right(
+      t_send_random_member_user_tweet_input:nargs()
+
+```
+
+### t\_send\_random\_member\_user\_tweet\_output ###
+
+```javascript
+      t_send_random_member_user_tweet_output:any()
+
+```
+
+send\_random\_user\_tweet
+-------------
+
+send\_random\_user\_tweet
+
+### t\_send\_random\_user\_tweet\_input ###
+
+```javascript
+      t_send_random_user_tweet_input:fold_right(
         object(
           user_id                : t_user_id(),
           scope_id               : t_scope_id(),
@@ -2730,113 +2316,149 @@ send\_random\_member\_user\_tweet
 
 ```
 
-### t\_vtype\_output\_of\_send\_random\_user\_tweet ###
+### t\_send\_random\_user\_tweet\_output ###
 
 ```javascript
-      t_vtype_output_of_send_random_user_tweet:any()
-
-```
-
-send\_random\_user\_tweet
-========================
-
-send\_random\_user\_tweet
-
-### t\_vtype\_input\_of\_test\_blob ###
-
-```javascript
-      t_vtype_input_of_test_blob:nargs()
-
-```
-
-### t\_vtype\_output\_of\_test\_blob ###
-
-```javascript
-      t_vtype_output_of_test_blob:any()
+      t_send_random_user_tweet_output:any()
 
 ```
 
 test\_blob
-========================
+-------------
 
 test\_blob
 
-### t\_vtype\_input\_of\_get\_default\_image ###
+### t\_test\_blob\_input ###
 
 ```javascript
-      t_vtype_input_of_get_default_image:nargs()
+      t_test_blob_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_get\_default\_image ###
+### t\_test\_blob\_output ###
 
 ```javascript
-      t_vtype_output_of_get_default_image:any()
+      t_test_blob_output:any()
 
 ```
 
 get\_default\_image
-========================
+-------------
 
 get\_default\_image
 
-on\_open
-========================
-
-on\_open
-
-on\_close
-========================
-
-on\_close
-
-on\_error
-========================
-
-on\_error
-
-### t\_vtype\_input\_of\_start\_websocket ###
+### t\_get\_default\_image\_input ###
 
 ```javascript
-      t_vtype_input_of_start_websocket:nargs()
+      t_get_default_image_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_start\_websocket ###
+### t\_get\_default\_image\_output ###
 
 ```javascript
-      t_vtype_output_of_start_websocket:any()
+      t_get_default_image_output:any()
+
+```
+
+on\_open
+-------------
+
+on\_open
+
+### t\_on\_open\_input ###
+
+```javascript
+
+```
+
+### t\_on\_open\_output ###
+
+```javascript
+
+```
+
+on\_close
+-------------
+
+on\_close
+
+### t\_on\_close\_input ###
+
+```javascript
+
+```
+
+### t\_on\_close\_output ###
+
+```javascript
+
+```
+
+on\_error
+-------------
+
+on\_error
+
+### t\_on\_error\_input ###
+
+```javascript
+
+```
+
+### t\_on\_error\_output ###
+
+```javascript
 
 ```
 
 start\_websocket
-========================
+-------------
 
 start\_websocket
 
-### t\_vtype\_input\_of\_stop\_websocket ###
+### t\_start\_websocket\_input ###
 
 ```javascript
-      t_vtype_input_of_stop_websocket:nargs()
+      t_start_websocket_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_stop\_websocket ###
+### t\_start\_websocket\_output ###
 
 ```javascript
-      t_vtype_output_of_stop_websocket:any()
+      t_start_websocket_output:any()
 
 ```
 
 stop\_websocket
-========================
+-------------
 
 stop\_websocket
 
-### t\_vtype\_input\_of\_reveal\_identity\_via\_token ###
+### t\_stop\_websocket\_input ###
 
 ```javascript
-      t_vtype_input_of_reveal_identity_via_token:array(
+      t_stop_websocket_input:nargs()
+
+```
+
+### t\_stop\_websocket\_output ###
+
+```javascript
+      t_stop_websocket_output:any()
+
+```
+
+reveal\_identity\_via\_token
+-------------
+
+reveal\_identity\_via\_token
+
+### t\_reveal\_identity\_via\_token\_input ###
+
+```javascript
+      t_reveal_identity_via_token_input:array(
         object(
           token : string()
         )
@@ -2844,116 +2466,111 @@ stop\_websocket
 
 ```
 
-### t\_vtype\_output\_of\_reveal\_identity\_via\_token ###
+### t\_reveal\_identity\_via\_token\_output ###
 
 ```javascript
-      t_vtype_output_of_reveal_identity_via_token:equals( << true >>  )
-
-```
-
-reveal\_identity\_via\_token
-========================
-
-reveal\_identity\_via\_token
-
-### t\_vtype\_input\_of\_initialize\_identity ###
-
-```javascript
-      t_vtype_input_of_initialize_identity:nargs()
-
-```
-
-### t\_vtype\_output\_of\_initialize\_identity ###
-
-```javascript
-      t_vtype_output_of_initialize_identity:equals( << true >>  )
+      t_reveal_identity_via_token_output:equals( << true >>  )
 
 ```
 
 initialize\_identity
-========================
+-------------
 
 initialize\_identity
 
-### t\_vtype\_input\_of\_finalize\_identity ###
+### t\_initialize\_identity\_input ###
 
 ```javascript
-      t_vtype_input_of_finalize_identity:nargs()
+      t_initialize_identity_input:nargs()
 
 ```
 
-### t\_vtype\_output\_of\_finalize\_identity ###
+### t\_initialize\_identity\_output ###
 
 ```javascript
-      t_vtype_output_of_finalize_identity:equals( << true >>  )
+      t_initialize_identity_output:equals( << true >>  )
 
 ```
 
 finalize\_identity
-========================
+-------------
 
 finalize\_identity
 
-### t\_vtype\_input\_of\_listen\_database\_channel ###
+### t\_finalize\_identity\_input ###
 
 ```javascript
-      t_vtype_input_of_listen_database_channel:nargs(
+      t_finalize_identity_input:nargs()
+
+```
+
+### t\_finalize\_identity\_output ###
+
+```javascript
+      t_finalize_identity_output:equals( << true >>  )
+
+```
+
+listen\_database\_channel
+-------------
+
+listen\_database\_channel
+
+### t\_listen\_database\_channel\_input ###
+
+```javascript
+      t_listen_database_channel_input:nargs(
         channel_id : regexp(<< /^[0-9a-zA-Z_-]+$/ >> )
       )
 
 ```
 
-### t\_vtype\_output\_of\_listen\_database\_channel ###
+### t\_listen\_database\_channel\_output ###
 
 ```javascript
-      t_vtype_output_of_listen_database_channel:equals( << true >>  )
+      t_listen_database_channel_output:equals( << true >>  )
 
 ```
 
-listen\_database\_channel
-========================
+unlisten\_database\_channel
+-------------
 
-listen\_database\_channel
+unlisten\_database\_channel
 
-### t\_vtype\_input\_of\_unlisten\_database\_channel ###
+### t\_unlisten\_database\_channel\_input ###
 
 ```javascript
-      t_vtype_input_of_unlisten_database_channel:nargs(
+      t_unlisten_database_channel_input:nargs(
         channel_id : uuid()
       )
 
 ```
 
-### t\_vtype\_output\_of\_unlisten\_database\_channel ###
+### t\_unlisten\_database\_channel\_output ###
 
 ```javascript
-      t_vtype_output_of_unlisten_database_channel:equals( << true >>  )
-
-```
-
-unlisten\_database\_channel
-========================
-
-unlisten\_database\_channel
-
-### t\_vtype\_input\_of\_unlisten\_all\_database\_channel ###
-
-```javascript
-      t_vtype_input_of_unlisten_all_database_channel:nargs()
-
-```
-
-### t\_vtype\_output\_of\_unlisten\_all\_database\_channel ###
-
-```javascript
-      t_vtype_output_of_unlisten_all_database_channel:equals( << true >>  )
+      t_unlisten_database_channel_output:equals( << true >>  )
 
 ```
 
 unlisten\_all\_database\_channel
-========================
+-------------
 
 unlisten\_all\_database\_channel
+
+### t\_unlisten\_all\_database\_channel\_input ###
+
+```javascript
+      t_unlisten_all_database_channel_input:nargs()
+
+```
+
+### t\_unlisten\_all\_database\_channel\_output ###
+
+```javascript
+      t_unlisten_all_database_channel_output:equals( << true >>  )
+
+```
 
 Conclusion
 =======================
