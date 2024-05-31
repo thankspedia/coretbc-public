@@ -270,12 +270,12 @@ arguments which are applied to each predefined templatem message.</div>
 
 
 <h3>t_read_accounts_mode</h3>
-<div class='vsv-descriptions'>t\_read\_accounts\_mode is a enumeration type which specifies
+<div class='vsv-descriptions'>t\_read\_accounts\_mode is an enumeration type which specifies
 the mode when a user calls read\_accounts() method.
 
 See read\_accounts()</div>
 <pre><code class="language-javascript">          /*          
-          * t_read_accounts_mode is a enumeration type which specifies
+          * t_read_accounts_mode is an enumeration type which specifies
           * the mode when a user calls read_accounts() method.
           *
           * See read_accounts()
@@ -290,15 +290,16 @@ See read\_accounts()</div>
           ),</code></pre>
 
 
-<div class='vsv-descriptions'></div>
+<div class='vsv-descriptions'>## get\_intl\_message
+
+get\_intl\_message method retrieves an object which contains string data for
+internationalization.
+</div>
 
 
 <h3>t_typesafety_input_of_get_intl_message</h3>
-<div class='vsv-descriptions'>test FOOOO</div>
-<pre><code class="language-javascript">          /*          
-          * test FOOOO
-          */
-          t_typesafety_input_of_get_intl_message:array(
+<div class='vsv-descriptions'></div>
+<pre><code class="language-javascript">          t_typesafety_input_of_get_intl_message:array(
             or(
               object(
                 path    : array_of( string() ),
@@ -314,20 +315,31 @@ See read\_accounts()</div>
           </code></pre>
 
 
+<div class='vsv-descriptions'>## get\_intl\_messages
+
+get\_intl\_message method retrieves an object which contains string data for
+internationalization.
+</div>
+
+
 <h3>t_typesafety_input_of_get_intl_messages</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_typesafety_input_of_get_intl_messages:array(
-            or(
-              object(
-                lang_id : or( string(), null() ),
-              ),
-            )
+<div class='vsv-descriptions'>lang\_id: Specify a language id or null to retrieve all.</div>
+<pre><code class="language-javascript">          /*          
+          * lang_id: Specify a language id or null to retrieve all.
+          */
+          t_typesafety_input_of_get_intl_messages:array(
+            object(
+              lang_id : or( string(), null() ),
+            ),
           )</code></pre>
 
 
 <h3>t_typesafety_output_of_get_intl_messages</h3>
-<div class='vsv-descriptions'></div>
-<pre><code class="language-javascript">          t_typesafety_output_of_get_intl_messages:any()
+<div class='vsv-descriptions'>Return Value: an object which contains multiple localized data.</div>
+<pre><code class="language-javascript">          /*          
+          * Return Value: an object which contains multiple localized data.
+          */
+          t_typesafety_output_of_get_intl_messages:any()
           </code></pre>
 
 

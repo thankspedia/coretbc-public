@@ -275,14 +275,14 @@ arguments which are applied to each predefined templatem message.
 ```
 
 ### t\_read\_accounts\_mode ###
-t\_read\_accounts\_mode is a enumeration type which specifies
+t\_read\_accounts\_mode is an enumeration type which specifies
 the mode when a user calls read\_accounts() method.
 
 See read\_accounts()
 
 ```javascript
       /*          
-      * t_read_accounts_mode is a enumeration type which specifies
+      * t_read_accounts_mode is an enumeration type which specifies
       * the mode when a user calls read_accounts() method.
       *
       * See read_accounts()
@@ -297,13 +297,14 @@ See read\_accounts()
       ),
 ```
 
+## get\_intl\_message
+
+get\_intl\_message method retrieves an object which contains string data for
+internationalization.
+
 ### t\_typesafety\_input\_of\_get\_intl\_message ###
-test FOOOO
 
 ```javascript
-      /*          
-      * test FOOOO
-      */
       t_typesafety_input_of_get_intl_message:array(
         or(
           object(
@@ -321,21 +322,32 @@ test FOOOO
 
 ```
 
+## get\_intl\_messages
+
+get\_intl\_message method retrieves an object which contains string data for
+internationalization.
+
 ### t\_typesafety\_input\_of\_get\_intl\_messages ###
+lang\_id: Specify a language id or null to retrieve all.
 
 ```javascript
+      /*          
+      * lang_id: Specify a language id or null to retrieve all.
+      */
       t_typesafety_input_of_get_intl_messages:array(
-        or(
-          object(
-            lang_id : or( string(), null() ),
-          ),
-        )
+        object(
+          lang_id : or( string(), null() ),
+        ),
       )
 ```
 
 ### t\_typesafety\_output\_of\_get\_intl\_messages ###
+Return Value: an object which contains multiple localized data.
 
 ```javascript
+      /*          
+      * Return Value: an object which contains multiple localized data.
+      */
       t_typesafety_output_of_get_intl_messages:any()
 
 ```
