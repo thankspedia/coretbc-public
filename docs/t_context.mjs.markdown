@@ -300,11 +300,14 @@ See read\_accounts()
 get\_intl\_message
 ----------------
 
-### \_\_t\_anonymous ###
+### t\_vtype\_input\_of\_get\_intl\_message ###
 test FOOOO
 
 ```javascript
-      array(
+      /*          
+      * test FOOOO
+      */
+      t_vtype_input_of_get_intl_message:array(
         or(
           object(
             path    : array_of( string() ),
@@ -314,17 +317,22 @@ test FOOOO
       )
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_get\_intl\_message ###
 
 ```javascript
-      any()
+      t_vtype_output_of_get_intl_message:any()
 
 ```
 
-### \_\_t\_anonymous ###
+get\_intl\_message
+========================
+
+get\_intl\_message
+
+### t\_vtype\_input\_of\_get\_intl\_messages ###
 
 ```javascript
-      array(
+      t_vtype_input_of_get_intl_messages:array(
         or(
           object(
             lang_id : or( string(), null() ),
@@ -333,29 +341,39 @@ test FOOOO
       )
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_get\_intl\_messages ###
 
 ```javascript
-      any()
+      t_vtype_output_of_get_intl_messages:any()
 
 ```
 
-### \_\_t\_anonymous ###
+get\_intl\_messages
+========================
+
+get\_intl\_messages
+
+### t\_vtype\_input\_of\_get\_available\_intl\_messages ###
 
 ```javascript
-      array( string() )
+      t_vtype_input_of_get_available_intl_messages:array( string() )
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_get\_available\_intl\_messages ###
 
 ```javascript
-      array_of( any() )
+      t_vtype_output_of_get_available_intl_messages:array_of( any() )
 ```
 
-### \_\_t\_anonymous ###
+get\_available\_intl\_messages
+========================
+
+get\_available\_intl\_messages
+
+### t\_vtype\_input\_of\_create\_or\_update\_user ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_create_or_update_user:nargs(
         user : object(
           username : string(),
         ),
@@ -363,29 +381,34 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_user ###
 
 ```javascript
-      object(
+      t_vtype_output_of_create_or_update_user:object(
         user : object(
           username : string(),
         ),
       ),
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_user
+========================
+
+create\_or\_update\_user
+
+### t\_vtype\_input\_of\_delete\_user ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_delete_user:nargs(
         user : t_username_or_user_id(),
       )
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_user ###
 
 ```javascript
-      object(
+      t_vtype_output_of_delete_user:object(
         user : object(
           user_id  : t_user_id(),
           username : t_username(),
@@ -393,59 +416,79 @@ test FOOOO
       ),
 ```
 
-### \_\_t\_anonymous ###
+delete\_user
+========================
+
+delete\_user
+
+### t\_vtype\_input\_of\_delete\_multiple\_users ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_multiple_users:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_multiple\_users ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_multiple_users:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_multiple\_users
+========================
+
+delete\_multiple\_users
+
+### t\_vtype\_input\_of\_has\_user ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_has_user:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_has\_user ###
 
 ```javascript
-      any()
+      t_vtype_output_of_has_user:any()
 
 ```
 
-### \_\_t\_anonymous ###
+has\_user
+========================
+
+has\_user
+
+### t\_vtype\_input\_of\_has\_username ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_has_username:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_has\_username ###
 
 ```javascript
-      any()
+      t_vtype_output_of_has_username:any()
 
 ```
 
-### \_\_t\_anonymous ###
+has\_username
+========================
+
+has\_username
+
+### t\_vtype\_input\_of\_read\_user ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_user:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_user ###
 
 ```javascript
-      object(
+      t_vtype_output_of_read_user:object(
         user : or(
           object(
             user_id :t_user_id() ,
@@ -459,154 +502,209 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+read\_user
+========================
+
+read\_user
+
+### t\_vtype\_input\_of\_user\_id2username ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_user_id2username:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_user\_id2username ###
 
 ```javascript
-      any()
+      t_vtype_output_of_user_id2username:any()
 
 ```
 
-### \_\_t\_anonymous ###
+user\_id2username
+========================
+
+user\_id2username
+
+### t\_vtype\_input\_of\_username2user\_id ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_username2user_id:nargs(
         username : t_username(),
       )
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_username2user\_id ###
 
 ```javascript
-      object(
+      t_vtype_output_of_username2user_id:object(
         user_id: t_user_id(),
       )
 
 ```
 
-### \_\_t\_anonymous ###
+username2user\_id
+========================
+
+username2user\_id
+
+### t\_vtype\_input\_of\_read\_all\_users ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_all_users:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_all\_users ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_all_users:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_all\_users
+========================
+
+read\_all\_users
+
+### t\_vtype\_input\_of\_count\_all\_users ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_count_all_users:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_count\_all\_users ###
 
 ```javascript
-      any()
+      t_vtype_output_of_count_all_users:any()
 
 ```
 
-### \_\_t\_anonymous ###
+count\_all\_users
+========================
+
+count\_all\_users
+
+### t\_vtype\_input\_of\_create\_or\_update\_user\_authentication ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_or_update_user_authentication:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_user\_authentication ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_or_update_user_authentication:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_user\_authentication
+========================
+
+create\_or\_update\_user\_authentication
+
+### t\_vtype\_input\_of\_update\_user\_authentication ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_update_user_authentication:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_update\_user\_authentication ###
 
 ```javascript
-      any()
+      t_vtype_output_of_update_user_authentication:any()
 
 ```
 
-### \_\_t\_anonymous ###
+update\_user\_authentication
+========================
+
+update\_user\_authentication
+
+### t\_vtype\_input\_of\_read\_user\_authentication ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_user_authentication:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_user\_authentication ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_user_authentication:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_user\_authentication
+========================
+
+read\_user\_authentication
+
+### t\_vtype\_input\_of\_delete\_user\_authentication ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_user_authentication:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_user\_authentication ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_user_authentication:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_user\_authentication
+========================
+
+delete\_user\_authentication
+
+### t\_vtype\_input\_of\_read\_all\_user\_authentications ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_all_user_authentications:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_all\_user\_authentications ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_all_user_authentications:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_all\_user\_authentications
+========================
+
+read\_all\_user\_authentications
+
+### t\_vtype\_input\_of\_get\_parent\_users ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_get_parent_users:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_get\_parent\_users ###
 
 ```javascript
-      any()
+      t_vtype_output_of_get_parent_users:any()
 
 ```
 
-### \_\_t\_anonymous ###
+get\_parent\_users
+========================
+
+get\_parent\_users
+
+### t\_vtype\_input\_of\_get\_wallet\_contents ###
 
 ```javascript
-      fold_right(
+      t_vtype_input_of_get_wallet_contents:fold_right(
         or(
           object(
             username : t_username(),
@@ -618,10 +716,10 @@ test FOOOO
       ),
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_get\_wallet\_contents ###
 
 ```javascript
-      array_of(
+      t_vtype_output_of_get_wallet_contents:array_of(
         object(
           wallet_id   : uuid(),
           valuable_id : uuid(),
@@ -632,49 +730,74 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+get\_wallet\_contents
+========================
+
+get\_wallet\_contents
+
+abstract\_login
+========================
+
+abstract\_login
+
+### t\_vtype\_input\_of\_abstract\_login\_information ###
 
 ```javascript
-      array(t_user_identity_token())
+      t_vtype_input_of_abstract_login_information:array(t_user_identity_token())
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_abstract\_login\_information ###
 
 ```javascript
-      t_user_login_info()
+      t_vtype_output_of_abstract_login_information:t_user_login_info()
 ```
 
-### \_\_t\_anonymous ###
+abstract\_login\_information
+========================
+
+abstract\_login\_information
+
+### t\_vtype\_input\_of\_abstract\_switch\_current\_user ###
 
 ```javascript
-      nargs()
-
-```
-
-### \_\_t\_anonymous ###
-
-```javascript
-      boolean()
-```
-
-### \_\_t\_anonymous ###
-
-```javascript
-      nargs()
-
-```
-
-### \_\_t\_anonymous ###
-
-```javascript
-      any()
+      t_vtype_input_of_abstract_switch_current_user:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_abstract\_switch\_current\_user ###
 
 ```javascript
-      array(
+      t_vtype_output_of_abstract_switch_current_user:boolean()
+```
+
+abstract\_switch\_current\_user
+========================
+
+abstract\_switch\_current\_user
+
+### t\_vtype\_input\_of\_read\_user\_member ###
+
+```javascript
+      t_vtype_input_of_read_user_member:nargs()
+
+```
+
+### t\_vtype\_output\_of\_read\_user\_member ###
+
+```javascript
+      t_vtype_output_of_read_user_member:any()
+
+```
+
+read\_user\_member
+========================
+
+read\_user\_member
+
+### t\_vtype\_input\_of\_var\_ensure\_user\_id ###
+
+```javascript
+      t_vtype_input_of_var_ensure_user_id:array(
         or(
           object(
             user_id : uuid(),
@@ -686,20 +809,25 @@ test FOOOO
       )
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_var\_ensure\_user\_id ###
 
 ```javascript
-      object(
+      t_vtype_output_of_var_ensure_user_id:object(
         user_id  : or( t_user_id(),  null()      ),
         username : or( t_username(), undefined() ),
       )
 
 ```
 
-### \_\_t\_anonymous ###
+var\_ensure\_user\_id
+========================
+
+var\_ensure\_user\_id
+
+### t\_vtype\_input\_of\_var\_ensure\_member\_user\_id ###
 
 ```javascript
-      array(
+      t_vtype_input_of_var_ensure_member_user_id:array(
         or(
           object(
             member_user_id  : uuid(),
@@ -712,191 +840,256 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_var\_ensure\_member\_user\_id ###
 
 ```javascript
-      object(
+      t_vtype_output_of_var_ensure_member_user_id:object(
         member_user_id  : or( t_user_id(), null() ),
         member_username : or( t_username(), undefined() ),
       )
 
 ```
 
-### \_\_t\_anonymous ###
+var\_ensure\_member\_user\_id
+========================
+
+var\_ensure\_member\_user\_id
+
+### t\_vtype\_input\_of\_create\_or\_update\_user\_member ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_or_update_user_member:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_user\_member ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_or_update_user_member:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_user\_member
+========================
+
+create\_or\_update\_user\_member
+
+### t\_vtype\_input\_of\_delete\_user\_member ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_user_member:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_user\_member ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_user_member:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_user\_member
+========================
+
+delete\_user\_member
+
+### t\_vtype\_input\_of\_delete\_multiple\_user\_members ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_multiple_user_members:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_multiple\_user\_members ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_multiple_user_members:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_multiple\_user\_members
+========================
+
+delete\_multiple\_user\_members
+
+### t\_vtype\_input\_of\_read\_filtered\_user\_members ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_filtered_user_members:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_filtered\_user\_members ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_filtered_user_members:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_filtered\_user\_members
+========================
+
+read\_filtered\_user\_members
+
+### t\_vtype\_input\_of\_read\_accounts ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_read_accounts:nargs(
         username : or( t_username(), null() ),
         mode     : or( t_read_accounts_mode(), null() ),
       )
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_accounts ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_accounts:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_accounts
+========================
+
+read\_accounts
+
+### t\_vtype\_input\_of\_create\_or\_update\_account ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_or_update_account:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_account ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_or_update_account:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_account
+========================
+
+create\_or\_update\_account
+
+### t\_vtype\_input\_of\_create\_or\_update\_accounts ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_or_update_accounts:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_accounts ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_or_update_accounts:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_accounts
+========================
+
+create\_or\_update\_accounts
+
+### t\_vtype\_input\_of\_create\_message ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_message:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_message ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_message:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_message
+========================
+
+create\_message
+
+### t\_vtype\_input\_of\_write\_message ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_write_message:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_write\_message ###
 
 ```javascript
-      any()
+      t_vtype_output_of_write_message:any()
 
 ```
 
-### \_\_t\_anonymous ###
+write\_message
+========================
+
+write\_message
+
+### t\_vtype\_input\_of\_read\_message ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_message:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_message ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_message:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_message
+========================
+
+read\_message
+
+### t\_vtype\_input\_of\_delete\_message ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_message:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_message ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_message:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_message
+========================
+
+delete\_message
+
+### t\_vtype\_input\_of\_test\_stored\_procedure ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_test_stored_procedure:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_test\_stored\_procedure ###
 
 ```javascript
-      any()
+      t_vtype_output_of_test_stored_procedure:any()
 
 ```
 
-### \_\_t\_anonymous ###
+test\_stored\_procedure
+========================
+
+test\_stored\_procedure
+
+### t\_vtype\_input\_of\_create\_timeline ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_create_timeline:nargs(
         timeline : or(
           object(),
           object(
@@ -907,59 +1100,79 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_timeline
+========================
+
+create\_timeline
+
+### t\_vtype\_input\_of\_read\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_timeline
+========================
+
+read\_timeline
+
+### t\_vtype\_input\_of\_delete\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_timeline
+========================
+
+delete\_timeline
+
+### t\_vtype\_input\_of\_read\_view\_timeline\_and\_profile ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_view_timeline_and_profile:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_view\_timeline\_and\_profile ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_view_timeline_and_profile:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_view\_timeline\_and\_profile
+========================
+
+read\_view\_timeline\_and\_profile
+
+### t\_vtype\_input\_of\_create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
 ```javascript
-      fold_right(
+      t_vtype_input_of_create_or_update_view_user_and_user_timeline_and_timeline_and_profile:fold_right(
         and(
           t_username_or_user_id(),
           object(
@@ -975,325 +1188,440 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_or_update_view_user_and_user_timeline_and_timeline_and_profile:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile
+========================
+
+create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile
+
+### t\_vtype\_input\_of\_create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
+========================
+
+create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
+
+### t\_vtype\_input\_of\_read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_view_users_and_user_timeline_and_timeline_and_profile:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_view_users_and_user_timeline_and_timeline_and_profile:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile
+========================
+
+read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile
+
+### t\_vtype\_input\_of\_read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_view_user_member_and_user_timeline_and_timeline_and_profile:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_view_user_member_and_user_timeline_and_timeline_and_profile:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
+========================
+
+read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
+
+### t\_vtype\_input\_of\_user\_timelines\_to\_object ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_user_timelines_to_object:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_user\_timelines\_to\_object ###
 
 ```javascript
-      any()
+      t_vtype_output_of_user_timelines_to_object:any()
 
 ```
 
-### \_\_t\_anonymous ###
+user\_timelines\_to\_object
+========================
+
+user\_timelines\_to\_object
+
+### t\_vtype\_input\_of\_object\_to\_user\_timelines ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_object_to_user_timelines:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_object\_to\_user\_timelines ###
 
 ```javascript
-      any()
+      t_vtype_output_of_object_to_user_timelines:any()
 
 ```
 
-### \_\_t\_anonymous ###
+object\_to\_user\_timelines
+========================
+
+object\_to\_user\_timelines
+
+### t\_vtype\_input\_of\_create\_or\_update\_profile ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_or_update_profile:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_profile ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_or_update_profile:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_profile
+========================
+
+create\_or\_update\_profile
+
+### t\_vtype\_input\_of\_read\_profile ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_profile:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_profile ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_profile:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_profile
+========================
+
+read\_profile
+
+### t\_vtype\_input\_of\_delete\_profile ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_profile:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_profile ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_profile:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_profile
+========================
+
+delete\_profile
+
+### t\_vtype\_input\_of\_create\_timeline\_content ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_timeline_content:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_timeline\_content ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_timeline_content:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_timeline\_content
+========================
+
+create\_timeline\_content
+
+### t\_vtype\_input\_of\_read\_timeline\_content ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_timeline_content:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_timeline\_content ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_timeline_content:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_timeline\_content
+========================
+
+read\_timeline\_content
+
+### t\_vtype\_input\_of\_delete\_timeline\_content ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_timeline_content:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_timeline\_content ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_timeline_content:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_timeline\_content
+========================
+
+delete\_timeline\_content
+
+### t\_vtype\_input\_of\_is\_timeline\_following ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_is_timeline_following:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_is\_timeline\_following ###
 
 ```javascript
-      any()
+      t_vtype_output_of_is_timeline_following:any()
 
 ```
 
-### \_\_t\_anonymous ###
+is\_timeline\_following
+========================
+
+is\_timeline\_following
+
+### t\_vtype\_input\_of\_follow\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_follow_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_follow\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_follow_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+follow\_timeline
+========================
+
+follow\_timeline
+
+### t\_vtype\_input\_of\_unfollow\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_unfollow_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_unfollow\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_unfollow_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+unfollow\_timeline
+========================
+
+unfollow\_timeline
+
+### t\_vtype\_input\_of\_create\_or\_update\_valuable ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_or_update_valuable:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_valuable ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_or_update_valuable:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_valuable
+========================
+
+create\_or\_update\_valuable
+
+### t\_vtype\_input\_of\_create\_valuable ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_valuable:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_valuable ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_valuable:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_valuable
+========================
+
+create\_valuable
+
+### t\_vtype\_input\_of\_update\_valuable ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_update_valuable:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_update\_valuable ###
 
 ```javascript
-      any()
+      t_vtype_output_of_update_valuable:any()
 
 ```
 
-### \_\_t\_anonymous ###
+update\_valuable
+========================
+
+update\_valuable
+
+### t\_vtype\_input\_of\_disableValuable ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_disableValuable:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_disableValuable ###
 
 ```javascript
-      any()
+      t_vtype_output_of_disableValuable:any()
 
 ```
 
-### \_\_t\_anonymous ###
+disableValuable
+========================
+
+disableValuable
+
+### t\_vtype\_input\_of\_read\_valuable ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_valuable:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_valuable ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_valuable:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_valuable
+========================
+
+read\_valuable
+
+### t\_vtype\_input\_of\_delete\_valuable ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_valuable:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_valuable ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_valuable:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_valuable
+========================
+
+delete\_valuable
+
+### t\_vtype\_input\_of\_read\_all\_valuables ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_all_valuables:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_all\_valuables ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_all_valuables:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_all\_valuables
+========================
+
+read\_all\_valuables
+
+### t\_vtype\_input\_of\_issue\_valuables ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_issue_valuables:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_issue\_valuables ###
 
 ```javascript
-      any()
+      t_vtype_output_of_issue_valuables:any()
 
 ```
 
-### \_\_t\_anonymous ###
+issue\_valuables
+========================
+
+issue\_valuables
+
+### t\_vtype\_input\_of\_update\_valuable\_state ###
 
 ```javascript
-      array(
+      t_vtype_input_of_update_valuable_state:array(
         object(
           valuable_id      : uuid(),
           valuable_enabled : boolean(),
@@ -1301,17 +1629,22 @@ test FOOOO
       )
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_update\_valuable\_state ###
 
 ```javascript
-      any()
+      t_vtype_output_of_update_valuable_state:any()
 
 ```
 
-### \_\_t\_anonymous ###
+update\_valuable\_state
+========================
+
+update\_valuable\_state
+
+### t\_vtype\_input\_of\_download\_valuable\_state ###
 
 ```javascript
-      array(
+      t_vtype_input_of_download_valuable_state:array(
         object(
           valuable_id      : uuid(),
         )
@@ -1319,139 +1652,184 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_download\_valuable\_state ###
 
 ```javascript
-      any()
+      t_vtype_output_of_download_valuable_state:any()
 
 ```
 
-### \_\_t\_anonymous ###
+download\_valuable\_state
+========================
+
+download\_valuable\_state
+
+### t\_vtype\_input\_of\_confiscate\_all\_valuable\_deposits ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_confiscate_all_valuable_deposits:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_confiscate\_all\_valuable\_deposits ###
 
 ```javascript
-      any()
+      t_vtype_output_of_confiscate_all_valuable_deposits:any()
 
 ```
 
-### \_\_t\_anonymous ###
+confiscate\_all\_valuable\_deposits
+========================
+
+confiscate\_all\_valuable\_deposits
+
+### t\_vtype\_input\_of\_create\_wallet ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_wallet:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_wallet ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_wallet:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_wallet
+========================
+
+create\_wallet
+
+### t\_vtype\_input\_of\_update\_wallet ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_update_wallet:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_update\_wallet ###
 
 ```javascript
-      any()
+      t_vtype_output_of_update_wallet:any()
 
 ```
 
-### \_\_t\_anonymous ###
+update\_wallet
+========================
+
+update\_wallet
+
+### t\_vtype\_input\_of\_disableWallet ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_disableWallet:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_disableWallet ###
 
 ```javascript
-      any()
+      t_vtype_output_of_disableWallet:any()
 
 ```
 
-### \_\_t\_anonymous ###
+disableWallet
+========================
+
+disableWallet
+
+### t\_vtype\_input\_of\_read\_wallet ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_wallet:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_wallet ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_wallet:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_wallet
+========================
+
+read\_wallet
+
+### t\_vtype\_input\_of\_delete\_wallet ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_wallet:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_wallet ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_wallet:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_wallet
+========================
+
+delete\_wallet
+
+### t\_vtype\_input\_of\_request\_valuable\_transfer ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_request_valuable_transfer:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_request\_valuable\_transfer ###
 
 ```javascript
-      any()
+      t_vtype_output_of_request_valuable_transfer:any()
 
 ```
 
-### \_\_t\_anonymous ###
+request\_valuable\_transfer
+========================
+
+request\_valuable\_transfer
+
+### t\_vtype\_input\_of\_respond\_valuable\_transfer ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_respond_valuable_transfer:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_respond\_valuable\_transfer ###
 
 ```javascript
-      any()
+      t_vtype_output_of_respond_valuable_transfer:any()
 
 ```
 
-### \_\_t\_anonymous ###
+respond\_valuable\_transfer
+========================
+
+respond\_valuable\_transfer
+
+### t\_vtype\_input\_of\_parse\_message\_commands ###
 
 ```javascript
-      array(
+      t_vtype_input_of_parse_message_commands:array(
         object(
           message_text         : string(),
         )
       )
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_parse\_message\_commands ###
 
 ```javascript
-      object(
+      t_vtype_output_of_parse_message_commands:object(
         statements : array_of(
           object(
             command_name : or(
@@ -1479,10 +1857,15 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+parse\_message\_commands
+========================
+
+parse\_message\_commands
+
+### t\_vtype\_input\_of\_execute\_message\_commands ###
 
 ```javascript
-      fold_right(
+      t_vtype_input_of_execute_message_commands:fold_right(
         object(
           default_parent_user_id : t_user_id(),
           scope_id     : t_scope_id(),
@@ -1518,42 +1901,57 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_execute\_message\_commands ###
 
 ```javascript
-      any(),
+      t_vtype_output_of_execute_message_commands:any(),
 ```
 
-### \_\_t\_anonymous ###
+execute\_message\_commands
+========================
+
+execute\_message\_commands
+
+### t\_vtype\_input\_of\_get\_notify\_timeline\_from\_user ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_get_notify_timeline_from_user:nargs(
         scope_id : t_scope_id(),
         user_id  : t_user_id(),
       ),
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_get\_notify\_timeline\_from\_user ###
 
 ```javascript
-      t_tbl_user_timelines(),
+      t_vtype_output_of_get_notify_timeline_from_user:t_tbl_user_timelines(),
 ```
 
-### \_\_t\_anonymous ###
+get\_notify\_timeline\_from\_user
+========================
+
+get\_notify\_timeline\_from\_user
+
+### t\_vtype\_input\_of\_get\_notify\_timeline\_from\_member\_user ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_get_notify_timeline_from_member_user:nargs(
         scope_id : t_scope_id(),
         user_id  :t_user_id(),
         member_user_id : t_user_id(),
       ),
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_get\_notify\_timeline\_from\_member\_user ###
 
 ```javascript
-      t_tbl_user_member_timelines(),
+      t_vtype_output_of_get_notify_timeline_from_member_user:t_tbl_user_member_timelines(),
 ```
+
+get\_notify\_timeline\_from\_member\_user
+========================
+
+get\_notify\_timeline\_from\_member\_user
 
 ### t\_sndmsg\_user ###
 
@@ -1669,10 +2067,10 @@ test FOOOO
       ),
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_input\_of\_sndmsg\_util\_transfer ###
 
 ```javascript
-      fold_right(
+      t_vtype_input_of_sndmsg_util_transfer:fold_right(
         object(
           valuable_id       : uuid(),
           valuable_quantity : number(),
@@ -1684,17 +2082,22 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_sndmsg\_util\_transfer ###
 
 ```javascript
-      any()
+      t_vtype_output_of_sndmsg_util_transfer:any()
 
 ```
 
-### \_\_t\_anonymous ###
+sndmsg\_util\_transfer
+========================
+
+sndmsg\_util\_transfer
+
+### t\_vtype\_input\_of\_sndmsg\_util\_notification ###
 
 ```javascript
-      fold_right(
+      t_vtype_input_of_sndmsg_util_notification:fold_right(
         object(
           scope_id               : t_scope_id(),
           default_parent_user_id : t_user_id(),
@@ -1706,64 +2109,84 @@ test FOOOO
       ),
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_sndmsg\_util\_notification ###
 
 ```javascript
-      undefined(),
+      t_vtype_output_of_sndmsg_util_notification:undefined(),
 ```
 
-### \_\_t\_anonymous ###
+sndmsg\_util\_notification
+========================
+
+sndmsg\_util\_notification
+
+### t\_vtype\_input\_of\_sndmsg\_cmd\_message ###
 
 ```javascript
-      fold_right(
+      t_vtype_input_of_sndmsg_cmd_message:fold_right(
         t_sndmsg_cmd_base()
       )
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_sndmsg\_cmd\_message ###
 
 ```javascript
-      any()
+      t_vtype_output_of_sndmsg_cmd_message:any()
 
 ```
 
-### \_\_t\_anonymous ###
+sndmsg\_cmd\_message
+========================
+
+sndmsg\_cmd\_message
+
+### t\_vtype\_input\_of\_sndmsg\_cmd\_check ###
 
 ```javascript
-      array(
+      t_vtype_input_of_sndmsg_cmd_check:array(
         t_sndmsg_cmd(),
       )
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_sndmsg\_cmd\_check ###
 
 ```javascript
-      any()
+      t_vtype_output_of_sndmsg_cmd_check:any()
 
 ```
 
-### \_\_t\_anonymous ###
+sndmsg\_cmd\_check
+========================
+
+sndmsg\_cmd\_check
+
+### t\_vtype\_input\_of\_sndmsg\_cmd\_valuable ###
 
 ```javascript
-      fold_right(
+      t_vtype_input_of_sndmsg_cmd_valuable:fold_right(
         t_sndmsg_cmd(),
       )
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_sndmsg\_cmd\_valuable ###
 
 ```javascript
-      any()
+      t_vtype_output_of_sndmsg_cmd_valuable:any()
 
 ```
 
-### \_\_t\_anonymous ###
+sndmsg\_cmd\_valuable
+========================
+
+sndmsg\_cmd\_valuable
+
+### t\_vtype\_input\_of\_read\_valuable\_transactions ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_read_valuable_transactions:nargs(
         valuable_id : uuid(),
         from : or( string(), null() ),
         to   : or( string(), null() ),
@@ -1771,28 +2194,38 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_valuable\_transactions ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_valuable_transactions:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_valuable\_transactions
+========================
+
+read\_valuable\_transactions
+
+### t\_vtype\_input\_of\_read\_valuable\_deposits ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_read_valuable_deposits:nargs(
         valuable_id : uuid(),
       )
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_valuable\_deposits ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_valuable_deposits:any()
 
 ```
+
+read\_valuable\_deposits
+========================
+
+read\_valuable\_deposits
 
 ### t\_message\_content\_type ###
 
@@ -1816,10 +2249,10 @@ test FOOOO
       t_message_text_content_json:object(),
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_input\_of\_send\_message ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_send_message:nargs(
         timeline_id          : or( t_timeline_id(), null() ),
         user_id              : or( t_user_id(), null() ),
         parent_message_id    : or( uuid(), null() ),
@@ -1832,16 +2265,21 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_send\_message ###
 
 ```javascript
-      any()
+      t_vtype_output_of_send_message:any()
 ```
 
-### \_\_t\_anonymous ###
+send\_message
+========================
+
+send\_message
+
+### t\_vtype\_input\_of\_send\_tweet ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_send_tweet:nargs(
         user_id                : t_user_id(),
         scope_id               : t_scope_id(),
         default_parent_user_id : t_user_id(),
@@ -1852,16 +2290,21 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_send\_tweet ###
 
 ```javascript
-      any()
+      t_vtype_output_of_send_tweet:any()
 ```
 
-### \_\_t\_anonymous ###
+send\_tweet
+========================
+
+send\_tweet
+
+### t\_vtype\_input\_of\_receive\_tweets ###
 
 ```javascript
-      array(
+      t_vtype_input_of_receive_tweets:array(
         object(
           user_id     : or( null(), uuid() ),
           timeline_id : or( null(), uuid() ),
@@ -1875,45 +2318,60 @@ test FOOOO
       )
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_receive\_tweets ###
 
 ```javascript
-      any()
+      t_vtype_output_of_receive_tweets:any()
 
 ```
 
-### \_\_t\_anonymous ###
+receive\_tweets
+========================
+
+receive\_tweets
+
+### t\_vtype\_input\_of\_get\_locale\_message ###
 
 ```javascript
-      array_of(
+      t_vtype_input_of_get_locale_message:array_of(
         string()
       )
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_get\_locale\_message ###
 
 ```javascript
-      any()
+      t_vtype_output_of_get_locale_message:any()
 
 ```
 
-### \_\_t\_anonymous ###
+get\_locale\_message
+========================
+
+get\_locale\_message
+
+### t\_vtype\_input\_of\_get\_global\_common\_input\_timeline\_id ###
 
 ```javascript
-      array()
+      t_vtype_input_of_get_global_common_input_timeline_id:array()
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_get\_global\_common\_input\_timeline\_id ###
 
 ```javascript
-      uuid()
+      t_vtype_output_of_get_global_common_input_timeline_id:uuid()
 ```
 
-### \_\_t\_anonymous ###
+get\_global\_common\_input\_timeline\_id
+========================
+
+get\_global\_common\_input\_timeline\_id
+
+### t\_vtype\_input\_of\_create\_or\_update\_user\_timeline ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_create_or_update_user_timeline:nargs(
         user_id : t_user_id(),
         timelinename : t_timelinename(),
         timeline_id : or(
@@ -1925,103 +2383,138 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_user\_timeline ###
 
 ```javascript
-      object(
+      t_vtype_output_of_create_or_update_user_timeline:object(
         timeline_id : t_timeline_id(),
       )
 
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_user\_timeline
+========================
+
+create\_or\_update\_user\_timeline
+
+### t\_vtype\_input\_of\_read\_user\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_user_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_user\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_user_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_user\_timeline
+========================
+
+read\_user\_timeline
+
+### t\_vtype\_input\_of\_delete\_user\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_user_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_user\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_user_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_user\_timeline
+========================
+
+delete\_user\_timeline
+
+### t\_vtype\_input\_of\_create\_or\_update\_user\_watching\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_or_update_user_watching_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_user\_watching\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_or_update_user_watching_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_user\_watching\_timeline
+========================
+
+create\_or\_update\_user\_watching\_timeline
+
+### t\_vtype\_input\_of\_read\_user\_watching\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_user_watching_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_user\_watching\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_user_watching_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_user\_watching\_timeline
+========================
+
+read\_user\_watching\_timeline
+
+### t\_vtype\_input\_of\_delete\_user\_watching\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_user_watching_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_user\_watching\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_user_watching_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_user\_watching\_timeline
+========================
+
+delete\_user\_watching\_timeline
+
+### t\_vtype\_input\_of\_create\_or\_update\_user\_member\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_or_update_user_member_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_user\_member\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_or_update_user_member_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_user\_member\_timeline
+========================
+
+create\_or\_update\_user\_member\_timeline
+
+### t\_vtype\_input\_of\_read\_user\_member\_timeline ###
 
 ```javascript
-      fold_right(
+      t_vtype_input_of_read_user_member_timeline:fold_right(
         and(
           object(
             user_id        : t_user_id(),
@@ -2039,143 +2532,193 @@ test FOOOO
       ),
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_user\_member\_timeline ###
 
 ```javascript
-      t_tbl_user_member_timelines()
+      t_vtype_output_of_read_user_member_timeline:t_tbl_user_member_timelines()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_user\_member\_timeline
+========================
+
+read\_user\_member\_timeline
+
+### t\_vtype\_input\_of\_delete\_user\_member\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_user_member_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_user\_member\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_user_member_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_user\_member\_timeline
+========================
+
+delete\_user\_member\_timeline
+
+### t\_vtype\_input\_of\_create\_or\_update\_user\_member\_watching\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_create_or_update_user_member_watching_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_create\_or\_update\_user\_member\_watching\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_create_or_update_user_member_watching_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+create\_or\_update\_user\_member\_watching\_timeline
+========================
+
+create\_or\_update\_user\_member\_watching\_timeline
+
+### t\_vtype\_input\_of\_read\_user\_member\_watching\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_read_user_member_watching_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_read\_user\_member\_watching\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_read_user_member_watching_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+read\_user\_member\_watching\_timeline
+========================
+
+read\_user\_member\_watching\_timeline
+
+### t\_vtype\_input\_of\_delete\_user\_member\_watching\_timeline ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_delete_user_member_watching_timeline:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_delete\_user\_member\_watching\_timeline ###
 
 ```javascript
-      any()
+      t_vtype_output_of_delete_user_member_watching_timeline:any()
 
 ```
 
-### \_\_t\_anonymous ###
+delete\_user\_member\_watching\_timeline
+========================
+
+delete\_user\_member\_watching\_timeline
+
+### t\_vtype\_input\_of\_list\_child\_users ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_list_child_users:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_list\_child\_users ###
 
 ```javascript
-      any()
+      t_vtype_output_of_list_child_users:any()
 
 ```
 
-### \_\_t\_anonymous ###
+list\_child\_users
+========================
+
+list\_child\_users
+
+### t\_vtype\_input\_of\_get\_random\_user ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_get_random_user:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_get\_random\_user ###
 
 ```javascript
-      any()
+      t_vtype_output_of_get_random_user:any()
 
 ```
 
-### \_\_t\_anonymous ###
+get\_random\_user
+========================
+
+get\_random\_user
+
+### t\_vtype\_input\_of\_get\_random\_member\_user ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_get_random_member_user:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_get\_random\_member\_user ###
 
 ```javascript
-      any()
+      t_vtype_output_of_get_random_member_user:any()
 
 ```
 
-### \_\_t\_anonymous ###
+get\_random\_member\_user
+========================
+
+get\_random\_member\_user
+
+### t\_vtype\_input\_of\_parse\_message\_text ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_parse_message_text:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_parse\_message\_text ###
 
 ```javascript
-      any()
+      t_vtype_output_of_parse_message_text:any()
 
 ```
 
-### \_\_t\_anonymous ###
+parse\_message\_text
+========================
+
+parse\_message\_text
+
+### t\_vtype\_input\_of\_send\_random\_member\_user\_tweet ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_send_random_member_user_tweet:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_send\_random\_member\_user\_tweet ###
 
 ```javascript
-      any()
+      t_vtype_output_of_send_random_member_user_tweet:any()
 
 ```
 
-### \_\_t\_anonymous ###
+send\_random\_member\_user\_tweet
+========================
+
+send\_random\_member\_user\_tweet
+
+### t\_vtype\_input\_of\_send\_random\_user\_tweet ###
 
 ```javascript
-      fold_right(
+      t_vtype_input_of_send_random_user_tweet:fold_right(
         object(
           user_id                : t_user_id(),
           scope_id               : t_scope_id(),
@@ -2187,73 +2730,113 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_send\_random\_user\_tweet ###
 
 ```javascript
-      any()
+      t_vtype_output_of_send_random_user_tweet:any()
 
 ```
 
-### \_\_t\_anonymous ###
+send\_random\_user\_tweet
+========================
+
+send\_random\_user\_tweet
+
+### t\_vtype\_input\_of\_test\_blob ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_test_blob:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_test\_blob ###
 
 ```javascript
-      any()
+      t_vtype_output_of_test_blob:any()
 
 ```
 
-### \_\_t\_anonymous ###
+test\_blob
+========================
+
+test\_blob
+
+### t\_vtype\_input\_of\_get\_default\_image ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_get_default_image:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_get\_default\_image ###
 
 ```javascript
-      any()
+      t_vtype_output_of_get_default_image:any()
 
 ```
 
-### \_\_t\_anonymous ###
+get\_default\_image
+========================
+
+get\_default\_image
+
+on\_open
+========================
+
+on\_open
+
+on\_close
+========================
+
+on\_close
+
+on\_error
+========================
+
+on\_error
+
+### t\_vtype\_input\_of\_start\_websocket ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_start_websocket:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_start\_websocket ###
 
 ```javascript
-      any()
+      t_vtype_output_of_start_websocket:any()
 
 ```
 
-### \_\_t\_anonymous ###
+start\_websocket
+========================
+
+start\_websocket
+
+### t\_vtype\_input\_of\_stop\_websocket ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_stop_websocket:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_stop\_websocket ###
 
 ```javascript
-      any()
+      t_vtype_output_of_stop_websocket:any()
 
 ```
 
-### \_\_t\_anonymous ###
+stop\_websocket
+========================
+
+stop\_websocket
+
+### t\_vtype\_input\_of\_reveal\_identity\_via\_token ###
 
 ```javascript
-      array(
+      t_vtype_input_of_reveal_identity_via_token:array(
         object(
           token : string()
         )
@@ -2261,86 +2844,116 @@ test FOOOO
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_reveal\_identity\_via\_token ###
 
 ```javascript
-      equals( << true >>  )
+      t_vtype_output_of_reveal_identity_via_token:equals( << true >>  )
 
 ```
 
-### \_\_t\_anonymous ###
+reveal\_identity\_via\_token
+========================
+
+reveal\_identity\_via\_token
+
+### t\_vtype\_input\_of\_initialize\_identity ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_initialize_identity:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_initialize\_identity ###
 
 ```javascript
-      equals( << true >>  )
+      t_vtype_output_of_initialize_identity:equals( << true >>  )
 
 ```
 
-### \_\_t\_anonymous ###
+initialize\_identity
+========================
+
+initialize\_identity
+
+### t\_vtype\_input\_of\_finalize\_identity ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_finalize_identity:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_finalize\_identity ###
 
 ```javascript
-      equals( << true >>  )
+      t_vtype_output_of_finalize_identity:equals( << true >>  )
 
 ```
 
-### \_\_t\_anonymous ###
+finalize\_identity
+========================
+
+finalize\_identity
+
+### t\_vtype\_input\_of\_listen\_database\_channel ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_listen_database_channel:nargs(
         channel_id : regexp(<< /^[0-9a-zA-Z_-]+$/ >> )
       )
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_listen\_database\_channel ###
 
 ```javascript
-      equals( << true >>  )
+      t_vtype_output_of_listen_database_channel:equals( << true >>  )
 
 ```
 
-### \_\_t\_anonymous ###
+listen\_database\_channel
+========================
+
+listen\_database\_channel
+
+### t\_vtype\_input\_of\_unlisten\_database\_channel ###
 
 ```javascript
-      nargs(
+      t_vtype_input_of_unlisten_database_channel:nargs(
         channel_id : uuid()
       )
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_unlisten\_database\_channel ###
 
 ```javascript
-      equals( << true >>  )
+      t_vtype_output_of_unlisten_database_channel:equals( << true >>  )
 
 ```
 
-### \_\_t\_anonymous ###
+unlisten\_database\_channel
+========================
+
+unlisten\_database\_channel
+
+### t\_vtype\_input\_of\_unlisten\_all\_database\_channel ###
 
 ```javascript
-      nargs()
+      t_vtype_input_of_unlisten_all_database_channel:nargs()
 
 ```
 
-### \_\_t\_anonymous ###
+### t\_vtype\_output\_of\_unlisten\_all\_database\_channel ###
 
 ```javascript
-      equals( << true >>  )
+      t_vtype_output_of_unlisten_all_database_channel:equals( << true >>  )
 
 ```
+
+unlisten\_all\_database\_channel
+========================
+
+unlisten\_all\_database\_channel
 
 Conclusion
 =======================
