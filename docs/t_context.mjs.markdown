@@ -297,9 +297,6 @@ See read\_accounts()
       ),
 ```
 
-get\_intl\_message
-----------------
-
 ### t\_typesafety\_input\_of\_get\_intl\_message ###
 test FOOOO
 
@@ -324,11 +321,6 @@ test FOOOO
 
 ```
 
-get\_intl\_message
--------------
-
-get\_intl\_message
-
 ### t\_typesafety\_input\_of\_get\_intl\_messages ###
 
 ```javascript
@@ -348,11 +340,6 @@ get\_intl\_message
 
 ```
 
-get\_intl\_messages
--------------
-
-get\_intl\_messages
-
 ### t\_typesafety\_input\_of\_get\_available\_intl\_messages ###
 
 ```javascript
@@ -364,11 +351,6 @@ get\_intl\_messages
 ```javascript
       t_typesafety_output_of_get_available_intl_messages:array_of( any() )
 ```
-
-get\_available\_intl\_messages
--------------
-
-get\_available\_intl\_messages
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_user ###
 
@@ -391,11 +373,6 @@ get\_available\_intl\_messages
       ),
 ```
 
-create\_or\_update\_user
--------------
-
-create\_or\_update\_user
-
 ### t\_typesafety\_input\_of\_delete\_user ###
 
 ```javascript
@@ -416,11 +393,6 @@ create\_or\_update\_user
       ),
 ```
 
-delete\_user
--------------
-
-delete\_user
-
 ### t\_typesafety\_input\_of\_delete\_multiple\_users ###
 
 ```javascript
@@ -434,11 +406,6 @@ delete\_user
       t_typesafety_output_of_delete_multiple_users:any()
 
 ```
-
-delete\_multiple\_users
--------------
-
-delete\_multiple\_users
 
 ### t\_typesafety\_input\_of\_has\_user ###
 
@@ -454,11 +421,6 @@ delete\_multiple\_users
 
 ```
 
-has\_user
--------------
-
-has\_user
-
 ### t\_typesafety\_input\_of\_has\_username ###
 
 ```javascript
@@ -472,11 +434,6 @@ has\_user
       t_typesafety_output_of_has_username:any()
 
 ```
-
-has\_username
--------------
-
-has\_username
 
 ### t\_typesafety\_input\_of\_read\_user ###
 
@@ -502,11 +459,6 @@ has\_username
 
 ```
 
-read\_user
--------------
-
-read\_user
-
 ### t\_typesafety\_input\_of\_user\_id2username ###
 
 ```javascript
@@ -520,11 +472,6 @@ read\_user
       t_typesafety_output_of_user_id2username:any()
 
 ```
-
-user\_id2username
--------------
-
-user\_id2username
 
 ### t\_typesafety\_input\_of\_username2user\_id ###
 
@@ -544,11 +491,6 @@ user\_id2username
 
 ```
 
-username2user\_id
--------------
-
-username2user\_id
-
 ### t\_typesafety\_input\_of\_read\_all\_users ###
 
 ```javascript
@@ -562,11 +504,6 @@ username2user\_id
       t_typesafety_output_of_read_all_users:any()
 
 ```
-
-read\_all\_users
--------------
-
-read\_all\_users
 
 ### t\_typesafety\_input\_of\_count\_all\_users ###
 
@@ -582,11 +519,6 @@ read\_all\_users
 
 ```
 
-count\_all\_users
--------------
-
-count\_all\_users
-
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_authentication ###
 
 ```javascript
@@ -600,11 +532,6 @@ count\_all\_users
       t_typesafety_output_of_create_or_update_user_authentication:any()
 
 ```
-
-create\_or\_update\_user\_authentication
--------------
-
-create\_or\_update\_user\_authentication
 
 ### t\_typesafety\_input\_of\_update\_user\_authentication ###
 
@@ -620,11 +547,6 @@ create\_or\_update\_user\_authentication
 
 ```
 
-update\_user\_authentication
--------------
-
-update\_user\_authentication
-
 ### t\_typesafety\_input\_of\_read\_user\_authentication ###
 
 ```javascript
@@ -638,11 +560,6 @@ update\_user\_authentication
       t_typesafety_output_of_read_user_authentication:any()
 
 ```
-
-read\_user\_authentication
--------------
-
-read\_user\_authentication
 
 ### t\_typesafety\_input\_of\_delete\_user\_authentication ###
 
@@ -658,11 +575,6 @@ read\_user\_authentication
 
 ```
 
-delete\_user\_authentication
--------------
-
-delete\_user\_authentication
-
 ### t\_typesafety\_input\_of\_read\_all\_user\_authentications ###
 
 ```javascript
@@ -677,11 +589,6 @@ delete\_user\_authentication
 
 ```
 
-read\_all\_user\_authentications
--------------
-
-read\_all\_user\_authentications
-
 ### t\_typesafety\_input\_of\_get\_parent\_users ###
 
 ```javascript
@@ -695,11 +602,6 @@ read\_all\_user\_authentications
       t_typesafety_output_of_get_parent_users:any()
 
 ```
-
-get\_parent\_users
--------------
-
-get\_parent\_users
 
 ### t\_typesafety\_input\_of\_get\_wallet\_contents ###
 
@@ -730,16 +632,6 @@ get\_parent\_users
 
 ```
 
-get\_wallet\_contents
--------------
-
-get\_wallet\_contents
-
-abstract\_login
--------------
-
-abstract\_login
-
 ### t\_typesafety\_input\_of\_abstract\_login\_information ###
 
 ```javascript
@@ -751,11 +643,6 @@ abstract\_login
 ```javascript
       t_typesafety_output_of_abstract_login_information:t_user_login_info()
 ```
-
-abstract\_login\_information
--------------
-
-abstract\_login\_information
 
 ### t\_typesafety\_input\_of\_abstract\_switch\_current\_user ###
 
@@ -770,11 +657,6 @@ abstract\_login\_information
       t_typesafety_output_of_abstract_switch_current_user:boolean()
 ```
 
-abstract\_switch\_current\_user
--------------
-
-abstract\_switch\_current\_user
-
 ### t\_typesafety\_input\_of\_read\_user\_member ###
 
 ```javascript
@@ -788,11 +670,6 @@ abstract\_switch\_current\_user
       t_typesafety_output_of_read_user_member:any()
 
 ```
-
-read\_user\_member
--------------
-
-read\_user\_member
 
 ### t\_typesafety\_input\_of\_var\_ensure\_user\_id ###
 
@@ -818,11 +695,6 @@ read\_user\_member
       )
 
 ```
-
-var\_ensure\_user\_id
--------------
-
-var\_ensure\_user\_id
 
 ### t\_typesafety\_input\_of\_var\_ensure\_member\_user\_id ###
 
@@ -850,11 +722,6 @@ var\_ensure\_user\_id
 
 ```
 
-var\_ensure\_member\_user\_id
--------------
-
-var\_ensure\_member\_user\_id
-
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_member ###
 
 ```javascript
@@ -868,11 +735,6 @@ var\_ensure\_member\_user\_id
       t_typesafety_output_of_create_or_update_user_member:any()
 
 ```
-
-create\_or\_update\_user\_member
--------------
-
-create\_or\_update\_user\_member
 
 ### t\_typesafety\_input\_of\_delete\_user\_member ###
 
@@ -888,11 +750,6 @@ create\_or\_update\_user\_member
 
 ```
 
-delete\_user\_member
--------------
-
-delete\_user\_member
-
 ### t\_typesafety\_input\_of\_delete\_multiple\_user\_members ###
 
 ```javascript
@@ -907,11 +764,6 @@ delete\_user\_member
 
 ```
 
-delete\_multiple\_user\_members
--------------
-
-delete\_multiple\_user\_members
-
 ### t\_typesafety\_input\_of\_read\_filtered\_user\_members ###
 
 ```javascript
@@ -925,11 +777,6 @@ delete\_multiple\_user\_members
       t_typesafety_output_of_read_filtered_user_members:any()
 
 ```
-
-read\_filtered\_user\_members
--------------
-
-read\_filtered\_user\_members
 
 ### t\_typesafety\_input\_of\_read\_accounts ###
 
@@ -948,11 +795,6 @@ read\_filtered\_user\_members
 
 ```
 
-read\_accounts
--------------
-
-read\_accounts
-
 ### t\_typesafety\_input\_of\_create\_or\_update\_account ###
 
 ```javascript
@@ -966,11 +808,6 @@ read\_accounts
       t_typesafety_output_of_create_or_update_account:any()
 
 ```
-
-create\_or\_update\_account
--------------
-
-create\_or\_update\_account
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_accounts ###
 
@@ -986,11 +823,6 @@ create\_or\_update\_account
 
 ```
 
-create\_or\_update\_accounts
--------------
-
-create\_or\_update\_accounts
-
 ### t\_typesafety\_input\_of\_create\_message ###
 
 ```javascript
@@ -1004,11 +836,6 @@ create\_or\_update\_accounts
       t_typesafety_output_of_create_message:any()
 
 ```
-
-create\_message
--------------
-
-create\_message
 
 ### t\_typesafety\_input\_of\_write\_message ###
 
@@ -1024,11 +851,6 @@ create\_message
 
 ```
 
-write\_message
--------------
-
-write\_message
-
 ### t\_typesafety\_input\_of\_read\_message ###
 
 ```javascript
@@ -1042,11 +864,6 @@ write\_message
       t_typesafety_output_of_read_message:any()
 
 ```
-
-read\_message
--------------
-
-read\_message
 
 ### t\_typesafety\_input\_of\_delete\_message ###
 
@@ -1062,11 +879,6 @@ read\_message
 
 ```
 
-delete\_message
--------------
-
-delete\_message
-
 ### t\_typesafety\_input\_of\_test\_stored\_procedure ###
 
 ```javascript
@@ -1080,11 +892,6 @@ delete\_message
       t_typesafety_output_of_test_stored_procedure:any()
 
 ```
-
-test\_stored\_procedure
--------------
-
-test\_stored\_procedure
 
 ### t\_typesafety\_input\_of\_create\_timeline ###
 
@@ -1107,11 +914,6 @@ test\_stored\_procedure
 
 ```
 
-create\_timeline
--------------
-
-create\_timeline
-
 ### t\_typesafety\_input\_of\_read\_timeline ###
 
 ```javascript
@@ -1125,11 +927,6 @@ create\_timeline
       t_typesafety_output_of_read_timeline:any()
 
 ```
-
-read\_timeline
--------------
-
-read\_timeline
 
 ### t\_typesafety\_input\_of\_delete\_timeline ###
 
@@ -1145,11 +942,6 @@ read\_timeline
 
 ```
 
-delete\_timeline
--------------
-
-delete\_timeline
-
 ### t\_typesafety\_input\_of\_read\_view\_timeline\_and\_profile ###
 
 ```javascript
@@ -1163,11 +955,6 @@ delete\_timeline
       t_typesafety_output_of_read_view_timeline_and_profile:any()
 
 ```
-
-read\_view\_timeline\_and\_profile
--------------
-
-read\_view\_timeline\_and\_profile
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
@@ -1195,11 +982,6 @@ read\_view\_timeline\_and\_profile
 
 ```
 
-create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile
--------------
-
-create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile
-
 ### t\_typesafety\_input\_of\_create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
 ```javascript
@@ -1213,11 +995,6 @@ create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile
       t_typesafety_output_of_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile:any()
 
 ```
-
-create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
--------------
-
-create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
 
 ### t\_typesafety\_input\_of\_read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
@@ -1233,11 +1010,6 @@ create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\
 
 ```
 
-read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile
--------------
-
-read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile
-
 ### t\_typesafety\_input\_of\_read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
 ```javascript
@@ -1251,11 +1023,6 @@ read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile
       t_typesafety_output_of_read_view_user_member_and_user_timeline_and_timeline_and_profile:any()
 
 ```
-
-read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
--------------
-
-read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
 
 ### t\_typesafety\_input\_of\_user\_timelines\_to\_object ###
 
@@ -1271,11 +1038,6 @@ read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
 
 ```
 
-user\_timelines\_to\_object
--------------
-
-user\_timelines\_to\_object
-
 ### t\_typesafety\_input\_of\_object\_to\_user\_timelines ###
 
 ```javascript
@@ -1289,11 +1051,6 @@ user\_timelines\_to\_object
       t_typesafety_output_of_object_to_user_timelines:any()
 
 ```
-
-object\_to\_user\_timelines
--------------
-
-object\_to\_user\_timelines
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_profile ###
 
@@ -1309,11 +1066,6 @@ object\_to\_user\_timelines
 
 ```
 
-create\_or\_update\_profile
--------------
-
-create\_or\_update\_profile
-
 ### t\_typesafety\_input\_of\_read\_profile ###
 
 ```javascript
@@ -1327,11 +1079,6 @@ create\_or\_update\_profile
       t_typesafety_output_of_read_profile:any()
 
 ```
-
-read\_profile
--------------
-
-read\_profile
 
 ### t\_typesafety\_input\_of\_delete\_profile ###
 
@@ -1347,11 +1094,6 @@ read\_profile
 
 ```
 
-delete\_profile
--------------
-
-delete\_profile
-
 ### t\_typesafety\_input\_of\_create\_timeline\_content ###
 
 ```javascript
@@ -1365,11 +1107,6 @@ delete\_profile
       t_typesafety_output_of_create_timeline_content:any()
 
 ```
-
-create\_timeline\_content
--------------
-
-create\_timeline\_content
 
 ### t\_typesafety\_input\_of\_read\_timeline\_content ###
 
@@ -1385,11 +1122,6 @@ create\_timeline\_content
 
 ```
 
-read\_timeline\_content
--------------
-
-read\_timeline\_content
-
 ### t\_typesafety\_input\_of\_delete\_timeline\_content ###
 
 ```javascript
@@ -1403,11 +1135,6 @@ read\_timeline\_content
       t_typesafety_output_of_delete_timeline_content:any()
 
 ```
-
-delete\_timeline\_content
--------------
-
-delete\_timeline\_content
 
 ### t\_typesafety\_input\_of\_is\_timeline\_following ###
 
@@ -1423,11 +1150,6 @@ delete\_timeline\_content
 
 ```
 
-is\_timeline\_following
--------------
-
-is\_timeline\_following
-
 ### t\_typesafety\_input\_of\_follow\_timeline ###
 
 ```javascript
@@ -1441,11 +1163,6 @@ is\_timeline\_following
       t_typesafety_output_of_follow_timeline:any()
 
 ```
-
-follow\_timeline
--------------
-
-follow\_timeline
 
 ### t\_typesafety\_input\_of\_unfollow\_timeline ###
 
@@ -1461,11 +1178,6 @@ follow\_timeline
 
 ```
 
-unfollow\_timeline
--------------
-
-unfollow\_timeline
-
 ### t\_typesafety\_input\_of\_create\_or\_update\_valuable ###
 
 ```javascript
@@ -1479,11 +1191,6 @@ unfollow\_timeline
       t_typesafety_output_of_create_or_update_valuable:any()
 
 ```
-
-create\_or\_update\_valuable
--------------
-
-create\_or\_update\_valuable
 
 ### t\_typesafety\_input\_of\_create\_valuable ###
 
@@ -1499,11 +1206,6 @@ create\_or\_update\_valuable
 
 ```
 
-create\_valuable
--------------
-
-create\_valuable
-
 ### t\_typesafety\_input\_of\_update\_valuable ###
 
 ```javascript
@@ -1517,11 +1219,6 @@ create\_valuable
       t_typesafety_output_of_update_valuable:any()
 
 ```
-
-update\_valuable
--------------
-
-update\_valuable
 
 ### t\_typesafety\_input\_of\_disableValuable ###
 
@@ -1537,11 +1234,6 @@ update\_valuable
 
 ```
 
-disableValuable
--------------
-
-disableValuable
-
 ### t\_typesafety\_input\_of\_read\_valuable ###
 
 ```javascript
@@ -1555,11 +1247,6 @@ disableValuable
       t_typesafety_output_of_read_valuable:any()
 
 ```
-
-read\_valuable
--------------
-
-read\_valuable
 
 ### t\_typesafety\_input\_of\_delete\_valuable ###
 
@@ -1575,11 +1262,6 @@ read\_valuable
 
 ```
 
-delete\_valuable
--------------
-
-delete\_valuable
-
 ### t\_typesafety\_input\_of\_read\_all\_valuables ###
 
 ```javascript
@@ -1594,11 +1276,6 @@ delete\_valuable
 
 ```
 
-read\_all\_valuables
--------------
-
-read\_all\_valuables
-
 ### t\_typesafety\_input\_of\_issue\_valuables ###
 
 ```javascript
@@ -1612,11 +1289,6 @@ read\_all\_valuables
       t_typesafety_output_of_issue_valuables:any()
 
 ```
-
-issue\_valuables
--------------
-
-issue\_valuables
 
 ### t\_typesafety\_input\_of\_update\_valuable\_state ###
 
@@ -1636,11 +1308,6 @@ issue\_valuables
 
 ```
 
-update\_valuable\_state
--------------
-
-update\_valuable\_state
-
 ### t\_typesafety\_input\_of\_download\_valuable\_state ###
 
 ```javascript
@@ -1659,11 +1326,6 @@ update\_valuable\_state
 
 ```
 
-download\_valuable\_state
--------------
-
-download\_valuable\_state
-
 ### t\_typesafety\_input\_of\_confiscate\_all\_valuable\_deposits ###
 
 ```javascript
@@ -1677,11 +1339,6 @@ download\_valuable\_state
       t_typesafety_output_of_confiscate_all_valuable_deposits:any()
 
 ```
-
-confiscate\_all\_valuable\_deposits
--------------
-
-confiscate\_all\_valuable\_deposits
 
 ### t\_typesafety\_input\_of\_create\_wallet ###
 
@@ -1697,11 +1354,6 @@ confiscate\_all\_valuable\_deposits
 
 ```
 
-create\_wallet
--------------
-
-create\_wallet
-
 ### t\_typesafety\_input\_of\_update\_wallet ###
 
 ```javascript
@@ -1715,11 +1367,6 @@ create\_wallet
       t_typesafety_output_of_update_wallet:any()
 
 ```
-
-update\_wallet
--------------
-
-update\_wallet
 
 ### t\_typesafety\_input\_of\_disableWallet ###
 
@@ -1735,11 +1382,6 @@ update\_wallet
 
 ```
 
-disableWallet
--------------
-
-disableWallet
-
 ### t\_typesafety\_input\_of\_read\_wallet ###
 
 ```javascript
@@ -1753,11 +1395,6 @@ disableWallet
       t_typesafety_output_of_read_wallet:any()
 
 ```
-
-read\_wallet
--------------
-
-read\_wallet
 
 ### t\_typesafety\_input\_of\_delete\_wallet ###
 
@@ -1773,11 +1410,6 @@ read\_wallet
 
 ```
 
-delete\_wallet
--------------
-
-delete\_wallet
-
 ### t\_typesafety\_input\_of\_request\_valuable\_transfer ###
 
 ```javascript
@@ -1792,11 +1424,6 @@ delete\_wallet
 
 ```
 
-request\_valuable\_transfer
--------------
-
-request\_valuable\_transfer
-
 ### t\_typesafety\_input\_of\_respond\_valuable\_transfer ###
 
 ```javascript
@@ -1810,11 +1437,6 @@ request\_valuable\_transfer
       t_typesafety_output_of_respond_valuable_transfer:any()
 
 ```
-
-respond\_valuable\_transfer
--------------
-
-respond\_valuable\_transfer
 
 ### t\_typesafety\_input\_of\_parse\_message\_commands ###
 
@@ -1856,11 +1478,6 @@ respond\_valuable\_transfer
       )
 
 ```
-
-parse\_message\_commands
--------------
-
-parse\_message\_commands
 
 ### t\_typesafety\_input\_of\_execute\_message\_commands ###
 
@@ -1907,11 +1524,6 @@ parse\_message\_commands
       t_typesafety_output_of_execute_message_commands:any(),
 ```
 
-execute\_message\_commands
--------------
-
-execute\_message\_commands
-
 ### t\_typesafety\_input\_of\_get\_notify\_timeline\_from\_user ###
 
 ```javascript
@@ -1926,11 +1538,6 @@ execute\_message\_commands
 ```javascript
       t_typesafety_output_of_get_notify_timeline_from_user:t_tbl_user_timelines(),
 ```
-
-get\_notify\_timeline\_from\_user
--------------
-
-get\_notify\_timeline\_from\_user
 
 ### t\_typesafety\_input\_of\_get\_notify\_timeline\_from\_member\_user ###
 
@@ -1947,11 +1554,6 @@ get\_notify\_timeline\_from\_user
 ```javascript
       t_typesafety_output_of_get_notify_timeline_from_member_user:t_tbl_user_member_timelines(),
 ```
-
-get\_notify\_timeline\_from\_member\_user
--------------
-
-get\_notify\_timeline\_from\_member\_user
 
 ### t\_sndmsg\_user ###
 
@@ -2089,11 +1691,6 @@ get\_notify\_timeline\_from\_member\_user
 
 ```
 
-sndmsg\_util\_transfer
--------------
-
-sndmsg\_util\_transfer
-
 ### t\_typesafety\_input\_of\_sndmsg\_util\_notification ###
 
 ```javascript
@@ -2115,11 +1712,6 @@ sndmsg\_util\_transfer
       t_typesafety_output_of_sndmsg_util_notification:undefined(),
 ```
 
-sndmsg\_util\_notification
--------------
-
-sndmsg\_util\_notification
-
 ### t\_typesafety\_input\_of\_sndmsg\_cmd\_message ###
 
 ```javascript
@@ -2135,11 +1727,6 @@ sndmsg\_util\_notification
       t_typesafety_output_of_sndmsg_cmd_message:any()
 
 ```
-
-sndmsg\_cmd\_message
--------------
-
-sndmsg\_cmd\_message
 
 ### t\_typesafety\_input\_of\_sndmsg\_cmd\_check ###
 
@@ -2157,11 +1744,6 @@ sndmsg\_cmd\_message
 
 ```
 
-sndmsg\_cmd\_check
--------------
-
-sndmsg\_cmd\_check
-
 ### t\_typesafety\_input\_of\_sndmsg\_cmd\_valuable ###
 
 ```javascript
@@ -2177,11 +1759,6 @@ sndmsg\_cmd\_check
       t_typesafety_output_of_sndmsg_cmd_valuable:any()
 
 ```
-
-sndmsg\_cmd\_valuable
--------------
-
-sndmsg\_cmd\_valuable
 
 ### t\_typesafety\_input\_of\_read\_valuable\_transactions ###
 
@@ -2201,11 +1778,6 @@ sndmsg\_cmd\_valuable
 
 ```
 
-read\_valuable\_transactions
--------------
-
-read\_valuable\_transactions
-
 ### t\_typesafety\_input\_of\_read\_valuable\_deposits ###
 
 ```javascript
@@ -2221,11 +1793,6 @@ read\_valuable\_transactions
       t_typesafety_output_of_read_valuable_deposits:any()
 
 ```
-
-read\_valuable\_deposits
--------------
-
-read\_valuable\_deposits
 
 ### t\_message\_content\_type ###
 
@@ -2271,11 +1838,6 @@ read\_valuable\_deposits
       t_typesafety_output_of_send_message:any()
 ```
 
-send\_message
--------------
-
-send\_message
-
 ### t\_typesafety\_input\_of\_send\_tweet ###
 
 ```javascript
@@ -2295,11 +1857,6 @@ send\_message
 ```javascript
       t_typesafety_output_of_send_tweet:any()
 ```
-
-send\_tweet
--------------
-
-send\_tweet
 
 ### t\_typesafety\_input\_of\_receive\_tweets ###
 
@@ -2325,11 +1882,6 @@ send\_tweet
 
 ```
 
-receive\_tweets
--------------
-
-receive\_tweets
-
 ### t\_typesafety\_input\_of\_get\_locale\_message ###
 
 ```javascript
@@ -2346,11 +1898,6 @@ receive\_tweets
 
 ```
 
-get\_locale\_message
--------------
-
-get\_locale\_message
-
 ### t\_typesafety\_input\_of\_get\_global\_common\_input\_timeline\_id ###
 
 ```javascript
@@ -2362,11 +1909,6 @@ get\_locale\_message
 ```javascript
       t_typesafety_output_of_get_global_common_input_timeline_id:uuid()
 ```
-
-get\_global\_common\_input\_timeline\_id
--------------
-
-get\_global\_common\_input\_timeline\_id
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_timeline ###
 
@@ -2392,11 +1934,6 @@ get\_global\_common\_input\_timeline\_id
 
 ```
 
-create\_or\_update\_user\_timeline
--------------
-
-create\_or\_update\_user\_timeline
-
 ### t\_typesafety\_input\_of\_read\_user\_timeline ###
 
 ```javascript
@@ -2410,11 +1947,6 @@ create\_or\_update\_user\_timeline
       t_typesafety_output_of_read_user_timeline:any()
 
 ```
-
-read\_user\_timeline
--------------
-
-read\_user\_timeline
 
 ### t\_typesafety\_input\_of\_delete\_user\_timeline ###
 
@@ -2430,11 +1962,6 @@ read\_user\_timeline
 
 ```
 
-delete\_user\_timeline
--------------
-
-delete\_user\_timeline
-
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_watching\_timeline ###
 
 ```javascript
@@ -2448,11 +1975,6 @@ delete\_user\_timeline
       t_typesafety_output_of_create_or_update_user_watching_timeline:any()
 
 ```
-
-create\_or\_update\_user\_watching\_timeline
--------------
-
-create\_or\_update\_user\_watching\_timeline
 
 ### t\_typesafety\_input\_of\_read\_user\_watching\_timeline ###
 
@@ -2468,11 +1990,6 @@ create\_or\_update\_user\_watching\_timeline
 
 ```
 
-read\_user\_watching\_timeline
--------------
-
-read\_user\_watching\_timeline
-
 ### t\_typesafety\_input\_of\_delete\_user\_watching\_timeline ###
 
 ```javascript
@@ -2487,11 +2004,6 @@ read\_user\_watching\_timeline
 
 ```
 
-delete\_user\_watching\_timeline
--------------
-
-delete\_user\_watching\_timeline
-
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_member\_timeline ###
 
 ```javascript
@@ -2505,11 +2017,6 @@ delete\_user\_watching\_timeline
       t_typesafety_output_of_create_or_update_user_member_timeline:any()
 
 ```
-
-create\_or\_update\_user\_member\_timeline
--------------
-
-create\_or\_update\_user\_member\_timeline
 
 ### t\_typesafety\_input\_of\_read\_user\_member\_timeline ###
 
@@ -2539,11 +2046,6 @@ create\_or\_update\_user\_member\_timeline
 
 ```
 
-read\_user\_member\_timeline
--------------
-
-read\_user\_member\_timeline
-
 ### t\_typesafety\_input\_of\_delete\_user\_member\_timeline ###
 
 ```javascript
@@ -2557,11 +2059,6 @@ read\_user\_member\_timeline
       t_typesafety_output_of_delete_user_member_timeline:any()
 
 ```
-
-delete\_user\_member\_timeline
--------------
-
-delete\_user\_member\_timeline
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_member\_watching\_timeline ###
 
@@ -2577,11 +2074,6 @@ delete\_user\_member\_timeline
 
 ```
 
-create\_or\_update\_user\_member\_watching\_timeline
--------------
-
-create\_or\_update\_user\_member\_watching\_timeline
-
 ### t\_typesafety\_input\_of\_read\_user\_member\_watching\_timeline ###
 
 ```javascript
@@ -2595,11 +2087,6 @@ create\_or\_update\_user\_member\_watching\_timeline
       t_typesafety_output_of_read_user_member_watching_timeline:any()
 
 ```
-
-read\_user\_member\_watching\_timeline
--------------
-
-read\_user\_member\_watching\_timeline
 
 ### t\_typesafety\_input\_of\_delete\_user\_member\_watching\_timeline ###
 
@@ -2615,11 +2102,6 @@ read\_user\_member\_watching\_timeline
 
 ```
 
-delete\_user\_member\_watching\_timeline
--------------
-
-delete\_user\_member\_watching\_timeline
-
 ### t\_typesafety\_input\_of\_list\_child\_users ###
 
 ```javascript
@@ -2633,11 +2115,6 @@ delete\_user\_member\_watching\_timeline
       t_typesafety_output_of_list_child_users:any()
 
 ```
-
-list\_child\_users
--------------
-
-list\_child\_users
 
 ### t\_typesafety\_input\_of\_get\_random\_user ###
 
@@ -2653,11 +2130,6 @@ list\_child\_users
 
 ```
 
-get\_random\_user
--------------
-
-get\_random\_user
-
 ### t\_typesafety\_input\_of\_get\_random\_member\_user ###
 
 ```javascript
@@ -2671,11 +2143,6 @@ get\_random\_user
       t_typesafety_output_of_get_random_member_user:any()
 
 ```
-
-get\_random\_member\_user
--------------
-
-get\_random\_member\_user
 
 ### t\_typesafety\_input\_of\_parse\_message\_text ###
 
@@ -2691,11 +2158,6 @@ get\_random\_member\_user
 
 ```
 
-parse\_message\_text
--------------
-
-parse\_message\_text
-
 ### t\_typesafety\_input\_of\_send\_random\_member\_user\_tweet ###
 
 ```javascript
@@ -2709,11 +2171,6 @@ parse\_message\_text
       t_typesafety_output_of_send_random_member_user_tweet:any()
 
 ```
-
-send\_random\_member\_user\_tweet
--------------
-
-send\_random\_member\_user\_tweet
 
 ### t\_typesafety\_input\_of\_send\_random\_user\_tweet ###
 
@@ -2737,11 +2194,6 @@ send\_random\_member\_user\_tweet
 
 ```
 
-send\_random\_user\_tweet
--------------
-
-send\_random\_user\_tweet
-
 ### t\_typesafety\_input\_of\_test\_blob ###
 
 ```javascript
@@ -2755,11 +2207,6 @@ send\_random\_user\_tweet
       t_typesafety_output_of_test_blob:any()
 
 ```
-
-test\_blob
--------------
-
-test\_blob
 
 ### t\_typesafety\_input\_of\_get\_default\_image ###
 
@@ -2775,26 +2222,6 @@ test\_blob
 
 ```
 
-get\_default\_image
--------------
-
-get\_default\_image
-
-on\_open
--------------
-
-on\_open
-
-on\_close
--------------
-
-on\_close
-
-on\_error
--------------
-
-on\_error
-
 ### t\_typesafety\_input\_of\_start\_websocket ###
 
 ```javascript
@@ -2809,11 +2236,6 @@ on\_error
 
 ```
 
-start\_websocket
--------------
-
-start\_websocket
-
 ### t\_typesafety\_input\_of\_stop\_websocket ###
 
 ```javascript
@@ -2827,11 +2249,6 @@ start\_websocket
       t_typesafety_output_of_stop_websocket:any()
 
 ```
-
-stop\_websocket
--------------
-
-stop\_websocket
 
 ### t\_typesafety\_input\_of\_reveal\_identity\_via\_token ###
 
@@ -2851,11 +2268,6 @@ stop\_websocket
 
 ```
 
-reveal\_identity\_via\_token
--------------
-
-reveal\_identity\_via\_token
-
 ### t\_typesafety\_input\_of\_initialize\_identity ###
 
 ```javascript
@@ -2870,11 +2282,6 @@ reveal\_identity\_via\_token
 
 ```
 
-initialize\_identity
--------------
-
-initialize\_identity
-
 ### t\_typesafety\_input\_of\_finalize\_identity ###
 
 ```javascript
@@ -2888,11 +2295,6 @@ initialize\_identity
       t_typesafety_output_of_finalize_identity:equals( << true >>  )
 
 ```
-
-finalize\_identity
--------------
-
-finalize\_identity
 
 ### t\_typesafety\_input\_of\_listen\_database\_channel ###
 
@@ -2910,11 +2312,6 @@ finalize\_identity
 
 ```
 
-listen\_database\_channel
--------------
-
-listen\_database\_channel
-
 ### t\_typesafety\_input\_of\_unlisten\_database\_channel ###
 
 ```javascript
@@ -2931,11 +2328,6 @@ listen\_database\_channel
 
 ```
 
-unlisten\_database\_channel
--------------
-
-unlisten\_database\_channel
-
 ### t\_typesafety\_input\_of\_unlisten\_all\_database\_channel ###
 
 ```javascript
@@ -2949,11 +2341,6 @@ unlisten\_database\_channel
       t_typesafety_output_of_unlisten_all_database_channel:equals( << true >>  )
 
 ```
-
-unlisten\_all\_database\_channel
--------------
-
-unlisten\_all\_database\_channel
 
 Conclusion
 =======================
