@@ -292,8 +292,9 @@ See read\_accounts()</div>
 
 <div class='vsv-descriptions'>## get\_intl\_message
 
-get\_intl\_message method retrieves an object which contains string data for
-internationalization.
+get\_intl\_message method retrieves a string value from a JSON object which
+is stored in database. The JSON object contains all string data which are
+necessary for internationalization.
 </div>
 
 
@@ -317,8 +318,10 @@ internationalization.
 
 <div class='vsv-descriptions'>## get\_intl\_messages
 
-get\_intl\_message method retrieves an object which contains string data for
-internationalization.
+get\_intl\_message method retrieves an object which contains data
+for internationalization. There is a JSON object stored in the remote server
+and it contains all information which is necessary for internationalization.
+This `get\_intl\_messages` returns its entire object.
 </div>
 
 
@@ -335,12 +338,18 @@ internationalization.
 
 
 <h3>t_typesafety_output_of_get_intl_messages</h3>
-<div class='vsv-descriptions'>Return Value: an object which contains multiple localized data.</div>
+<div class='vsv-descriptions'>Return Value: JSON object contains the data for internationalization.</div>
 <pre><code class="language-javascript">          /*          
-          * Return Value: an object which contains multiple localized data.
+          * Return Value: JSON object contains the data for internationalization.
           */
           t_typesafety_output_of_get_intl_messages:any()
           </code></pre>
+
+
+<div class='vsv-descriptions'>## get\_available\_intl\_messages
+
+
+</div>
 
 
 <h3>t_typesafety_input_of_get_available_intl_messages</h3>

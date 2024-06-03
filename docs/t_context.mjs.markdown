@@ -299,8 +299,9 @@ See read\_accounts()
 
 ## get\_intl\_message
 
-get\_intl\_message method retrieves an object which contains string data for
-internationalization.
+get\_intl\_message method retrieves a string value from a JSON object which
+is stored in database. The JSON object contains all string data which are
+necessary for internationalization.
 
 ### t\_typesafety\_input\_of\_get\_intl\_message ###
 
@@ -324,8 +325,10 @@ internationalization.
 
 ## get\_intl\_messages
 
-get\_intl\_message method retrieves an object which contains string data for
-internationalization.
+get\_intl\_message method retrieves an object which contains data
+for internationalization. There is a JSON object stored in the remote server
+and it contains all information which is necessary for internationalization.
+This `get\_intl\_messages` returns its entire object.
 
 ### t\_typesafety\_input\_of\_get\_intl\_messages ###
 lang\_id: Specify a language id or null to retrieve all.
@@ -342,15 +345,17 @@ lang\_id: Specify a language id or null to retrieve all.
 ```
 
 ### t\_typesafety\_output\_of\_get\_intl\_messages ###
-Return Value: an object which contains multiple localized data.
+Return Value: JSON object contains the data for internationalization.
 
 ```javascript
       /*          
-      * Return Value: an object which contains multiple localized data.
+      * Return Value: JSON object contains the data for internationalization.
       */
       t_typesafety_output_of_get_intl_messages:any()
 
 ```
+
+## get\_available\_intl\_messages
 
 ### t\_typesafety\_input\_of\_get\_available\_intl\_messages ###
 
