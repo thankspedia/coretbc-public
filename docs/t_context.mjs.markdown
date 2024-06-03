@@ -357,6 +357,9 @@ Return Value: JSON object contains the data for internationalization.
 
 ## get\_available\_intl\_messages
 
+get\_available\_intl\_messages() returns all available IDs which can be
+specified as `lang\_id` of get\_intl\_messages/get\_intl\_message API.
+
 ### t\_typesafety\_input\_of\_get\_available\_intl\_messages ###
 
 ```javascript
@@ -369,9 +372,20 @@ Return Value: JSON object contains the data for internationalization.
       t_typesafety_output_of_get_available_intl_messages:array_of( any() )
 ```
 
+## create\_or\_update\_user
+
+The create\_or\_update\_user API method let you create or update a user data.
+In order to use this API method  properly, it is important to understand
+the relationable table structure of Thankspedia tBC's database. For further information,
+please see Appendix.
+
 ### t\_typesafety\_input\_of\_create\_or\_update\_user ###
+user: specifies a user to create or update
 
 ```javascript
+      /*          
+      * user: specifies a user to create or update
+      */
       t_typesafety_input_of_create_or_update_user:nargs(
         user : object(
           username : string(),
@@ -390,9 +404,20 @@ Return Value: JSON object contains the data for internationalization.
       ),
 ```
 
+## delete\_user
+
+The delete\_user  API method let you delete a user data.
+In order to use this API method  properly, it is important to understand
+the relationable table structure of Thankspedia tBC's database. For further information,
+please see Appendix.
+
 ### t\_typesafety\_input\_of\_delete\_user ###
+user: specifies a user to delete.
 
 ```javascript
+      /*          
+      * user: specifies a user to delete.
+      */
       t_typesafety_input_of_delete_user:nargs(
         user : t_username_or_user_id(),
       )
