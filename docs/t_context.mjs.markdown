@@ -380,10 +380,12 @@ the relationable table structure of Thankspedia tBC's database. For further info
 please see Appendix.
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_user ###
+#### Parameters
 user: specifies a user to create or update
 
 ```javascript
       /*          
+      * #### Parameters
       * user: specifies a user to create or update
       */
       t_typesafety_input_of_create_or_update_user:nargs(
@@ -412,10 +414,12 @@ the relationable table structure of Thankspedia tBC's database. For further info
 please see Appendix.
 
 ### t\_typesafety\_input\_of\_delete\_user ###
+#### Parameters
 user: specifies a user to delete.
 
 ```javascript
       /*          
+      * #### Parameters
       * user: specifies a user to delete.
       */
       t_typesafety_input_of_delete_user:nargs(
