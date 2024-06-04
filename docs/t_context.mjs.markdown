@@ -638,7 +638,7 @@ count\_all\_users API method returns the number of all users
 
 ## create\_or\_update\_user\_authentication
 
-`create\_or\_update\_user\_authentication` API method creates or update
+create\_or\_update\_user\_authentication API method creates or update
 authentication information of a user. In this system, a record of a user
 information can be related to a record of authentication information. When
 a record of a user is not related to a record of authentication information,
@@ -662,6 +662,9 @@ For further information about tBC's database table structure, see Appendix.
 
 ## update\_user\_authentication
 
+update\_user\_authentication API method updates the record of authentication information.
+This method is deprecated and not used anymore.
+
 ### t\_typesafety\_input\_of\_update\_user\_authentication ###
 
 ```javascript
@@ -677,6 +680,9 @@ For further information about tBC's database table structure, see Appendix.
 ```
 
 ## read\_user\_authentication
+
+read\_user\_authentication API method reads a record of authentication
+information of a user and return it.
 
 ### t\_typesafety\_input\_of\_read\_user\_authentication ###
 
@@ -694,6 +700,9 @@ For further information about tBC's database table structure, see Appendix.
 
 ## delete\_user\_authentication
 
+delete\_user\_authentication API method deletes a record of authentication
+information of the specified user.
+
 ### t\_typesafety\_input\_of\_delete\_user\_authentication ###
 
 ```javascript
@@ -709,6 +718,9 @@ For further information about tBC's database table structure, see Appendix.
 ```
 
 ## read\_all\_user\_authentications
+
+read\_all\_user\_authentications API method reads all records of all users and
+returns them as an array. This method is deprecated and not used anymore.
 
 ### t\_typesafety\_input\_of\_read\_all\_user\_authentications ###
 
@@ -726,6 +738,9 @@ For further information about tBC's database table structure, see Appendix.
 
 ## get\_parent\_users
 
+get\_parent\_users API method retrieves all related parent users of a
+specified user.
+
 ### t\_typesafety\_input\_of\_get\_parent\_users ###
 
 ```javascript
@@ -741,6 +756,9 @@ For further information about tBC's database table structure, see Appendix.
 ```
 
 ## get\_wallet\_contents
+
+get\_wallet\_contents API method returns each number of all valuables which
+are belonged to a specified user.
 
 ### t\_typesafety\_input\_of\_get\_wallet\_contents ###
 
@@ -771,6 +789,18 @@ For further information about tBC's database table structure, see Appendix.
 
 ```
 
+## abstract\_login
+
+`abstract\_login` is not an API method but a virtual method which is
+required to be defined by `authentication-context`. It defines the processes
+how the system authenticates users and the conditions which users are allowed to be
+logged in.
+
+## abstract\_login\_information
+
+get\_wallet\_contents is an API method which returns each number of all
+valuables which are belonged to a specified user.
+
 ### t\_typesafety\_input\_of\_abstract\_login\_information ###
 
 ```javascript
@@ -782,6 +812,12 @@ For further information about tBC's database table structure, see Appendix.
 ```javascript
       t_typesafety_output_of_abstract_login_information:t_user_login_info()
 ```
+
+## abstract\_switch\_current\_user
+
+get\_wallet\_contents is not an API method but a virtual method which is
+required to be defined by `authentication-context` module. It defines how
+the system authorizes a user to switch to other users.
 
 ### t\_typesafety\_input\_of\_abstract\_switch\_current\_user ###
 
@@ -798,6 +834,8 @@ For further information about tBC's database table structure, see Appendix.
 
 ## read\_user\_member
 
+read\_user\_member API method returns records of specified member users.
+
 ### t\_typesafety\_input\_of\_read\_user\_member ###
 
 ```javascript
@@ -813,6 +851,10 @@ For further information about tBC's database table structure, see Appendix.
 ```
 
 ## var\_ensure\_user\_id
+
+var\_ensure\_user\_id is not an API method but an utilizy method. When
+var\_ensure\_user\_id receives a username value as a field of an object, it
+creates the corresponding user\_id value as a field of the received object.
 
 ### t\_typesafety\_input\_of\_var\_ensure\_user\_id ###
 
