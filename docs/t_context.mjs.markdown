@@ -439,9 +439,19 @@ user: specifies a user to delete.
       ),
 ```
 
+## delete\_multiple\_users
+
+delete\_multiple\_users allows you to delete multiple users at once.
+
 ### t\_typesafety\_input\_of\_delete\_multiple\_users ###
+#### Parameters
+- users: an array contains objects of the users to be deleted
 
 ```javascript
+      /*          
+      * #### Parameters
+      * - users: an array contains objects of the users to be deleted
+      */
       t_typesafety_input_of_delete_multiple_users:nargs()
 
 ```
@@ -456,6 +466,9 @@ user: specifies a user to delete.
 ### t\_typesafety\_input\_of\_has\_user ###
 
 ```javascript
+      /*          
+      *
+      */
       t_typesafety_input_of_has_user:nargs()
 
 ```
@@ -482,15 +495,28 @@ user: specifies a user to delete.
 ```
 
 ### t\_typesafety\_input\_of\_read\_user ###
+#### Parameter:
+- user: information of the specified user
 
 ```javascript
+      /*          
+      * #### Parameter:
+      * - user: information of the specified user
+      */
       t_typesafety_input_of_read_user:nargs()
 
 ```
 
 ### t\_typesafety\_output\_of\_read\_user ###
+#### Return Value:
+- Information of the specified user
 
 ```javascript
+      /*          
+      * #### Return Value:
+      * - Information of the specified user
+      *
+      */
       t_typesafety_output_of_read_user:object(
         user : or(
           object(
@@ -505,9 +531,20 @@ user: specifies a user to delete.
 
 ```
 
+## user\_id2username
+
+user\_id2username() API method returns username of a specified user which
+is specified by a user\_id.
+
 ### t\_typesafety\_input\_of\_user\_id2username ###
+#### Parameter:
+- user\_id: user\_id to be converted to username
 
 ```javascript
+      /*          
+      * #### Parameter:
+      * - user_id: user_id to be converted to username
+      */
       t_typesafety_input_of_user_id2username:nargs()
 
 ```
@@ -519,9 +556,21 @@ user: specifies a user to delete.
 
 ```
 
+## username2user\_id
+
+username2user\_id() API method returns user\_id of a specified user which
+is specified by a username.
+
 ### t\_typesafety\_input\_of\_username2user\_id ###
+#### Parameter
+- username: username to be converted to user\_id
 
 ```javascript
+      /*          
+      * #### Parameter
+      * - username: username to be converted to user_id
+      *
+      */
       t_typesafety_input_of_username2user_id:nargs(
         username : t_username(),
       )
@@ -537,6 +586,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_all\_users
+
 ### t\_typesafety\_input\_of\_read\_all\_users ###
 
 ```javascript
@@ -550,6 +601,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_all_users:any()
 
 ```
+
+## count\_all\_users
 
 ### t\_typesafety\_input\_of\_count\_all\_users ###
 
@@ -565,6 +618,8 @@ user: specifies a user to delete.
 
 ```
 
+## create\_or\_update\_user\_authentication
+
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_authentication ###
 
 ```javascript
@@ -578,6 +633,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_create_or_update_user_authentication:any()
 
 ```
+
+## update\_user\_authentication
 
 ### t\_typesafety\_input\_of\_update\_user\_authentication ###
 
@@ -593,6 +650,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_user\_authentication
+
 ### t\_typesafety\_input\_of\_read\_user\_authentication ###
 
 ```javascript
@@ -606,6 +665,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_user_authentication:any()
 
 ```
+
+## delete\_user\_authentication
 
 ### t\_typesafety\_input\_of\_delete\_user\_authentication ###
 
@@ -621,6 +682,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_all\_user\_authentications
+
 ### t\_typesafety\_input\_of\_read\_all\_user\_authentications ###
 
 ```javascript
@@ -635,6 +698,8 @@ user: specifies a user to delete.
 
 ```
 
+## get\_parent\_users
+
 ### t\_typesafety\_input\_of\_get\_parent\_users ###
 
 ```javascript
@@ -648,6 +713,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_get_parent_users:any()
 
 ```
+
+## get\_wallet\_contents
 
 ### t\_typesafety\_input\_of\_get\_wallet\_contents ###
 
@@ -703,6 +770,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_abstract_switch_current_user:boolean()
 ```
 
+## read\_user\_member
+
 ### t\_typesafety\_input\_of\_read\_user\_member ###
 
 ```javascript
@@ -716,6 +785,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_user_member:any()
 
 ```
+
+## var\_ensure\_user\_id
 
 ### t\_typesafety\_input\_of\_var\_ensure\_user\_id ###
 
@@ -741,6 +812,8 @@ user: specifies a user to delete.
       )
 
 ```
+
+## var\_ensure\_member\_user\_id
 
 ### t\_typesafety\_input\_of\_var\_ensure\_member\_user\_id ###
 
@@ -768,6 +841,8 @@ user: specifies a user to delete.
 
 ```
 
+## create\_or\_update\_user\_member
+
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_member ###
 
 ```javascript
@@ -781,6 +856,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_create_or_update_user_member:any()
 
 ```
+
+## delete\_user\_member
 
 ### t\_typesafety\_input\_of\_delete\_user\_member ###
 
@@ -796,6 +873,8 @@ user: specifies a user to delete.
 
 ```
 
+## delete\_multiple\_user\_members
+
 ### t\_typesafety\_input\_of\_delete\_multiple\_user\_members ###
 
 ```javascript
@@ -810,6 +889,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_filtered\_user\_members
+
 ### t\_typesafety\_input\_of\_read\_filtered\_user\_members ###
 
 ```javascript
@@ -823,6 +904,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_filtered_user_members:any()
 
 ```
+
+## read\_accounts
 
 ### t\_typesafety\_input\_of\_read\_accounts ###
 
@@ -841,6 +924,8 @@ user: specifies a user to delete.
 
 ```
 
+## create\_or\_update\_account
+
 ### t\_typesafety\_input\_of\_create\_or\_update\_account ###
 
 ```javascript
@@ -854,6 +939,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_create_or_update_account:any()
 
 ```
+
+## create\_or\_update\_accounts
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_accounts ###
 
@@ -869,6 +956,8 @@ user: specifies a user to delete.
 
 ```
 
+## create\_message
+
 ### t\_typesafety\_input\_of\_create\_message ###
 
 ```javascript
@@ -882,6 +971,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_create_message:any()
 
 ```
+
+## write\_message
 
 ### t\_typesafety\_input\_of\_write\_message ###
 
@@ -897,6 +988,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_message
+
 ### t\_typesafety\_input\_of\_read\_message ###
 
 ```javascript
@@ -910,6 +1003,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_message:any()
 
 ```
+
+## delete\_message
 
 ### t\_typesafety\_input\_of\_delete\_message ###
 
@@ -925,6 +1020,8 @@ user: specifies a user to delete.
 
 ```
 
+## test\_stored\_procedure
+
 ### t\_typesafety\_input\_of\_test\_stored\_procedure ###
 
 ```javascript
@@ -938,6 +1035,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_test_stored_procedure:any()
 
 ```
+
+## create\_timeline
 
 ### t\_typesafety\_input\_of\_create\_timeline ###
 
@@ -960,6 +1059,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_timeline
+
 ### t\_typesafety\_input\_of\_read\_timeline ###
 
 ```javascript
@@ -973,6 +1074,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_timeline:any()
 
 ```
+
+## delete\_timeline
 
 ### t\_typesafety\_input\_of\_delete\_timeline ###
 
@@ -988,6 +1091,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_view\_timeline\_and\_profile
+
 ### t\_typesafety\_input\_of\_read\_view\_timeline\_and\_profile ###
 
 ```javascript
@@ -1001,6 +1106,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_view_timeline_and_profile:any()
 
 ```
+
+## create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_view\_user\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
@@ -1028,6 +1135,8 @@ user: specifies a user to delete.
 
 ```
 
+## create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
+
 ### t\_typesafety\_input\_of\_create\_or\_update\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
 ```javascript
@@ -1041,6 +1150,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_create_or_update_view_user_member_and_user_timeline_and_timeline_and_profile:any()
 
 ```
+
+## read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile
 
 ### t\_typesafety\_input\_of\_read\_view\_users\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
@@ -1056,6 +1167,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile
+
 ### t\_typesafety\_input\_of\_read\_view\_user\_member\_and\_user\_timeline\_and\_timeline\_and\_profile ###
 
 ```javascript
@@ -1069,6 +1182,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_view_user_member_and_user_timeline_and_timeline_and_profile:any()
 
 ```
+
+## user\_timelines\_to\_object
 
 ### t\_typesafety\_input\_of\_user\_timelines\_to\_object ###
 
@@ -1084,6 +1199,8 @@ user: specifies a user to delete.
 
 ```
 
+## object\_to\_user\_timelines
+
 ### t\_typesafety\_input\_of\_object\_to\_user\_timelines ###
 
 ```javascript
@@ -1097,6 +1214,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_object_to_user_timelines:any()
 
 ```
+
+## create\_or\_update\_profile
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_profile ###
 
@@ -1112,6 +1231,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_profile
+
 ### t\_typesafety\_input\_of\_read\_profile ###
 
 ```javascript
@@ -1125,6 +1246,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_profile:any()
 
 ```
+
+## delete\_profile
 
 ### t\_typesafety\_input\_of\_delete\_profile ###
 
@@ -1140,6 +1263,8 @@ user: specifies a user to delete.
 
 ```
 
+## create\_timeline\_content
+
 ### t\_typesafety\_input\_of\_create\_timeline\_content ###
 
 ```javascript
@@ -1153,6 +1278,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_create_timeline_content:any()
 
 ```
+
+## read\_timeline\_content
 
 ### t\_typesafety\_input\_of\_read\_timeline\_content ###
 
@@ -1168,6 +1295,8 @@ user: specifies a user to delete.
 
 ```
 
+## delete\_timeline\_content
+
 ### t\_typesafety\_input\_of\_delete\_timeline\_content ###
 
 ```javascript
@@ -1181,6 +1310,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_delete_timeline_content:any()
 
 ```
+
+## is\_timeline\_following
 
 ### t\_typesafety\_input\_of\_is\_timeline\_following ###
 
@@ -1196,6 +1327,8 @@ user: specifies a user to delete.
 
 ```
 
+## follow\_timeline
+
 ### t\_typesafety\_input\_of\_follow\_timeline ###
 
 ```javascript
@@ -1209,6 +1342,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_follow_timeline:any()
 
 ```
+
+## unfollow\_timeline
 
 ### t\_typesafety\_input\_of\_unfollow\_timeline ###
 
@@ -1224,6 +1359,8 @@ user: specifies a user to delete.
 
 ```
 
+## create\_or\_update\_valuable
+
 ### t\_typesafety\_input\_of\_create\_or\_update\_valuable ###
 
 ```javascript
@@ -1237,6 +1374,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_create_or_update_valuable:any()
 
 ```
+
+## create\_valuable
 
 ### t\_typesafety\_input\_of\_create\_valuable ###
 
@@ -1252,6 +1391,8 @@ user: specifies a user to delete.
 
 ```
 
+## update\_valuable
+
 ### t\_typesafety\_input\_of\_update\_valuable ###
 
 ```javascript
@@ -1265,6 +1406,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_update_valuable:any()
 
 ```
+
+## disableValuable
 
 ### t\_typesafety\_input\_of\_disableValuable ###
 
@@ -1280,6 +1423,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_valuable
+
 ### t\_typesafety\_input\_of\_read\_valuable ###
 
 ```javascript
@@ -1293,6 +1438,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_valuable:any()
 
 ```
+
+## delete\_valuable
 
 ### t\_typesafety\_input\_of\_delete\_valuable ###
 
@@ -1308,6 +1455,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_all\_valuables
+
 ### t\_typesafety\_input\_of\_read\_all\_valuables ###
 
 ```javascript
@@ -1322,6 +1471,8 @@ user: specifies a user to delete.
 
 ```
 
+## issue\_valuables
+
 ### t\_typesafety\_input\_of\_issue\_valuables ###
 
 ```javascript
@@ -1335,6 +1486,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_issue_valuables:any()
 
 ```
+
+## update\_valuable\_state
 
 ### t\_typesafety\_input\_of\_update\_valuable\_state ###
 
@@ -1354,6 +1507,8 @@ user: specifies a user to delete.
 
 ```
 
+## download\_valuable\_state
+
 ### t\_typesafety\_input\_of\_download\_valuable\_state ###
 
 ```javascript
@@ -1372,6 +1527,8 @@ user: specifies a user to delete.
 
 ```
 
+## confiscate\_all\_valuable\_deposits
+
 ### t\_typesafety\_input\_of\_confiscate\_all\_valuable\_deposits ###
 
 ```javascript
@@ -1385,6 +1542,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_confiscate_all_valuable_deposits:any()
 
 ```
+
+## create\_wallet
 
 ### t\_typesafety\_input\_of\_create\_wallet ###
 
@@ -1400,6 +1559,8 @@ user: specifies a user to delete.
 
 ```
 
+## update\_wallet
+
 ### t\_typesafety\_input\_of\_update\_wallet ###
 
 ```javascript
@@ -1413,6 +1574,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_update_wallet:any()
 
 ```
+
+## disableWallet
 
 ### t\_typesafety\_input\_of\_disableWallet ###
 
@@ -1428,6 +1591,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_wallet
+
 ### t\_typesafety\_input\_of\_read\_wallet ###
 
 ```javascript
@@ -1441,6 +1606,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_wallet:any()
 
 ```
+
+## delete\_wallet
 
 ### t\_typesafety\_input\_of\_delete\_wallet ###
 
@@ -1456,6 +1623,8 @@ user: specifies a user to delete.
 
 ```
 
+## request\_valuable\_transfer
+
 ### t\_typesafety\_input\_of\_request\_valuable\_transfer ###
 
 ```javascript
@@ -1470,6 +1639,8 @@ user: specifies a user to delete.
 
 ```
 
+## respond\_valuable\_transfer
+
 ### t\_typesafety\_input\_of\_respond\_valuable\_transfer ###
 
 ```javascript
@@ -1483,6 +1654,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_respond_valuable_transfer:any()
 
 ```
+
+## parse\_message\_commands
 
 ### t\_typesafety\_input\_of\_parse\_message\_commands ###
 
@@ -1524,6 +1697,8 @@ user: specifies a user to delete.
       )
 
 ```
+
+## execute\_message\_commands
 
 ### t\_typesafety\_input\_of\_execute\_message\_commands ###
 
@@ -1570,6 +1745,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_execute_message_commands:any(),
 ```
 
+## get\_notify\_timeline\_from\_user
+
 ### t\_typesafety\_input\_of\_get\_notify\_timeline\_from\_user ###
 
 ```javascript
@@ -1584,6 +1761,8 @@ user: specifies a user to delete.
 ```javascript
       t_typesafety_output_of_get_notify_timeline_from_user:t_tbl_user_timelines(),
 ```
+
+## get\_notify\_timeline\_from\_member\_user
 
 ### t\_typesafety\_input\_of\_get\_notify\_timeline\_from\_member\_user ###
 
@@ -1715,6 +1894,8 @@ user: specifies a user to delete.
       ),
 ```
 
+## sndmsg\_util\_transfer
+
 ### t\_typesafety\_input\_of\_sndmsg\_util\_transfer ###
 
 ```javascript
@@ -1737,6 +1918,8 @@ user: specifies a user to delete.
 
 ```
 
+## sndmsg\_util\_notification
+
 ### t\_typesafety\_input\_of\_sndmsg\_util\_notification ###
 
 ```javascript
@@ -1758,6 +1941,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_sndmsg_util_notification:undefined(),
 ```
 
+## sndmsg\_cmd\_message
+
 ### t\_typesafety\_input\_of\_sndmsg\_cmd\_message ###
 
 ```javascript
@@ -1773,6 +1958,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_sndmsg_cmd_message:any()
 
 ```
+
+## sndmsg\_cmd\_check
 
 ### t\_typesafety\_input\_of\_sndmsg\_cmd\_check ###
 
@@ -1790,6 +1977,8 @@ user: specifies a user to delete.
 
 ```
 
+## sndmsg\_cmd\_valuable
+
 ### t\_typesafety\_input\_of\_sndmsg\_cmd\_valuable ###
 
 ```javascript
@@ -1805,6 +1994,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_sndmsg_cmd_valuable:any()
 
 ```
+
+## read\_valuable\_transactions
 
 ### t\_typesafety\_input\_of\_read\_valuable\_transactions ###
 
@@ -1823,6 +2014,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_valuable_transactions:any()
 
 ```
+
+## read\_valuable\_deposits
 
 ### t\_typesafety\_input\_of\_read\_valuable\_deposits ###
 
@@ -1862,6 +2055,8 @@ user: specifies a user to delete.
       t_message_text_content_json:object(),
 ```
 
+## send\_message
+
 ### t\_typesafety\_input\_of\_send\_message ###
 
 ```javascript
@@ -1884,6 +2079,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_send_message:any()
 ```
 
+## send\_tweet
+
 ### t\_typesafety\_input\_of\_send\_tweet ###
 
 ```javascript
@@ -1903,6 +2100,8 @@ user: specifies a user to delete.
 ```javascript
       t_typesafety_output_of_send_tweet:any()
 ```
+
+## receive\_tweets
 
 ### t\_typesafety\_input\_of\_receive\_tweets ###
 
@@ -1928,6 +2127,8 @@ user: specifies a user to delete.
 
 ```
 
+## get\_locale\_message
+
 ### t\_typesafety\_input\_of\_get\_locale\_message ###
 
 ```javascript
@@ -1944,6 +2145,8 @@ user: specifies a user to delete.
 
 ```
 
+## get\_global\_common\_input\_timeline\_id
+
 ### t\_typesafety\_input\_of\_get\_global\_common\_input\_timeline\_id ###
 
 ```javascript
@@ -1955,6 +2158,8 @@ user: specifies a user to delete.
 ```javascript
       t_typesafety_output_of_get_global_common_input_timeline_id:uuid()
 ```
+
+## create\_or\_update\_user\_timeline
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_timeline ###
 
@@ -1980,6 +2185,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_user\_timeline
+
 ### t\_typesafety\_input\_of\_read\_user\_timeline ###
 
 ```javascript
@@ -1993,6 +2200,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_user_timeline:any()
 
 ```
+
+## delete\_user\_timeline
 
 ### t\_typesafety\_input\_of\_delete\_user\_timeline ###
 
@@ -2008,6 +2217,8 @@ user: specifies a user to delete.
 
 ```
 
+## create\_or\_update\_user\_watching\_timeline
+
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_watching\_timeline ###
 
 ```javascript
@@ -2021,6 +2232,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_create_or_update_user_watching_timeline:any()
 
 ```
+
+## read\_user\_watching\_timeline
 
 ### t\_typesafety\_input\_of\_read\_user\_watching\_timeline ###
 
@@ -2036,6 +2249,8 @@ user: specifies a user to delete.
 
 ```
 
+## delete\_user\_watching\_timeline
+
 ### t\_typesafety\_input\_of\_delete\_user\_watching\_timeline ###
 
 ```javascript
@@ -2050,6 +2265,8 @@ user: specifies a user to delete.
 
 ```
 
+## create\_or\_update\_user\_member\_timeline
+
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_member\_timeline ###
 
 ```javascript
@@ -2063,6 +2280,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_create_or_update_user_member_timeline:any()
 
 ```
+
+## read\_user\_member\_timeline
 
 ### t\_typesafety\_input\_of\_read\_user\_member\_timeline ###
 
@@ -2092,6 +2311,8 @@ user: specifies a user to delete.
 
 ```
 
+## delete\_user\_member\_timeline
+
 ### t\_typesafety\_input\_of\_delete\_user\_member\_timeline ###
 
 ```javascript
@@ -2105,6 +2326,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_delete_user_member_timeline:any()
 
 ```
+
+## create\_or\_update\_user\_member\_watching\_timeline
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_member\_watching\_timeline ###
 
@@ -2120,6 +2343,8 @@ user: specifies a user to delete.
 
 ```
 
+## read\_user\_member\_watching\_timeline
+
 ### t\_typesafety\_input\_of\_read\_user\_member\_watching\_timeline ###
 
 ```javascript
@@ -2133,6 +2358,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_read_user_member_watching_timeline:any()
 
 ```
+
+## delete\_user\_member\_watching\_timeline
 
 ### t\_typesafety\_input\_of\_delete\_user\_member\_watching\_timeline ###
 
@@ -2148,6 +2375,8 @@ user: specifies a user to delete.
 
 ```
 
+## list\_child\_users
+
 ### t\_typesafety\_input\_of\_list\_child\_users ###
 
 ```javascript
@@ -2161,6 +2390,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_list_child_users:any()
 
 ```
+
+## get\_random\_user
 
 ### t\_typesafety\_input\_of\_get\_random\_user ###
 
@@ -2176,6 +2407,8 @@ user: specifies a user to delete.
 
 ```
 
+## get\_random\_member\_user
+
 ### t\_typesafety\_input\_of\_get\_random\_member\_user ###
 
 ```javascript
@@ -2189,6 +2422,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_get_random_member_user:any()
 
 ```
+
+## parse\_message\_text
 
 ### t\_typesafety\_input\_of\_parse\_message\_text ###
 
@@ -2204,6 +2439,8 @@ user: specifies a user to delete.
 
 ```
 
+## send\_random\_member\_user\_tweet
+
 ### t\_typesafety\_input\_of\_send\_random\_member\_user\_tweet ###
 
 ```javascript
@@ -2217,6 +2454,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_send_random_member_user_tweet:any()
 
 ```
+
+## send\_random\_user\_tweet
 
 ### t\_typesafety\_input\_of\_send\_random\_user\_tweet ###
 
@@ -2240,6 +2479,8 @@ user: specifies a user to delete.
 
 ```
 
+## test\_blob
+
 ### t\_typesafety\_input\_of\_test\_blob ###
 
 ```javascript
@@ -2253,6 +2494,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_test_blob:any()
 
 ```
+
+## get\_default\_image
 
 ### t\_typesafety\_input\_of\_get\_default\_image ###
 
@@ -2268,6 +2511,14 @@ user: specifies a user to delete.
 
 ```
 
+## on\_open
+
+## on\_close
+
+## on\_error
+
+## start\_websocket
+
 ### t\_typesafety\_input\_of\_start\_websocket ###
 
 ```javascript
@@ -2282,6 +2533,8 @@ user: specifies a user to delete.
 
 ```
 
+## stop\_websocket
+
 ### t\_typesafety\_input\_of\_stop\_websocket ###
 
 ```javascript
@@ -2295,6 +2548,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_stop_websocket:any()
 
 ```
+
+## reveal\_identity\_via\_token
 
 ### t\_typesafety\_input\_of\_reveal\_identity\_via\_token ###
 
@@ -2314,6 +2569,8 @@ user: specifies a user to delete.
 
 ```
 
+## initialize\_identity
+
 ### t\_typesafety\_input\_of\_initialize\_identity ###
 
 ```javascript
@@ -2328,6 +2585,8 @@ user: specifies a user to delete.
 
 ```
 
+## finalize\_identity
+
 ### t\_typesafety\_input\_of\_finalize\_identity ###
 
 ```javascript
@@ -2341,6 +2600,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_finalize_identity:equals( << true >>  )
 
 ```
+
+## listen\_database\_channel
 
 ### t\_typesafety\_input\_of\_listen\_database\_channel ###
 
@@ -2358,6 +2619,8 @@ user: specifies a user to delete.
 
 ```
 
+## unlisten\_database\_channel
+
 ### t\_typesafety\_input\_of\_unlisten\_database\_channel ###
 
 ```javascript
@@ -2373,6 +2636,8 @@ user: specifies a user to delete.
       t_typesafety_output_of_unlisten_database_channel:equals( << true >>  )
 
 ```
+
+## unlisten\_all\_database\_channel
 
 ### t\_typesafety\_input\_of\_unlisten\_all\_database\_channel ###
 
