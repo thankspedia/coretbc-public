@@ -463,6 +463,11 @@ delete\_multiple\_users allows you to delete multiple users at once.
 
 ```
 
+## has\_user
+
+has\_user returns true when the specified user does exist. The user is to
+be specified as user\_id.
+
 ### t\_typesafety\_input\_of\_has\_user ###
 
 ```javascript
@@ -480,6 +485,11 @@ delete\_multiple\_users allows you to delete multiple users at once.
 
 ```
 
+## has\_username
+
+has\_user returns true when the specified user does exist. The user is to be
+specified by username.
+
 ### t\_typesafety\_input\_of\_has\_username ###
 
 ```javascript
@@ -493,6 +503,10 @@ delete\_multiple\_users allows you to delete multiple users at once.
       t_typesafety_output_of_has_username:any()
 
 ```
+
+## read\_user
+
+read\_user API method returns an object contains data of a user.
 
 ### t\_typesafety\_input\_of\_read\_user ###
 #### Parameter:
@@ -588,6 +602,8 @@ is specified by a username.
 
 ## read\_all\_users
 
+read\_all\_users API method returns data records of all users
+
 ### t\_typesafety\_input\_of\_read\_all\_users ###
 
 ```javascript
@@ -604,6 +620,8 @@ is specified by a username.
 
 ## count\_all\_users
 
+count\_all\_users API method returns the number of all users
+
 ### t\_typesafety\_input\_of\_count\_all\_users ###
 
 ```javascript
@@ -619,6 +637,14 @@ is specified by a username.
 ```
 
 ## create\_or\_update\_user\_authentication
+
+`create\_or\_update\_user\_authentication` API method creates or update
+authentication information of a user. In this system, a record of a user
+information can be related to a record of authentication information. When
+a record of a user is not related to a record of authentication information,
+the user is not allowed to be logged in.
+
+For further information about tBC's database table structure, see Appendix.
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_authentication ###
 

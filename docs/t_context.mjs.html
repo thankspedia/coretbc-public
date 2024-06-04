@@ -451,6 +451,13 @@ delete\_multiple\_users allows you to delete multiple users at once.
           </code></pre>
 
 
+<div class='vsv-descriptions'>## has\_user
+
+has\_user returns true when the specified user does exist. The user is to
+be specified as user\_id.
+</div>
+
+
 <h3>t_typesafety_input_of_has_user</h3>
 <div class='vsv-descriptions'></div>
 <pre><code class="language-javascript">          /*          
@@ -466,6 +473,13 @@ delete\_multiple\_users allows you to delete multiple users at once.
           </code></pre>
 
 
+<div class='vsv-descriptions'>## has\_username
+
+has\_user returns true when the specified user does exist. The user is to be
+specified by username.
+</div>
+
+
 <h3>t_typesafety_input_of_has_username</h3>
 <div class='vsv-descriptions'></div>
 <pre><code class="language-javascript">          t_typesafety_input_of_has_username:nargs()
@@ -476,6 +490,12 @@ delete\_multiple\_users allows you to delete multiple users at once.
 <div class='vsv-descriptions'></div>
 <pre><code class="language-javascript">          t_typesafety_output_of_has_username:any()
           </code></pre>
+
+
+<div class='vsv-descriptions'>## read\_user
+
+read\_user API method returns an object contains data of a user.
+</div>
 
 
 <h3>t_typesafety_input_of_read_user</h3>
@@ -566,7 +586,7 @@ is specified by a username.
 
 <div class='vsv-descriptions'>## read\_all\_users
 
-
+read\_all\_users API method returns data records of all users
 </div>
 
 
@@ -584,7 +604,7 @@ is specified by a username.
 
 <div class='vsv-descriptions'>## count\_all\_users
 
-
+count\_all\_users API method returns the number of all users
 </div>
 
 
@@ -602,7 +622,13 @@ is specified by a username.
 
 <div class='vsv-descriptions'>## create\_or\_update\_user\_authentication
 
+`create\_or\_update\_user\_authentication` API method creates or update
+authentication information of a user. In this system, a record of a user
+information can be related to a record of authentication information. When
+a record of a user is not related to a record of authentication information,
+the user is not allowed to be logged in.
 
+For further information about tBC's database table structure, see Appendix.
 </div>
 
 
