@@ -883,6 +883,11 @@ creates the corresponding user\_id value as a field of the received object.
 
 ## var\_ensure\_member\_user\_id
 
+var\_ensure\_member\_user\_id is not an API method but an utilizy method. When
+var\_ensure\_member\_user\_id receives a member\_username value as a field of an
+object, it creates the corresponding member\_user\_id value as a field of the
+received object.
+
 ### t\_typesafety\_input\_of\_var\_ensure\_member\_user\_id ###
 
 ```javascript
@@ -911,6 +916,11 @@ creates the corresponding user\_id value as a field of the received object.
 
 ## create\_or\_update\_user\_member
 
+create\_or\_update\_user\_member API method creates a record which denotes a
+relation between a user and a member. If nargs contains user\_id, it will be
+used prior to username on the nargs. If nargs contains member\_user\_id, it
+will as well be used prior to member\_username.
+
 ### t\_typesafety\_input\_of\_create\_or\_update\_user\_member ###
 
 ```javascript
@@ -926,6 +936,8 @@ creates the corresponding user\_id value as a field of the received object.
 ```
 
 ## delete\_user\_member
+
+delete\_user\_member API method deletes a specified user member.
 
 ### t\_typesafety\_input\_of\_delete\_user\_member ###
 
@@ -943,6 +955,9 @@ creates the corresponding user\_id value as a field of the received object.
 
 ## delete\_multiple\_user\_members
 
+delete\_multiple\_user\_member API method deletes specified user members. This is
+a bulk operation so that you can delete multiple member users at once.
+
 ### t\_typesafety\_input\_of\_delete\_multiple\_user\_members ###
 
 ```javascript
@@ -959,6 +974,10 @@ creates the corresponding user\_id value as a field of the received object.
 
 ## read\_filtered\_user\_members
 
+read\_filtered\_user\_members API method is a method to retrieve directory
+strtucture of users/user members. This method is mainly used in Selecting
+User Dialog of tBC frontend application.
+
 ### t\_typesafety\_input\_of\_read\_filtered\_user\_members ###
 
 ```javascript
@@ -974,6 +993,13 @@ creates the corresponding user\_id value as a field of the received object.
 ```
 
 ## read\_accounts
+
+read\_accounts API method retrieves records of user account data. In tBC
+database system, an account is to contain all information of a user
+includes loggin information, profile settings and others.
+
+This method offers a way to export all user data as JSON file which can be
+imported in create\_or\_update\_accounts API method.
 
 ### t\_typesafety\_input\_of\_read\_accounts ###
 
@@ -994,6 +1020,11 @@ creates the corresponding user\_id value as a field of the received object.
 
 ## create\_or\_update\_account
 
+create\_or\_update\_account API method creates a user and configures all
+information related to the user at a same time. This method is usually not
+used standalone; this method is usually called from
+create\_or\_update\_accounts API method.
+
 ### t\_typesafety\_input\_of\_create\_or\_update\_account ###
 
 ```javascript
@@ -1009,6 +1040,11 @@ creates the corresponding user\_id value as a field of the received object.
 ```
 
 ## create\_or\_update\_accounts
+
+create\_or\_update\_accounts API method creates multiple users with their
+related information at once. This method offers a way to import a JSON file
+which was exported in advance. It is able to export all information of
+users by read\_accounts API method.
 
 ### t\_typesafety\_input\_of\_create\_or\_update\_accounts ###
 
